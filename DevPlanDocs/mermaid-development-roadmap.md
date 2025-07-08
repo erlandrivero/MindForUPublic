@@ -1,10 +1,10 @@
 # Development Roadmap Diagram
 
-This diagram visualizes the FeNAgO development roadmap, showing the phases, key milestones, and dependencies.
+This diagram visualizes the MindForU development roadmap, showing the phases, key milestones, and dependencies.
 
 ```mermaid
 gantt
-    title FeNAgO Development Roadmap
+    title MindForU Development Roadmap
     dateFormat  YYYY-MM-DD
     section Project Setup
     Clone repository           :done, s1, 2025-05-04, 1d

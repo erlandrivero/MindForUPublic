@@ -1,8 +1,8 @@
-# FeNAgO Architecture Overview
+# MindForU Architecture Overview
 
 ## Project Structure
 
-The FeNAgO project (forked from ShipFast) is a Next.js-based SaaS starter kit with the following directory structure:
+The MindForU project (forked from ShipFast) is a Next.js-based SaaS starter kit with the following directory structure:
 
 ```
 /

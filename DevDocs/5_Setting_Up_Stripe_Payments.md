@@ -186,7 +186,7 @@ if (!process.env.STRIPE_SECRET_KEY) {
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: '2023-10-16', // Use the latest version
   appInfo: {
-    name: 'FeNAgO',
+    name: 'MindForU',
     version: '0.1.0',
   },
 });
@@ -472,7 +472,7 @@ When you're ready to accept real payments:
 
 ### Creating a Checkout Session
 
-Your FeNAgO application includes a `ButtonCheckout` component that simplifies the checkout process. Use this component to initiate payment flows without having to build custom checkout forms.
+Your MindForU application includes a `ButtonCheckout` component that simplifies the checkout process. Use this component to initiate payment flows without having to build custom checkout forms.
 
 ```tsx
 // Example usage in a page component

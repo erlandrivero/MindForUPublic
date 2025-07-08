@@ -2,11 +2,11 @@
 
 ## Introduction
 
-Analytics are essential for understanding user behavior, tracking conversions, and optimizing your application. This guide will walk you through setting up DataFast analytics for your FeNAgO application, enabling you to track page views, custom events, and marketing channel performance.
+Analytics are essential for understanding user behavior, tracking conversions, and optimizing your application. This guide will walk you through setting up DataFast analytics for your MindForU application, enabling you to track page views, custom events, and marketing channel performance.
 
 ## Prerequisites
 
-- A Next.js application (FeNAgO)
+- A Next.js application (MindForU)
 - Access to create a DataFast account
 
 ## Step 1: Create a DataFast Account
@@ -19,7 +19,7 @@ Analytics are essential for understanding user behavior, tracking conversions, a
 
 1. After logging in to your DataFast dashboard, click on **Add New Website** or similar option
 2. Enter your website information:
-   - Website name (e.g., "FeNAgO")
+   - Website name (e.g., "MindForU")
    - Website URL (e.g., "https://fenago.com")
    - Industry category
 3. Click **Create** to add your website to DataFast
@@ -293,4 +293,4 @@ DataFast automatically tracks various marketing channels to help you understand 
 
 ---
 
-With DataFast analytics properly set up, you'll be able to track user behavior, understand which marketing channels perform best, and make data-driven decisions to improve your FeNAgO application.
+With DataFast analytics properly set up, you'll be able to track user behavior, understand which marketing channels perform best, and make data-driven decisions to improve your MindForU application.

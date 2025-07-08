@@ -1,12 +1,12 @@
 # Payment and Subscription Flow Diagram
 
-This diagram visualizes the payment and subscription process within the FeNAgO platform, showing the interactions between the user, application, and Stripe.
+This diagram visualizes the payment and subscription process within the MindForU platform, showing the interactions between the user, application, and Stripe.
 
 ```mermaid
 sequenceDiagram
     actor User
-    participant UI as FeNAgO UI
-    participant API as FeNAgO API
+    participant UI as MindForU UI
+    participant API as MindForU API
     participant Stripe as Stripe API
     participant Webhook as Webhook Handler
     participant DB as Database

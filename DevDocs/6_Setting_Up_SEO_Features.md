@@ -1,12 +1,12 @@
-# Setting Up SEO Features in FeNAgO
+# Setting Up SEO Features in MindForU
 
 ## Introduction
 
-Search Engine Optimization (SEO) is critical for ensuring your web application is discoverable by users through search engines. This guide will walk you through implementing and optimizing SEO features in your FeNAgO application, leveraging Next.js's powerful built-in SEO capabilities along with custom helper functions provided in the codebase.
+Search Engine Optimization (SEO) is critical for ensuring your web application is discoverable by users through search engines. This guide will walk you through implementing and optimizing SEO features in your MindForU application, leveraging Next.js's powerful built-in SEO capabilities along with custom helper functions provided in the codebase.
 
 ## Prerequisites
 
-- A Next.js application (FeNAgO)
+- A Next.js application (MindForU)
 - Basic understanding of SEO concepts
 - Access to the `config.ts` and `libs/seo.ts` files
 
@@ -17,7 +17,7 @@ Start by setting up your basic SEO information in the `config.ts` file. These va
 ```typescript
 // In config.ts
 export const config = {
-  appName: "FeNAgO",
+  appName: "MindForU",
   appDescription: "The NextJS boilerplate with all you need to build your SaaS, AI tool, or any other web app.",
   domainName: "fenago.com", // Without https://www
   // Other config options...
@@ -31,7 +31,7 @@ These values are particularly important:
 
 ## Step 2: Understanding the SEO Helper Functions
 
-The FeNAgO codebase includes a powerful SEO helper library located at `libs/seo.ts`. This library provides functions to generate appropriate SEO tags for your pages.
+The MindForU codebase includes a powerful SEO helper library located at `libs/seo.ts`. This library provides functions to generate appropriate SEO tags for your pages.
 
 ### Key Functions
 
@@ -56,7 +56,7 @@ Here's how to add custom SEO tags to a specific page:
 import { getSEOTags } from "@/libs/seo";
 
 export const metadata = getSEOTags({
-  title: "Terms and Conditions | FeNAgO",
+  title: "Terms and Conditions | MindForU",
   canonicalUrlRelative: "/tos",
 });
 
@@ -81,7 +81,7 @@ The `getSEOTags()` function accepts several other properties for more detailed c
 
 ```typescript
 getSEOTags({
-  title: "Custom Page Title | FeNAgO",
+  title: "Custom Page Title | MindForU",
   description: "A custom description for this specific page.",
   canonicalUrlRelative: "/custom-page",
   ogImage: "/images/custom-og-image.jpg", // Relative to /public
@@ -120,7 +120,7 @@ You can customize the structured data by passing a parameter to the `renderSchem
 ```typescript
 renderSchemaTags({
   type: "Product",
-  name: "FeNAgO Pro Plan",
+  name: "MindForU Pro Plan",
   description: "Advanced AI-powered tools for your business",
   images: ["https://fenago.com/images/product.jpg"],
   offers: {
@@ -140,7 +140,7 @@ Common schema types include:
 
 ## Step 5: Generating Sitemap and Robots.txt
 
-FeNAgO uses the `next-sitemap` package to automatically generate a sitemap.xml and robots.txt file during the build process.
+MindForU uses the `next-sitemap` package to automatically generate a sitemap.xml and robots.txt file during the build process.
 
 1. Open the `next-sitemap.config.js` file in your project root
 2. Update the `siteUrl` to match your production domain:
@@ -171,7 +171,7 @@ Verifying your site with Google Search Console is essential for monitoring your 
 
 ## Step 7: Setting Up a Blog with SEO Best Practices
 
-FeNAgO includes a blog system that's already optimized for SEO. To set it up:
+MindForU includes a blog system that's already optimized for SEO. To set it up:
 
 1. Navigate to the `/app/blog/_assets` folder
 2. Open the `content.js` file which contains configurations for blog posts, authors, and categories
@@ -184,17 +184,17 @@ FeNAgO includes a blog system that's already optimized for SEO. To set it up:
 export const blogPosts = [
   {
     slug: "getting-started-with-fenago",
-    title: "Getting Started with FeNAgO",
-    description: "Learn how to set up your FeNAgO project in minutes and start building your SaaS or AI tool.",
+    title: "Getting Started with MindForU",
+    description: "Learn how to set up your MindForU project in minutes and start building your SaaS or AI tool.",
     date: "2025-05-01",
     published: true,
     image: "/blog/getting-started.jpg",
     authors: ["john-doe"],
     categories: ["tutorials"],
     content: `
-      # Getting Started with FeNAgO
+      # Getting Started with MindForU
       
-      In this guide, we'll walk through the process of setting up your FeNAgO project...
+      In this guide, we'll walk through the process of setting up your MindForU project...
     `,
   },
   // Add more blog posts
@@ -259,4 +259,4 @@ Improve by:
 
 ---
 
-By following this guide, you'll have implemented a comprehensive SEO strategy for your FeNAgO application, ensuring better visibility, enhanced user experience, and improved discoverability across search engines.
+By following this guide, you'll have implemented a comprehensive SEO strategy for your MindForU application, ensuring better visibility, enhanced user experience, and improved discoverability across search engines.

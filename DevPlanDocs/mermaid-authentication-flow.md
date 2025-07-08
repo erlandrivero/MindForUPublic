@@ -1,11 +1,11 @@
 # Authentication Flow Diagram
 
-This diagram illustrates the authentication process in the FeNAgO platform, showing the flow for both OAuth and Magic Link authentication methods.
+This diagram illustrates the authentication process in the MindForU platform, showing the flow for both OAuth and Magic Link authentication methods.
 
 ```mermaid
 sequenceDiagram
     actor User
-    participant UI as FeNAgO UI
+    participant UI as MindForU UI
     participant Auth as NextAuth.js
     participant OAuth as OAuth Provider
     participant Email as Email Service

@@ -1,6 +1,6 @@
 # Agent Lifecycle Diagram
 
-This diagram visualizes the lifecycle of an agent in the FeNAgO platform, from creation to execution and monitoring.
+This diagram visualizes the lifecycle of an agent in the MindForU platform, from creation to execution and monitoring.
 
 ```mermaid
 stateDiagram-v2

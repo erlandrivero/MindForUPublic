@@ -1,6 +1,6 @@
 # System Architecture Diagram
 
-This diagram illustrates the high-level architecture of the FeNAgO platform, showing how the different components interact.
+This diagram illustrates the high-level architecture of the MindForU platform, showing how the different components interact.
 
 ```mermaid
 flowchart TD

@@ -43,9 +43,9 @@ Ensure your `config.ts` file includes the proper email configuration for Resend:
 // In config.ts
 resend: {
   // Email 'From' field for magic login links
-  fromNoReply: `FeNAgO <noreply@resend.fenago.com>`,
+  fromNoReply: `MindForU <noreply@resend.fenago.com>`,
   // Email 'From' field for other communications
-  fromAdmin: `Dr Lee at FeNAgO <drlee@resend.fenago.com>`,
+  fromAdmin: `Dr Lee at MindForU <drlee@resend.fenago.com>`,
   // Support email address
   supportEmail: "support@fenago.com",
 },

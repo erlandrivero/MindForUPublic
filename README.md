@@ -1,16 +1,16 @@
-# FeNAgO — Next.js Agentic SaaS Boilerplate
+# MindForU — Next.js Agentic SaaS Boilerplate
 
-![FeNAgO Logo](./app/icon.png)
+![MindForU Logo](./app/icon.png)
 
-FeNAgO is a complete platform for building agentic AI-powered SaaS products. This template allows you to create Agentic SaaS applications without wasting time on the plumbing and infrastructure so you can build products in days and not months.
+MindForU is a complete platform for building agentic AI-powered SaaS products. This template allows you to create Agentic SaaS applications without wasting time on the plumbing and infrastructure so you can build products in days and not months.
 
-FeNAgO empowers students, developers, startups, and entrepreneurs to build fully agentic SaaS solutions at lightning speed by handling security (logins & registration), database setup, SEO, and monetization right out of the box—powered by Next.js, Tailwind, and React. All you bring is your idea!
+MindForU empowers students, developers, startups, and entrepreneurs to build fully agentic SaaS solutions at lightning speed by handling security (logins & registration), database setup, SEO, and monetization right out of the box—powered by Next.js, Tailwind, and React. All you bring is your idea!
 
 <sub>**Watch/Star the repo to be notified when updates are pushed**</sub>
 
 ## Getting Started
 
-Follow these steps to get FeNAgO up and running on your machine:
+Follow these steps to get MindForU up and running on your machine:
 
 1. Create a new folder and open WindSurf and the folder  
 2. Clone the repository:
@@ -38,7 +38,7 @@ That will get you running!
 
 ## Documentation
 
-FeNAgO comes with comprehensive documentation to help you get started quickly:
+MindForU comes with comprehensive documentation to help you get started quickly:
 
 ### [DevDocs](./DevDocs)
 
