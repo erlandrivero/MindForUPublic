@@ -1,0 +1,38 @@
+/* Custom floating animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* Brain enlarge/shrink animation */
+@keyframes brain-grow-shrink {
+  0%, 100% { transform: scale(1); }
+  40% { transform: scale(1.18); }
+  60% { transform: scale(1.18); }
+}
+.animate-brain-grow-shrink {
+  animation: brain-grow-shrink 1.8s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-delayed,
+  .animate-pulse,
+  .animate-bounce,
+  .animate-pulse-glow,
+  .animate-shimmer {
+    animation: none;
+  }
+}
