@@ -28,3 +28,7 @@ yarn-error.log*
 # Exclude raw research and backup folders
 /Research
 /backup
+
+# Exclude all video files from git
+public/videos/*.mp4
+public/Research/*.mp4
