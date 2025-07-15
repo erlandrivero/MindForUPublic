@@ -7,7 +7,7 @@
     "lint": "next lint",
     "dev": "concurrently \"npm run dev:backend\" \"next dev\"",
     "dev:backend": "cd \"Interactive Demo/vapi-demo-backend/vapi-demo-backend\" && run_backend.bat",
-    "build": "next build",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 next build",
     "postbuild": "next-sitemap",
     "start": "next start"
   },
@@ -57,6 +57,7 @@
     "@typescript-eslint/parser": "^8.36.0",
     "autoprefixer": "^10.4.19",
     "concurrently": "^9.2.0",
+    "cross-env": "^7.0.3",
     "daisyui": "^4.10.1",
     "eslint": "^8.57.1",
     "eslint-config-next": "^15.3.5",
