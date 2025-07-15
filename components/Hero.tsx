@@ -1,16 +1,11 @@
 "use client";
-import Image from "next/image";
-import TestimonialsAvatars from "./TestimonialsAvatars";
-import ButtonSignin from "./ButtonSignin";
-import config from "@/config";
-import Testimonial1Small from "./Testimonial1Small";
-import HeroTestimonialsCarousel from "./HeroTestimonialsCarousel";
+import Link from "next/link";
 import HeroVisual from "./HeroVisual";
 import { CheckCircle } from "lucide-react";
-import { useRouter } from "next/navigation";
+
 
 const Hero = () => {
-  const router = useRouter();
+  
   return (
     <section
   className="max-w-7xl mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-8 lg:py-20 font-sans"
@@ -43,7 +38,7 @@ const Hero = () => {
   <span
     className="bg-clip-text text-transparent"
     style={{
-      backgroundImage: 'linear-gradient(90deg, #22303b, #17796d)',
+      backgroundImage: 'linear-gradient(90deg, #22303b, #18C5C2)',
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       fontWeight: 800,
@@ -61,7 +56,9 @@ const Hero = () => {
 </p>
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center lg:justify-start">
-          <ButtonSignin text="Start Your Free Trial Now" extraStyle="btn-primary btn-wide bg-gradient-to-r from-[#16222A] to-[#1A7F6B] text-white font-bold rounded-full shadow-lg" />
+          <Link href="#pricing" scroll={true} className="bg-[#18C5C2] text-white font-bold py-3 px-8 rounded-full hover:bg-[#1A7F6B] transition duration-300 inline-block">
+          Start Your Free Trial Now
+        </Link>
         </div>
         {/* Checkmark Text */}
         <div className="flex flex-col sm:flex-row gap-4 text-sm mt-2 items-center">

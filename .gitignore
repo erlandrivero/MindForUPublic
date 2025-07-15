@@ -12,11 +12,12 @@
 
 # misc
 .DS_Store
-.env.local
+
 .env.development.local
 .env.test.local
 .env.production.local
 .env
+.env.local
 
 # logs
 logs
@@ -28,7 +29,11 @@ yarn-error.log*
 # Exclude raw research and backup folders
 /Research
 /backup
+/components/_backup_unused_components
+/pages/api/_backup_unused_api_routes
+
 
 # Exclude all video files from git
 public/videos/*.mp4
 public/Research/*.mp4
+

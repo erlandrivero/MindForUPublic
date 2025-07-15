@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import config from "@/config";
-import logo from "@/app/icon.png";
+
 
 // Add the Footer to the bottom of your landing page and more.
 // The support link is connected to the config.js file. If there's no config.resend.supportEmail, the link won't be displayed.
@@ -18,14 +18,14 @@ const Footer = () => {
               className="flex gap-2 justify-center md:justify-start items-center"
             >
               <Image
-                src={logo}
+                src="/favicon.png"
                 alt={`${config.appName} logo`}
                 priority={true}
-                className="w-6 h-6"
-                width={24}
-                height={24}
+                className="w-10 h-10"
+                width={40}
+                height={40}
               />
-              <strong className="font-extrabold tracking-tight text-base md:text-lg">
+              <strong className="font-bold tracking-tight text-base md:text-lg text-[#18C5C2]">
                 {config.appName}
               </strong>
             </Link>
@@ -46,25 +46,18 @@ const Footer = () => {
               </div>
 
               <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
-                {config.resend.supportEmail && (
                   <a
-                    href={`mailto:${config.resend.supportEmail}`}
+                    href="mailto:support@mindforyou.com"
                     target="_blank"
                     className="link link-hover"
                     aria-label="Contact Support"
                   >
                     Support
                   </a>
-                )}
                 <Link href="/#pricing" className="link link-hover">
                   Pricing
                 </Link>
-                <Link href="/blog" className="link link-hover">
-                  Blog
-                </Link>
-                <a href="/#" target="_blank" className="link link-hover">
-                  Affiliates
-                </a>
+
               </div>
             </div>
 

@@ -4,29 +4,20 @@ import { signIn } from "next-auth/react";
 
 export default function SignInPage() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#1e293b] via-[#134e4a] to-[#065f46] px-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#18C5C2] px-4">
       <div className="bg-white/90 rounded-2xl shadow-xl p-8 flex flex-col items-center w-full max-w-md">
-        <div className="flex items-center gap-3 mb-6">
-          <Image src="/favicon.png" alt="MindForU icon" width={40} height={40} className="rounded-full border border-gray-200" />
+        <div className="flex items-center justify-center gap-3 mb-6 w-full">
+          <Image src="/favicon.png" alt="MindForU icon" width={56} height={56} className="rounded-full border border-gray-200 ml-[-16px]" />
           <span className="text-2xl font-extrabold">
-            <span
-              style={{
-                background: 'linear-gradient(90deg, #1e293b 0%, #134e4a 80%, #065f46 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                color: 'transparent',
-                fontWeight: 700,
-              }}
-            >
+            <span className="text-[#18C5C2] font-bold">
               MindForU
             </span>
-            <span style={{ color: '#065f46', fontWeight: 700 }}>.com</span>
+            <span style={{ color: '#18C5C2', fontWeight: 700 }}>.com</span>
           </span>
         </div>
         <h2 className="text-lg font-semibold mb-4 text-[#1e293b]">Sign in to your account</h2>
         <button
-          className="w-full flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-bold text-white shadow-md transition-colors duration-200 bg-[linear-gradient(90deg,#1e293b_0%,#134e4a_80%,#065f46_100%)] hover:opacity-90 mt-2 mb-4"
+          className="w-full flex items-center justify-center gap-2 rounded-full bg-[#18C5C2] text-white font-bold py-3 px-8 hover:bg-[#1A7F6B] transition duration-300 mt-2 mb-4"
           onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
         >
           <svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">

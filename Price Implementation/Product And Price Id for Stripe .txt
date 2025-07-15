@@ -1,0 +1,15 @@
+
+
+Starter Plan: price_1Rk7XePolIihCLBaGS6oTCPF
+Professional Plan: prod_SfSTFmsZX1Vlmj
+Business Plan: prod_SfSWsI4Fn0vUX0
+Enterprise Plan: prod_SfSYZBTsFkTDac
+Enterprise Plus: prod_SfSaVy0gKQVkeh
+
+
+
+Starter Plan: prod_SfSSZfwqMQ8ND0
+Professional Plan: price_1Rk7YcPolIihCLBacMvpJNqS
+Business Plan: price_1Rk7bFPolIihCLBaollaNxW0
+Enterprise Plan: price_1Rk7dePolIihCLBamIyBPcTm
+Enterprise Plus: price_1Rk7f3PolIihCLBanYQALl0n

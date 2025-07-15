@@ -1,12 +1,9 @@
 // Google Cloud TTS API route for Next.js
-import { NextApiRequest, NextApiResponse } from 'next';
-import fs from 'fs';
-import path from 'path';
 
-const textToSpeech = require('@google-cloud/text-to-speech');
+import { TextToSpeechClient } from '@google-cloud/text-to-speech';
 
 // Instantiates a client
-const client = new textToSpeech.TextToSpeechClient();
+const client = new TextToSpeechClient();
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {

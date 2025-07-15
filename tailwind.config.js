@@ -1,4 +1,22 @@
 module.exports = {
+  daisyui: {
+    themes: [
+      {
+        light: {
+          ...require("daisyui/src/theming/themes")["light"],
+          "primary": "#4A90E2",
+          "secondary": "#50C878",
+          "accent": "#FFD700",
+          "neutral": "#333333",
+          "base-100": "#FFFFFF",
+          "base-200": "#F2F2F2",
+          "base-300": "#E6E6E6",
+          "base-content": "#333333",
+        },
+      },
+    ],
+  },
+
   safelist: [
     "animate-pulse-glow",
     "animate-shimmer",

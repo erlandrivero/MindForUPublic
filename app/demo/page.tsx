@@ -1,189 +1,225 @@
 "use client";
-import { useRouter } from "next/navigation";
-import React from "react";
-import DemoLiveChat from "../../components/DemoLiveChat";
-import DemoPhoneCall from "../../components/DemoPhoneCall";
-import DemoScheduling from "../../components/DemoScheduling";
+import React, { useState } from "react";
+import Image from "next/image";
+import VapiDemo from "@/components/VapiDemo";
+import { SCENARIO_ASSISTANT_MAP } from "@/components/scenarioMap";
 
-import DemoBusinessDashboard from "../../components/DemoBusinessDashboard";
+const SCENARIOS = [
+  {
+    key: "scheduling",
+    label: "Appointment Scheduling",
+    description: [
+      'Calendar Integration',
+      'Availability Checking',
+      'Provide Confirmation Emails',
+    ],
+  },
+  {
+    key: "ecommerce",
+    label: "E-Commerce Assistant",
+    description: [
+      'Order Tracking',
+      'Product Recommendations',
+      'Return Processing',
+    ],
+  },
+  {
+    key: "sales-qualification",
+    label: "Sales Lead Qualifications",
+    description: [
+      'Lead Scoring & BANT Qualification',
+      <span key="appointment-scheduling" style={{ color: '#18C5C2' }}>Appointment Scheduling</span>,
+      'Objection Handling',
+    ],
+  },
+  {
+    key: "customer-service",
+    label: "Customer Service Assistant",
+    description: [
+      'Natural Language Understanding',
+      'Context Retention',
+      'Multi-turn Conversations',
+    ],
+  }
+];
+
+import { useRouter } from "next/navigation";
 
 export default function DemoPage() {
-  const [showExitModal, setShowExitModal] = React.useState(false);
+  const [activeScenario, setActiveScenario] = useState<string | null>(null);
+  const [loadingScenario, setLoadingScenario] = useState<string | null>(null);
   const router = useRouter();
-  const steps = [
-    "Welcome",
-    "Live Chat",
-    "Phone Call",
-    "Scheduling",
 
-    "Business Dashboard",
-  ];
-  const [currentStep, setCurrentStep] = React.useState(0);
-  const [industry, setIndustry] = React.useState("");
-  const [businessSize, setBusinessSize] = React.useState("");
-  const [completedSteps, setCompletedSteps] = React.useState<boolean[]>(Array(steps.length).fill(false));
-
-  // Analytics & feedback state
-  const [feedback, setFeedback] = React.useState<(null | 'up' | 'down')[]>(Array(steps.length).fill(null));
-  const [sectionTimes, setSectionTimes] = React.useState<number[]>(Array(steps.length).fill(0));
-  const sectionEnterTime = React.useRef(Date.now());
-
-  React.useEffect(() => {
-    setCompletedSteps((prev) => {
-      if (!prev[currentStep]) {
-        const updated = [...prev];
-        updated[currentStep] = true;
-        return updated;
-      }
-      return prev;
-    });
-    // Track time spent in previous section
-    if (currentStep > 0) {
-      setSectionTimes((prev) => {
-        const updated = [...prev];
-        const now = Date.now();
-        const last = sectionEnterTime.current;
-        updated[currentStep - 1] += Math.round((now - last) / 1000);
-        return updated;
-      });
-    }
-    sectionEnterTime.current = Date.now();
-  }, [currentStep]);
-
-  // Feedback widget for demo sections
-  function FeedbackWidget({ idx }: { idx: number }) {
-    return (
-      <div className="flex gap-2 items-center justify-center mt-6">
-        <span className="text-sm font-medium text-gray-600">Was this section helpful?</span>
-        <button
-          className={`rounded-full p-2 border-2 ${feedback[idx] === 'up' ? 'border-[#1A7F6B] bg-[#18C5C2]/20' : 'border-gray-200 hover:bg-gray-100'}`}
-          aria-label="Thumbs up"
-          onClick={() => setFeedback(f => { const arr = [...f]; arr[idx] = 'up'; return arr; })}
-        >👍</button>
-        <button
-          className={`rounded-full p-2 border-2 ${feedback[idx] === 'down' ? 'border-red-400 bg-red-100' : 'border-gray-200 hover:bg-gray-100'}`}
-          aria-label="Thumbs down"
-          onClick={() => setFeedback(f => { const arr = [...f]; arr[idx] = 'down'; return arr; })}
-        >👎</button>
-      </div>
-    );
-  }
-
-  // Placeholder content for each section
-  const stepContent = [
-    <div className="text-center text-lg text-gray-700">
-      <p className="mb-4">Welcome to the Interactive AI Assistant Demo!</p>
-      <p className="mb-6">Personalize your demo experience:</p>
-      <form className="flex flex-col gap-4 items-center justify-center max-w-xs mx-auto">
-        <label className="w-full text-left font-medium">Industry
-          <select
-            className="mt-1 block w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#18C5C2] bg-white text-gray-900"
-            value={industry}
-            onChange={e => setIndustry(e.target.value)}
-          >
-            <option value="">Select Industry</option>
-            <option value="Dental">Dental</option>
-            <option value="Legal">Legal</option>
-            <option value="Professional Services">Professional Services</option>
-            <option value="Other">Other</option>
-          </select>
-        </label>
-        <label className="w-full text-left font-medium">Business Size
-          <select
-            className="mt-1 block w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#18C5C2] bg-white text-gray-900"
-            value={businessSize}
-            onChange={e => setBusinessSize(e.target.value)}
-          >
-            <option value="">Select Size</option>
-            <option value="Solo">Solo</option>
-            <option value="2-10">2-10 employees</option>
-            <option value="11-50">11-50 employees</option>
-            <option value="51+">51+ employees</option>
-          </select>
-        </label>
-      </form>
-      {(industry && businessSize) && (
-        <div className="mt-4 text-sm text-[#17796d] font-semibold">Demo tailored for <span className="underline">{industry}</span>, <span className="underline">{businessSize}</span> business</div>
-      )}
-    </div>,
-    <div className="text-center text-lg text-gray-700">
-      <DemoLiveChat />
-      <FeedbackWidget idx={1} />
-    </div>,
-    <div className="text-center text-lg text-gray-700">
-      <DemoPhoneCall />
-      <FeedbackWidget idx={2} />
-    </div>,
-    <div className="text-center text-lg text-gray-700">
-      <DemoScheduling />
-      <FeedbackWidget idx={3} />
-    </div>,
-
-    <div className="text-center text-lg text-gray-700">
-      <DemoBusinessDashboard feedback={feedback} sectionTimes={sectionTimes} />
-    </div>,
-  ];
+  // Toast notification state
+  const [toast, setToast] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+  const showToast = (type: 'success' | 'error', message: string) => {
+    setToast({ type, message });
+    setTimeout(() => setToast(null), 3000);
+  };
 
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#1e293b] via-[#134e4a] to-[#065f46] p-2 sm:p-6 font-sans">
-      <section className="w-full max-w-7xl bg-white rounded-2xl shadow-lg p-4 sm:p-12 relative flex flex-col min-h-[600px]">
-        {/* Exit Demo Button & Modal */}
-        <button
-          className="fixed top-6 right-8 z-30 px-4 py-2 rounded-full bg-gradient-to-r from-[#16222A] to-[#1A7F6B] text-white font-semibold shadow hover:from-[#1A7F6B] hover:to-[#18C5C2] transition-colors shadow"
-          onClick={() => setShowExitModal(true)}
-          aria-label="Exit Demo"
+    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-[#eafcff] to-[#d3f7f7] py-6 px-2 sm:px-4">
+      {/* Toast Notification */}
+      {toast && (
+        <div
+          className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 px-4 sm:px-6 py-2 sm:py-3 rounded-xl shadow-lg font-semibold text-white transition-all duration-300
+            ${toast.type === 'success' ? 'bg-[#18C5C2]' : 'bg-red-500'}`}
+          role="alert"
         >
-          Exit Demo
+          {toast.message}
+        </div>
+      )}
+      <div className="w-full max-w-5xl rounded-3xl shadow-xl bg-white/90 p-2 sm:p-3 flex flex-col gap-4 sm:gap-6 relative">
+        {/* Close Button */}
+        <button
+          className="absolute top-4 right-4 text-gray-400 hover:text-[#18C5C2] text-3xl font-bold z-10"
+          onClick={() => router.push("/")}
+          aria-label="Close and return to main page"
+        >
+          &times;
         </button>
-        {showExitModal && (
-          <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/30">
-            <div className="bg-white rounded-xl shadow-xl p-8 max-w-sm w-full flex flex-col items-center">
-              <h2 className="text-xl font-bold mb-2 text-[#1A7F6B]">Exit Demo?</h2>
-              <p className="mb-6 text-gray-700 text-center">Are you sure you want to exit the demo? Your progress will be lost.</p>
-              <div className="flex gap-4 w-full justify-center">
-                <button
-                  className="px-4 py-2 rounded-full bg-gray-100 text-gray-800 font-semibold border border-gray-300 hover:bg-gray-200"
-                  onClick={() => setShowExitModal(false)}
-                  aria-label="Cancel Exit"
-                >Cancel</button>
-                <button
-                  className="px-4 py-2 rounded-full bg-gradient-to-r from-[#16222A] to-[#1A7F6B] text-white font-semibold shadow hover:from-[#1A7F6B] hover:to-[#18C5C2] transition-colors"
-                  onClick={() => router.push("/")}
-                  aria-label="Confirm Exit"
-                >Exit Demo</button>
+        <div className="relative mb-1 mt-0 h-14">
+          <Image src="/Logo_Small-removebg-preview.png" alt="MindForU Logo" width={112} height={40} className="w-28 h-auto absolute left-20 top-1/2 -translate-y-1/2" />
+          <h1 className="text-3xl font-extrabold text-[#18C5C2] m-0 p-0 text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">Interactive AI Assistant Demo</h1>
+        </div>
+        <p className="text-center text-gray-700 mb-0">
+          Choose a scenario and explore how MindForU&apos;s AI assistants can transform your business.
+        </p>
+        {/* Scenario Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mt-2 mb-4">
+          {SCENARIOS.map((scenario) => (
+            <div
+              key={scenario.key}
+              className={`peer flex flex-col h-[230px] sm:h-[270px] p-2 sm:p-4 pb-8 rounded-2xl shadow-xl border transition-transform duration-200 hover:scale-110 hover:shadow-3xl focus-within:scale-110 focus-within:shadow-3xl cursor-pointer relative focus:outline-none z-0 focus-visible:ring-4 focus-visible:ring-[#18C5C2] ${activeScenario === scenario.key ? 'border-4 border-[#18C5C2] bg-[#eafcff]/80 ring-4 ring-[#18C5C2]' : 'border-[#18C5C2]/10 bg-white/80 ring-0 hover:ring-4 focus-within:ring-4 ring-[#18C5C2] border-[#18C5C2]'}
+`}
+              onMouseEnter={e => e.currentTarget.style.zIndex = '30'}
+              onMouseLeave={e => e.currentTarget.style.zIndex = '0'}
+              onFocus={e => e.currentTarget.style.zIndex = '30'}
+              onBlur={e => e.currentTarget.style.zIndex = '0'}
+              tabIndex={0}
+              role="button"
+              aria-label={`Demo: ${scenario.label}`}
+              onKeyDown={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setLoadingScenario(scenario.key);
+                  setTimeout(() => {
+                    setActiveScenario(scenario.key);
+                    setLoadingScenario(null);
+                  }, 900);
+                }
+              }}
+            >
+              <div className="flex-1 flex flex-col">
+                <div className="flex items-center mb-1">
+                  {scenario.key === "customer-service" && (
+                    <Image src="/customer-service.svg" alt="Headset Icon" width={32} height={32} className="w-8 h-8 mr-4" />
+                  )}`
+                  {scenario.key === "sales-qualification" && (
+  <svg viewBox="0 0 24 24" fill="none" stroke="#18C5C2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 mr-4">
+  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="none" stroke="#18C5C2" />
+</svg>
+)}
+                  {scenario.key === "ecommerce" && (
+                    <Image src="/ecommerce.svg" alt="Cart Icon" width={8} height={8} className="w-8 h-8 mr-4" />
+                  )}
+                  {scenario.key === "scheduling" && (
+                    <Image src="/scheduling.svg" alt="Calendar Icon" width={32} height={32} className="w-8 h-8 mr-4" />
+                  )}`
+                  <span className="text-xl font-bold text-[#18C5C2]">{scenario.label}</span>
+                </div>
+                <div className="text-gray-600 text-sm mb-1">
+                  {scenario.key === "customer-service" && "Experience intelligent customer support with natural conversation flow and perfect context retention"}
+                  {scenario.key === "sales-qualification" && "See how AI qualifies prospects and schedules appointments with 300% higher conversion rates"}
+                  {scenario.key === "ecommerce" && "Handle customer inquiries, process returns, and provide personalized recommendations instantly"}
+                  {scenario.key === "scheduling" && "Automate booking with smart calendar integration and 40% reduction in no-shows"}
+                </div>
+                <div className="text-xs font-semibold text-[#18C5C2] mb-4">
+                  {scenario.key === "customer-service" && "Avg. response time: 2s · 95% CSAT"}
+                  {scenario.key === "sales-qualification" && "3x more qualified leads · 50% faster follow-up"}
+                  {scenario.key === "ecommerce" && "Instant support · 30% fewer returns"}
+                  {scenario.key === "scheduling" && "40% reduction in no-shows · 2 min setup"}
+                </div>
+                {scenario.key === "sales-qualification" ? (
+                  <div className="flex flex-col gap-2">
+                    <div className="flex flex-wrap gap-2">
+                      <span className="bg-[#18C5C2] text-white rounded-full px-4 py-1.5 text-sm">Appointment Scheduling</span>
+                      <span className="bg-[#18C5C2]/80 text-white rounded-full px-4 py-1.5 text-sm">Objection Handling</span>
+                    </div>
+                    <div>
+                      <span className="bg-[#18C5C2]/80 text-white rounded-full px-4 py-1.5 text-sm">Lead Scoring &amp; BANT Qualification</span>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex flex-wrap gap-2">
+                    {scenario.description.map((point: string, idx: number) => (
+                      <span
+                        key={idx}
+                        className="bg-[#18C5C2]/80 text-white rounded-full px-4 py-1.5 text-sm"
+                      >
+                        {point}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
+              <div className="mt-auto pt-2">
+              <button
+                className="mt-auto mx-auto px-5 py-2 rounded-full font-semibold text-base border-2 border-[#18C5C2] text-[#18C5C2] bg-white hover:bg-[#eafcff] transition-colors flex items-center justify-center gap-2"
+                onClick={async () => {
+                  setLoadingScenario(scenario.key);
+                  setTimeout(() => {
+                    setActiveScenario(scenario.key);
+                    setLoadingScenario(null);
+                  }, 900); // Simulate loading, replace with real async if needed
+                }}
+                disabled={!!loadingScenario}
+              >
+                {loadingScenario === scenario.key ? (
+                  <>
+                    <span className="inline-block w-5 h-5 border-2 border-[#18C5C2] border-t-transparent rounded-full animate-spin"></span>
+                    Loading...
+                  </>
+                ) : (
+                  'Start Demo'
+                )}
+              </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Modal for Mini Page */}
+        {activeScenario && (
+          <div className="fixed inset-0 bg-black/40 z-30 flex items-center justify-center">
+            <div
+              className="bg-white rounded-2xl shadow-2xl p-3 sm:p-8 w-full max-w-xs sm:max-w-md relative flex flex-col items-center"
+              role="dialog"
+              aria-modal="true"
+              aria-label={SCENARIOS.find(s => s.key === activeScenario)?.label || 'Demo modal'}
+            >
+              <button
+                className="absolute top-4 right-4 text-gray-400 hover:text-[#1A7F6B] text-2xl font-bold focus:outline-none focus-visible:ring-4 focus-visible:ring-[#18C5C2]"
+                onClick={() => setActiveScenario(null)}
+                aria-label="Close"
+              >
+                &times;
+              </button>
+
+              <div className="text-2xl font-bold mb-4" style={{ color: '#18C5C2' }}>
+                {SCENARIOS.find(s => s.key === activeScenario)?.label}
+              </div>
+              <VapiDemo
+                assistantId={SCENARIO_ASSISTANT_MAP[activeScenario]}
+                onError={() => showToast('error', 'Failed to connect. Please check your network or API key.')}
+                onCallEnd={() => showToast('success', 'Call ended successfully.')}
+              />
             </div>
           </div>
         )}
-        <h1 className="text-3xl font-extrabold mb-8 text-center tracking-tight" style={{fontFamily: 'Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif'}}>Interactive AI Assistant Demo</h1>
-        {/* Stepper Navigation */}
-        <nav className="flex justify-center mb-8">
-          <ul className="flex gap-2 sm:gap-4">
-            {steps.map((step, idx) => (
-              <li key={step} className="relative">
-                <button
-                  className={`w-48 h-14 px-6 py-4 rounded-full text-base font-semibold flex items-center justify-center gap-2 transition-colors duration-200
-                    ${currentStep === idx
-                      ? 'bg-gradient-to-r from-[#16222A] to-[#1A7F6B] text-white shadow border-none hover:from-[#1A7F6B] hover:to-[#18C5C2]'
-                      : 'bg-gray-100 text-gray-800 border border-gray-300 hover:bg-gray-200'}
-                  `}
-                  onClick={() => setCurrentStep(idx)}
-                  aria-current={currentStep === idx ? 'step' : undefined}
-                >
-                  {step}
-                  {completedSteps[idx] && idx !== 0 && (
-                    <span className="ml-1 text-[#18C5C2]" title="Completed">✓</span>
-                  )}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className="py-6 min-h-[120px] flex items-center justify-center">
-          {stepContent[currentStep]}
-        </div>
-      </section>
+
+
+      </div>
     </main>
   );
 }
-

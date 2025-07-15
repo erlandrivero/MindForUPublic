@@ -17,8 +17,8 @@ const HeroIllustration = () => {
         alt="AI Assistant Illustration"
         width={340}
         height={340}
+        priority={true}
         className="object-contain drop-shadow-xl z-20"
-        priority
       />
       {/* Decorative sparkles or extra bubbles can be added here for more detail */}
     </div>

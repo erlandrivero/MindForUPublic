@@ -1,20 +1,20 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
-import Image from "next/image";
 
-interface VideoPlayerProps {
-  beforeVideo: string;
-  afterVideo: string;
-  headshot: string;
-  captions?: { src: string; label: string; lang: string; default?: boolean }[];
-}
+
 
 const VideoPlayer = ({ beforeVideo, afterVideo }: { beforeVideo: string; afterVideo: string }) => {
+  // SSR/CSR mismatch fix: only render on client
+  const [mounted, setMounted] = useState(false);
   // error: false | 'main' | 'final'
   const [error, setError] = useState<false | 'main' | 'final'>(false);
   const [currentVideo, setCurrentVideo] = useState<'before' | 'after'>('before');
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) return null;
 
   const toggleVideo = () => {
     if (videoRef.current) {
@@ -47,37 +47,50 @@ const VideoPlayer = ({ beforeVideo, afterVideo }: { beforeVideo: string; afterVi
         // Try fallback video if main video fails
         <video
           ref={videoRef}
-          src={fallbackVideo}
           className="w-full h-full object-cover"
           controls
-          onError={(e) => {
-            console.error('Fallback video failed to load:', fallbackVideo, e);
-            setError('final');
-          }}
           preload="auto"
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
           onEnded={() => setIsPlaying(false)}
-        />
+          onError={(e) => {
+            console.error('[VideoPlayer] Fallback video failed to load:', fallbackVideo, e);
+            setError('final');
+          }}
+          onLoadedData={(e) => {
+            console.log('[VideoPlayer] Fallback video loaded successfully:', fallbackVideo, e);
+          }}
+        >
+          <source src={fallbackVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       ) : (
         <video
+          key={currentVideo}
           ref={videoRef}
-          src={currentVideo === 'before' ? beforeVideo : afterVideo}
           className="w-full h-full object-cover"
           controls
           autoPlay={isPlaying}
           onClick={toggleVideo}
-          onError={(e) => {
-            console.error('Main video failed to load:', videoRef.current?.src, e);
-            setError('main');
-          }}
           preload="auto"
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
           onEnded={() => setIsPlaying(false)}
-          poster={currentVideo === 'before' ? undefined : undefined}
+          poster={undefined}
           aria-label={currentVideo + " testimonial video"}
-        />
+          onError={(e) => {
+            const src = currentVideo === 'before' ? beforeVideo : afterVideo;
+            console.error('[VideoPlayer] Main video failed to load:', src, e);
+            setError('main');
+          }}
+          onLoadedData={(e) => {
+            const src = currentVideo === 'before' ? beforeVideo : afterVideo;
+            console.log('[VideoPlayer] Video loaded successfully:', src, e);
+          }}
+        >
+          <source src={currentVideo === 'before' ? beforeVideo : afterVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       )}
       {error === 'final' && (
         <div className="flex flex-col items-center justify-center w-full h-full bg-gray-200 text-red-600 p-6 rounded-lg">
@@ -104,13 +117,13 @@ const VideoPlayer = ({ beforeVideo, afterVideo }: { beforeVideo: string; afterVi
       <div className="absolute bottom-2 left-2 flex gap-1">
         <button
           onClick={() => switchVideo('before')}
-          className={`px-2 py-1 text-xs rounded ${currentVideo === 'before' ? 'bg-teal-600 text-white' : 'bg-white bg-opacity-80 text-gray-800'}`}
+          className={`px-2 py-2 text-xs rounded ${currentVideo === 'before' ? 'bg-teal-600 text-white' : 'bg-white bg-opacity-80 text-gray-800'}`}
         >
           Before
         </button>
         <button
           onClick={() => switchVideo('after')}
-          className={`px-2 py-1 text-xs rounded ${currentVideo === 'after' ? 'bg-teal-600 text-white' : 'bg-white bg-opacity-80 text-gray-800'}`}
+          className={`px-2 py-2 text-xs rounded ${currentVideo === 'after' ? 'bg-teal-600 text-white' : 'bg-white bg-opacity-80 text-gray-800'}`}
         >
           After
         </button>

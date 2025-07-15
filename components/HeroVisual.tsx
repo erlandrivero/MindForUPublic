@@ -1,12 +1,8 @@
+"use client";
 import React from "react";
+import { useRouter } from "next/navigation";
 import BrainIcon from "./BrainIcon";
 import { Zap, Check } from "lucide-react";
-
-/**
- * HeroVisual - Foundation container for the animated hero visual section
- * Step 1: Container, gradient background, rounded corners, responsive height
- */
-import { useRouter } from "next/navigation";
 
 const HeroVisual = () => {
   const router = useRouter();
@@ -16,15 +12,15 @@ const HeroVisual = () => {
       role="img"
       aria-label="AI-powered assistant visualization showing brain processing with floating indicators"
     >
-      {/* Watch Demo label just above the brain */}
+      {/* Interactive Demo label just above the brain */}
       <div className="absolute left-1/2 top-[16%] -translate-x-1/2 z-10">
-        <span className="block text-2xl lg:text-3xl font-bold text-center text-black drop-shadow-sm" style={{letterSpacing: '0.01em'}}>Watch Demo</span>
+        <span className="block text-2xl lg:text-3xl font-bold text-center text-gray-500 drop-shadow-sm" style={{letterSpacing: '0.01em'}}>Interactive Demo</span>
       </div>
       {/* Central Brain Icon - Responsive sizing and clickable */}
       <div className="absolute inset-0 flex items-center justify-center">
         <button
           type="button"
-          aria-label="Watch Demo"
+          aria-label="Interactive Demo"
           tabIndex={0}
           className="relative group focus:outline-none"
           style={{ borderRadius: '9999px' }}
@@ -64,6 +60,7 @@ const HeroVisual = () => {
         <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-teal-600 rounded-full animate-bounce shadow-sm" style={{ animationDelay: '0.2s' }}></div>
       </div>
     </div>
+
   </div>
   );
 };

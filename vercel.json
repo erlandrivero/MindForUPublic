@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "next.config.js", "use": "@vercel/next" }
+  ],
+  "env": {
+    "VAPI_PRIVATE_KEY": "@vapi_private_key",
+    "VAPI_PUBLIC_KEY": "@vapi_public_key",
+    "VAPI_TOOL_SECRET": "@vapi_tool_secret"
+  },
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1.js" }
+  ]
+}

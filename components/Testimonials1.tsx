@@ -26,7 +26,7 @@ const Testimonial = () => {
 
             <div>
               <blockquote className="text-xl font-medium leading-8 text-base-content sm:text-2xl sm:leading-10">
-                "Before, the phone was a constant source of anxiety. Now, with MindForU, our front desk is calm, and patients are happier than ever."
+                &quot;Before, the phone was a constant source of anxiety. Now, with MindForU, our front desk is calm, and patients are happier than ever.&quot;
               </blockquote>
               <figcaption className="mt-10 flex items-center justify-start gap-5">
                 <div className="text-base">

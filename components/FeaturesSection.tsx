@@ -1,4 +1,4 @@
-import { Zap, CheckCircle, Calendar, BarChart3, MessageSquare, Smile, TrendingUp, Heart } from "lucide-react";
+import { Zap, CheckCircle, BarChart3, Smile, TrendingUp, Heart } from "lucide-react";
 
 const features = [
   {
@@ -48,7 +48,7 @@ const FeaturesSection = () => (
         <span className="inline-flex items-center gap-2 px-8 py-2 rounded-full font-sans mb-2 tracking-wide" style={{background: '#6FE7DD', color: '#17796d', fontFamily: `'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`, fontSize: '1.1rem', lineHeight: 1.2, letterSpacing: '0.04em', fontWeight: 400, boxShadow: 'none'}}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#17796d" strokeWidth="2.2" style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '0.4rem' }}><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9" fill="none"/></svg>Powerful Features</span>
         <h2 className="font-extrabold text-3xl lg:text-5xl mb-4 text-center">
   <span className="text-black">Unlock a New Era of</span><br />
-  <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(90deg, #22303b, #17796d)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Productivity & Peace of Mind</span>
+  <span className="bg-clip-text text-transparent" style={{backgroundImage: 'linear-gradient(90deg, #22303b, #18C5C2)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'}}>Productivity & Peace of Mind</span>
 </h2>
         <p className="max-w-2xl text-lg opacity-80">Imagine a world where your business runs like a well-oiled machine, where every call is answered, every appointment is perfectly scheduled, and your team is free to excel. That world is within reach.</p>
       </div>

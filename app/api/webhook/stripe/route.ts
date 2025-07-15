@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
     throw new Error("STRIPE_WEBHOOK_SECRET is not set in environment variables.");
   }
 
-  let eventType;
+
   let event;
 
   // verify Stripe event is legit
@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: err.message }, { status: 400 });
   }
 
-  eventType = event.type;
+  const eventType = event.type;
 
   try {
     switch (eventType) {

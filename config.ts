@@ -6,7 +6,7 @@ const config = {
   appName: "MindForU",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription:
-    "The NextJS boilerplate with all you need to build your SaaS, AI tool, or any other web app.",
+    "Transform your business with intelligent AI assistants that handle customer service, sales, and operations 24/7.",
   // REQUIRED (no https://, not trailing slash at the end, just the naked domain)
   domainName: "fenago.com",
   crisp: {

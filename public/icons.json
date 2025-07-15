@@ -1,0 +1,22 @@
+[
+  {
+    "key": "customer-service",
+    "src": "/Icon_Small-removebg-preview.png",
+    "alt": "Headset Icon"
+  },
+  {
+    "key": "sales-qualification",
+    "src": "/app/icon.png",
+    "alt": "Briefcase Icon"
+  },
+  {
+    "key": "ecommerce",
+    "src": "/app/apple-icon.png",
+    "alt": "Cart Icon"
+  },
+  {
+    "key": "scheduling",
+    "src": "/app/opengraph-image.png",
+    "alt": "Calendar Icon"
+  }
+]

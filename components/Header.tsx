@@ -53,16 +53,12 @@ const Header = () => {
             href="/"
             title="MindForU.com homepage"
           >
-            <Image src="/Icon_Small-removebg-preview.png" alt="MindForU icon" className="w-8 h-8 rounded-full bg-transparent" priority={true} width={48} height={48} />
+            <Image src="/Icon_Small-removebg-preview.png" alt="MindForU icon" className="w-14 h-14 rounded-full bg-transparent" priority={true} width={48} height={48} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
             <span className="font-extrabold text-xl">
   <span style={{
-    background: 'linear-gradient(90deg, #1e293b 0%, #134e4a 80%, #065f46 100%)',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    backgroundClip: 'text',
-    color: 'transparent',
+    color: '#18C5C2',
     fontWeight: 700
-  }}>MindForU</span><span style={{ color: '#065f46', fontWeight: 700 }}>.com</span>
+  }}>MindForU</span><span style={{ color: '#18C5C2', fontWeight: 700 }}>.com</span>
 </span>
           </Link>
         </div>
@@ -115,7 +111,7 @@ const Header = () => {
           {/* CTA Button */}
           <ButtonSignin
   text="Try for Free"
-  extraStyle="ml-6 inline-block rounded-full px-6 py-2 text-base font-bold text-white shadow-md transition-colors duration-200 bg-[linear-gradient(90deg,#1e293b_0%,#134e4a_80%,#065f46_100%)] border-none"
+  extraStyle="ml-6 bg-[#18C5C2] text-white font-bold py-3 px-8 rounded-full hover:bg-[#1A7F6B] transition duration-300"
 />
         </div>
       </nav>

@@ -37,6 +37,19 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "components/_backup_unused_components",
+    "pages/api/_backup_unused_api_routes",
+    "Interactive Demo",
+    "backup",
+    "Research",
+    "Create Vapi Assistants",
+    "Custome Assistants",
+    "Demo Page improvements",
+    "DevDocs",
+    "DevPlanDocs",
+    "Fix to Demo Calls",
+    "Price Implementation",
+    "Vapi Implementation"
   ]
 }

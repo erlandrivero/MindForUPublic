@@ -67,6 +67,6 @@ export async function POST(req: NextRequest) {
     }
     return new Response(JSON.stringify({ ai: data.choices[0].message.content }), { status: 200 });
   } catch (err) {
-    return new Response(JSON.stringify({ error: 'Failed to contact OpenAI.' }), { status: 500 });
+    return new Response(JSON.stringify({ error: `Failed to contact OpenAI: ${err instanceof Error ? err.message : err}` }), { status: 500 });
   }
 }

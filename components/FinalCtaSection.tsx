@@ -1,5 +1,3 @@
-import { CheckCircle } from "lucide-react";
-
 const FinalCtaSection = () => (
   <section className="w-full bg-gradient-to-r from-slate-900 to-primaryTeal py-16">
     <div className="max-w-3xl mx-auto px-8 text-center flex flex-col items-center gap-6">
@@ -9,7 +7,7 @@ const FinalCtaSection = () => (
       <p className="text-lg mb-4 max-w-xl" style={{color: '#7ce2e2'}}>
         Get started with MindForU and experience the effortless efficiency your business deserves. Instant setup. No credit card required.
       </p>
-      <a href="#" className="btn-primary btn-wide bg-white text-[#099387] font-bold rounded-full shadow-lg">
+      <a href="#pricing" className="bg-[#18C5C2] text-white font-bold py-3 px-8 rounded-full hover:bg-[#1A7F6B] transition duration-300 inline-block">
         Get Started Free Today!
       </a>
       <span className="text-sm mt-2" style={{color: '#7ce2e2'}}>No Credit Card Required. Instant Setup.</span>

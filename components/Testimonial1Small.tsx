@@ -25,7 +25,7 @@ const Testimonial1Small = () => {
         </div>
         <div className="text-base leading-relaxed space-y-2 max-w-md mx-auto text-center">
           <p>
-            "Before, the phone was a constant source of anxiety. Now, with MindForU, our front desk is calm, and patients are happier than ever."
+            &quot;Before, the phone was a constant source of anxiety. Now, with MindForU, our front desk is calm, and patients are happier than ever.&quot;
           </p>
         </div>
         <div className="flex justify-center items-center gap-3 md:gap-4">

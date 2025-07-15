@@ -56,7 +56,7 @@ const TestimonialsSection = () => {
   <Users className="w-6 h-6" style={{color: '#17796d', marginRight: '0.5rem'}} />
   Customer Stories
 </span>
-          <h2 className="font-extrabold text-3xl lg:text-5xl mb-4 text-black">Don't Just Take Our Word For It</h2>
+          <h2 className="font-extrabold text-3xl lg:text-5xl mb-4 text-black">Don&apos;t Just Take Our Word For It</h2>
           <p className="max-w-2xl text-lg opacity-80">Hear from real users who have streamlined their business and improved patient satisfaction with MindForU.</p>
         </div>
         {/* Testimonial Card */}
