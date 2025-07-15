@@ -1,16 +1,18 @@
 import { Suspense } from 'react';
-import ButtonLead from "@/components/ButtonLead";
+import dynamic from 'next/dynamic';
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import StatsSection from '@/components/StatsSection';
-import MidCtaSection from "@/components/MidCtaSection";
-import FeaturesSection from '@/components/FeaturesSection';
-import PricingTable from '@/components/PricingTable';
-import TestimonialsSection from '@/components/TestimonialsSection';
 
-import FaqSection from "@/components/FaqSection";
-import FinalCtaSection from "@/components/FinalCtaSection";
-import Footer from "@/components/Footer";
+// Dynamically import components that are below the fold
+const ButtonLead = dynamic(() => import('@/components/ButtonLead'));
+const StatsSection = dynamic(() => import('@/components/StatsSection'));
+const MidCtaSection = dynamic(() => import('@/components/MidCtaSection'));
+const FeaturesSection = dynamic(() => import('@/components/FeaturesSection'));
+const PricingTable = dynamic(() => import('@/components/PricingTable'));
+const TestimonialsSection = dynamic(() => import('@/components/TestimonialsSection'));
+const FaqSection = dynamic(() => import('@/components/FaqSection'));
+const FinalCtaSection = dynamic(() => import('@/components/FinalCtaSection'));
+const Footer = dynamic(() => import('@/components/Footer'));
 import { Metadata } from 'next';
 
 // Add metadata for SEO

@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section
   className="max-w-7xl mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-8 lg:py-20 font-sans"
-  style={{ fontFamily: `'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif` }}
+  
 >
       {/* Left Side: Text Content */}
       <div className="flex flex-col gap-6 lg:gap-10 items-center justify-center text-center lg:text-left lg:items-start w-full lg:w-1/2">
@@ -19,7 +19,6 @@ const Hero = () => {
   style={{
     background: '#6FE7DD',
     color: '#17796d',
-    fontFamily: `'SF Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif`,
     fontSize: '1.1rem',
     lineHeight: 1.2,
     letterSpacing: '0.04em',
@@ -33,7 +32,7 @@ const Hero = () => {
   Transform Your Business Today
 </span>
         {/* Headline with gradient on "Effortless Efficiency" */}
-        <h1 className="font-extrabold text-left text-4xl lg:text-6xl tracking-tight leading-tight mb-2" style={{fontFamily: 'Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif', fontWeight: 800}}>
+        <h1 className="font-extrabold text-left text-4xl lg:text-6xl tracking-tight leading-tight mb-2" style={{fontWeight: 800}}>
   Reclaim Your Day:<br />
   <span
     className="bg-clip-text text-transparent"
