@@ -50,11 +50,11 @@ const VapiDemo: React.FC<VapiDemoProps> = ({ assistantId, onError, onCallEnd }) 
       if (onCallEnd) onCallEnd();
     };
 
-    vapi.current.on('call-start', handleCallStart);
-    vapi.current.on('call-end', handleCallEnd);
+    const currentVapi = vapi.current;
+    currentVapi.on('call-start', handleCallStart);
+    currentVapi.on('call-end', handleCallEnd);
 
     return () => {
-      const currentVapi = vapi.current;
       currentVapi.off('call-start', handleCallStart);
       currentVapi.off('call-end', handleCallEnd);
     };

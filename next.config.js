@@ -8,6 +8,16 @@ const __dirname = path.dirname(__filename);
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: [
+      // NextJS <Image> component needs to whitelist domains for src={}
+      "lh3.googleusercontent.com",
+      "pbs.twimg.com",
+      "images.unsplash.com",
+      "logos-world.net",
+      "randomuser.me",
+    ],
+  },
   // Add any other Next.js configurations here
 };
 

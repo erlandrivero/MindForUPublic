@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "lint": "next lint",
-    "dev": "concurrently \"npm run dev:backend\" \"next dev\"",
-    "dev:backend": "cd \"Interactive Demo/vapi-demo-backend/vapi-demo-backend\" && run_backend.bat",
+    "dev": "next dev",
     "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 next build",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "start": "next start"
