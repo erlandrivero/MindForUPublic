@@ -1,4 +1,4 @@
-import MinimalVapiDemo from '../Fix to Demo Calls/MinimalVapiDemo';
+import MinimalVapiDemo from '../components/MinimalVapiDemo';
 
 export default function MinimalDemoPage() {
   return <MinimalVapiDemo />;
