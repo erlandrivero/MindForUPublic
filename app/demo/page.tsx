@@ -111,13 +111,19 @@ export default function DemoPage() {
               }}
             >
               <div className="flex-1 flex flex-col">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-2xl">
-                    {scenario.key === "scheduling" && '📅'}
-                    {scenario.key === "ecommerce" && '🛒'}
-                    {scenario.key === "sales-qualification" && '⚡️'}
-                    {scenario.key === "customer-service" && '🎧'}
-                  </span>
+                <div className="flex items-center mb-1">
+                  {scenario.key === "customer-service" && (
+                    <Image src="/customer-service.svg" alt="Headset Icon" width={32} height={32} className="w-8 h-8 mr-4" />
+                  )}
+                  {scenario.key === "sales-qualification" && (
+                    <Image src="/sales-qualification.svg" alt="Lightning Icon" width={32} height={32} className="w-8 h-8 mr-4" />
+                  )}
+                  {scenario.key === "ecommerce" && (
+                    <Image src="/ecommerce.svg" alt="Cart Icon" width={32} height={32} className="w-8 h-8 mr-4" />
+                  )}
+                  {scenario.key === "scheduling" && (
+                    <Image src="/scheduling.svg" alt="Calendar Icon" width={32} height={32} className="w-8 h-8 mr-4" />
+                  )}
                   <span className="text-xl font-bold text-[#18C5C2]">{scenario.label}</span>
                 </div>
                 <div className="text-gray-600 text-sm mb-1">
