@@ -79,7 +79,7 @@ export default function DemoPage() {
           &times;
         </button>
         <div className="relative mb-1 mt-0 h-14">
-          <Image src="/Logo_Small-removebg-preview.png" alt="MindForU Logo" width={112} height={40} className="w-28 h-auto absolute left-20 top-1/2 -translate-y-1/2" />
+          <Image src="/Icon_Small-removebg-preview.png" alt="MindForU Logo" width={56} height={56} className="w-14 h-auto absolute left-8 top-1/2 -translate-y-1/2" />
           <h1 className="text-3xl font-extrabold text-[#18C5C2] m-0 p-0 text-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full">Interactive AI Assistant Demo</h1>
         </div>
         <p className="text-center text-gray-700 mb-0">
@@ -111,21 +111,13 @@ export default function DemoPage() {
               }}
             >
               <div className="flex-1 flex flex-col">
-                <div className="flex items-center mb-1">
-                  {scenario.key === "customer-service" && (
-                    <Image src="/customer-service.svg" alt="Headset Icon" width={32} height={32} className="w-8 h-8 mr-4" />
-                  )}`
-                  {scenario.key === "sales-qualification" && (
-  <svg viewBox="0 0 24 24" fill="none" stroke="#18C5C2" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 mr-4">
-  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="none" stroke="#18C5C2" />
-</svg>
-)}
-                  {scenario.key === "ecommerce" && (
-                    <Image src="/ecommerce.svg" alt="Cart Icon" width={8} height={8} className="w-8 h-8 mr-4" />
-                  )}
-                  {scenario.key === "scheduling" && (
-                    <Image src="/scheduling.svg" alt="Calendar Icon" width={32} height={32} className="w-8 h-8 mr-4" />
-                  )}`
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-2xl">
+                    {scenario.key === "scheduling" && '📅'}
+                    {scenario.key === "ecommerce" && '🛒'}
+                    {scenario.key === "sales-qualification" && '⚡️'}
+                    {scenario.key === "customer-service" && '🎧'}
+                  </span>
                   <span className="text-xl font-bold text-[#18C5C2]">{scenario.label}</span>
                 </div>
                 <div className="text-gray-600 text-sm mb-1">
