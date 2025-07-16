@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import config from "@/config";
+import logo from "@/app/icon.png";
 
 
 // Add the Footer to the bottom of your landing page and more.
@@ -18,7 +19,7 @@ const Footer = () => {
               className="flex gap-2 justify-center md:justify-start items-center"
             >
               <Image
-                src="/favicon.png"
+                src={logo}
                 alt={`${config.appName} logo`}
                 priority={true}
                 className="w-10 h-10"
