@@ -7,7 +7,3 @@
   command = "npm run dev"
   port = 3000
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
