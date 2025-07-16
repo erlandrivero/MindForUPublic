@@ -33,7 +33,4 @@ yarn-error.log*
 /pages/api/_backup_unused_api_routes
 
 
-# Exclude all video files from git
-public/videos/*.mp4
-public/Research/*.mp4
 
