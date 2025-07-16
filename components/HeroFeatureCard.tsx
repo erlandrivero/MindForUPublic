@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Star } from "lucide-react";
+import logo from "@/public/Logo_Small-removebg-preview.png";
 
 const testimonial = {
   quote:
@@ -20,7 +21,7 @@ export default function HeroFeatureCard() {
       <span className="absolute -bottom-4 -left-4 w-6 h-6 rounded-full bg-cyan-300/70" />
       {/* Logo/Icon */}
       <div className="flex flex-col items-center mt-4 mb-6">
-        <Image src="/Logo_Small-removebg-preview.png" alt="MindForU Logo" width={110} height={70} className="mb-2" />
+        <Image src={logo} alt="MindForU Logo" width={110} height={70} className="mb-2" />
       </div>
       {/* Testimonial Card */}
       <div className="bg-[#f4feff] rounded-2xl shadow-md px-6 py-6 flex flex-col items-center w-full max-w-[350px] mx-auto">
