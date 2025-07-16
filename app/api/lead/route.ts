@@ -33,17 +33,25 @@ export async function POST(req: NextRequest) {
 
     // Forward to n8n webhook for automation
     const n8nWebhookUrl = process.env.N8N_LEAD_WEBHOOK_URL;
+
+    // Production debugging logs
+    console.log(`[Lead API] n8n Webhook URL: ${n8nWebhookUrl ? 'Loaded' : 'Not Loaded'}`);
+
     if (n8nWebhookUrl) {
+      console.log('[Lead API] Attempting to forward lead to n8n...');
       try {
         await fetch(n8nWebhookUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(body) // Forward the entire body
+          body: JSON.stringify(body), // Forward the entire body
         });
+        console.log('[Lead API] Successfully forwarded lead to n8n.');
       } catch (n8nError) {
-        console.error('Failed to POST to n8n webhook:', n8nError);
+        console.error('[Lead API] Failed to POST to n8n webhook:', n8nError);
         // Continue, but log the error
       }
+    } else {
+      console.log('[Lead API] n8n webhook URL not found, skipping forwarding.');
     }
 
     return NextResponse.json({ success: true });
