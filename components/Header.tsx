@@ -6,7 +6,8 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import ButtonSignin from "./ButtonSignin";
-
+import logo from "@/app/icon.png";
+import favicon from "@/app/favicon.png";
 import config from "@/config";
 
 const links: {
@@ -53,7 +54,7 @@ const Header = () => {
             href="/"
             title="MindForU.com homepage"
           >
-            <Image src="/Icon_Small-removebg-preview.png" alt="MindForU icon" className="w-14 h-14 rounded-full bg-transparent" priority={true} width={48} height={48} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+            <Image src={logo} alt="MindForU icon" className="w-14 h-14 rounded-full bg-transparent" priority={true} width={48} height={48} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
             <span className="font-extrabold text-xl">
   <span style={{
     color: '#18C5C2',
@@ -128,7 +129,7 @@ const Header = () => {
               title={`${config.appName} homepage`}
               href="/"
             >
-              <Image src="/favicon.png" alt="MindForU icon" width={32} height={32} className="mr-2" />
+              <Image src={favicon} alt="MindForU icon" width={32} height={32} className="mr-2" />
               <span className="font-extrabold text-lg" style={{ color: '#222831' }}>{config.appName}</span>
             </Link>
             <button
