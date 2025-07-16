@@ -54,7 +54,7 @@ const Header = () => {
             href="/"
             title="MindForU.com homepage"
           >
-            <Image src="/logoAndName.png" alt="MindForU logo" className="w-32" priority={true} width={128} height={32} />
+            <Image src="/Logo_Small-removebg-preview.png" alt="MindForU logo" className="w-32" priority={true} width={128} height={32} />
             <span className="font-extrabold text-xl">
   <span style={{
     color: '#18C5C2',
