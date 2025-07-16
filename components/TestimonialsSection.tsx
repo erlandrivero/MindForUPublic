@@ -3,6 +3,9 @@ import { useState } from "react";
 import Image from "next/image";
 import { Star, Users } from "lucide-react";
 import VideoPlayer from "./VideoPlayer";
+import sarahHeadshot from "@/public/videos/sarah_c_headshot.png";
+import davidHeadshot from "@/public/videos/david_m_headshot.png";
+import emilyHeadshot from "@/public/videos/emily_r_headshot.png";
 
 const testimonials = [
   {
@@ -13,7 +16,7 @@ const testimonials = [
       role: "Office Manager, Dental Clinic"
     },
     rating: 5,
-    headshot: "/videos/sarah_c_headshot.png",
+    headshot: sarahHeadshot,
     beforeVideo: "/videos/sarah_c_before.mp4",
     afterVideo: "/videos/sarah_c_during.mp4"
   },
@@ -25,7 +28,7 @@ const testimonials = [
       role: "Small Business Owner, Chiropractic Clinic"
     },
     rating: 5,
-    headshot: "/videos/david_m_headshot.png",
+    headshot: davidHeadshot,
     beforeVideo: "/videos/david_m_before.mp4",
     afterVideo: "/videos/david_m_during.mp4"
   },
@@ -37,7 +40,7 @@ const testimonials = [
       role: "Marketing Manager, E-commerce Company"
     },
     rating: 5,
-    headshot: "/videos/emily_r_headshot.png",
+    headshot: emilyHeadshot,
     beforeVideo: "/videos/emily_r_before.mp4",
     afterVideo: "/videos/emily_r_during.mp4"
   }
