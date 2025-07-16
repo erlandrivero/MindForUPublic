@@ -24,26 +24,26 @@ export async function POST(req: NextRequest) {
         email: body.email,
         phone: body.phone,
         message: body.message,
+        company_name: body.company_name,
+        industry: body.industry,
+        company_size: body.company_size,
         createdAt: new Date()
       });
     }
 
-    // Forward to n8n webhook for automation (update the URL as needed)
-    try {
-      await fetch('https://erland.app.n8n.cloud/webhook-test/lead-intake', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          first_name: body.first_name,
-          last_name: body.last_name,
-          email: body.email,
-          phone: body.phone,
-          message: body.message
-        })
-      });
-    } catch (n8nError) {
-      console.error('Failed to POST to n8n webhook:', n8nError);
-      // Continue, but log the error
+    // Forward to n8n webhook for automation
+    const n8nWebhookUrl = process.env.N8N_LEAD_WEBHOOK_URL;
+    if (n8nWebhookUrl) {
+      try {
+        await fetch(n8nWebhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body) // Forward the entire body
+        });
+      } catch (n8nError) {
+        console.error('Failed to POST to n8n webhook:', n8nError);
+        // Continue, but log the error
+      }
     }
 
     return NextResponse.json({ success: true });

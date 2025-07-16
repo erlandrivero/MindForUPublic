@@ -24,34 +24,34 @@ This checklist outlines the steps for implementing the pricing section, integrat
     - **Files to check/modify:** `pages/index.tsx` (or equivalent main page file), `components/Pricing.tsx`, `components/PricingTable.tsx`.
     - **Comments:** Verify correct rendering and responsiveness.
 
-- [ ] **Step 2: Implement Stripe Checkout Integration**
+- [x] **Step 2: Implement Stripe Checkout Integration**
     - **Description:** Add functionality to trigger Stripe Checkout when a user selects a pricing plan.
     - **Files to check/modify:** `components/PricingTable.tsx` (or relevant component handling plan selection).
-    - **Comments:** This will involve creating a Stripe Checkout session on the backend and redirecting the user.
+    - **Comments:** This was already implemented. The `handleCheckout` function in `PricingTable.tsx` correctly calls the backend and redirects to Stripe.
 
 ### Phase 2: Backend (Next.js API Routes / Flask Vapi Service)
 
 - [x] **Step 3: Create Stripe Checkout Session API Endpoint**
     - **Description:** Develop an API endpoint to create a Stripe Checkout session. This endpoint will receive the selected plan details from the frontend.
-    - **Files to check/modify:** `pages/api/stripe/create-checkout-session.ts` (or similar new file under `pages/api`).
+    - **Files to check/modify:** `pages/api/stripe/checkout-session.ts` (or similar new file under `pages/api`).
     - **Comments:** This endpoint will use the Stripe secret key from `env.local`.
 
-- [x] **Step 4: Implement Stripe Webhook Handler**
+- [ ] **Step 4: Implement Stripe Webhook Handler (Skipped)**
     - **Description:** Create an API endpoint to handle Stripe webhook events, specifically `checkout.session.completed`.
     - **Files to check/modify:** `pages/api/stripe/webhook.ts` (or similar new file under `pages/api`).
-    - **Comments:** This webhook will be crucial for confirming successful payments and triggering database updates. Ensure webhook secret is used for verification.
+    - **Comments:** Skipped as per user request. This is required for tracking purchases automatically.
 
-### Phase 3: Database (MongoDB)
+### Phase 3: Database (MongoDB) (Skipped)
 
-- [x] **Step 5: Create Customer/Client ID in MongoDB**
+- [ ] **Step 5: Create Customer/Client ID in MongoDB (Skipped)**
     - **Description:** Upon successful `checkout.session.completed` event, create a new customer/client entry in MongoDB if one doesn't exist.
     - **Files to check/modify:** `pages/api/stripe/webhook.ts` (or a dedicated database utility file).
-    - **Comments:** The customer ID from Stripe can be used as a reference. Store relevant user details.
+    - **Comments:** Skipped as per user request. This is required for user management.
 
-- [x] **Step 6: Store Purchase Information in MongoDB**
+- [ ] **Step 6: Store Purchase Information in MongoDB (Skipped)**
     - **Description:** Record details of the successful purchase (e.g., plan, amount, date, Stripe transaction ID, associated customer ID) in MongoDB.
     - **Files to check/modify:** `pages/api/stripe/webhook.ts` (or a dedicated database utility file).
-    - **Comments:** This ensures a complete record of all transactions.
+    - **Comments:** Skipped as per user request. This is required for tracking transactions.
 
 ### Phase 4: Post-Purchase & Refinements
 

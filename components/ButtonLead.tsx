@@ -76,6 +76,10 @@ const ButtonLead = ({ extraStyle }: { extraStyle?: string }) => {
         setEmail("");
         setPhone("");
         setMessage("");
+        setCompanyName("");
+        setIndustry("");
+        setOtherIndustry("");
+        setCompanySize("");
         setIsDisabled(true);
       } else {
         // Type guard for error message
@@ -148,7 +152,7 @@ const ButtonLead = ({ extraStyle }: { extraStyle?: string }) => {
       <select
         id="industry"
         value={industry}
-        className="select select-bordered w-full text-gray-400 text-base"
+        className={`select select-bordered w-full text-base ${industry ? "" : "text-gray-400"}`}
         onChange={(e) => {
           setIndustry(e.target.value);
           if (e.target.value !== "Other") {
@@ -179,7 +183,7 @@ const ButtonLead = ({ extraStyle }: { extraStyle?: string }) => {
       <select
         id="companySize"
         value={companySize}
-        className="select select-bordered w-full text-gray-400 text-base"
+        className={`select select-bordered w-full text-base ${companySize ? "" : "text-gray-400"}`}
         onChange={(e) => setCompanySize(e.target.value)}
       >
         {companySizeOptions.map((option) => (
