@@ -19,6 +19,7 @@
 .env
 .env.local
 
+
 # logs
 logs
 *.log
