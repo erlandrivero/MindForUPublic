@@ -1,6 +1,8 @@
 import themes from "daisyui/src/theming/themes";
 import { ConfigProps } from "./types/config";
 
+const domainName = "fenago.com";
+
 const config = {
   // REQUIRED
   appName: "MindForU",
@@ -8,7 +10,7 @@ const config = {
   appDescription:
     "Transform your business with intelligent AI assistants that handle customer service, sales, and operations 24/7.",
   // REQUIRED (no https://, not trailing slash at the end, just the naked domain)
-  domainName: "fenago.com",
+  domainName,
   crisp: {
     // Crisp website ID. IF YOU DON'T USE CRISP: just remove this => Then add a support email in this config file (resend.supportEmail) otherwise customer support won't work.
     id: "",
@@ -90,7 +92,7 @@ const config = {
     // REQUIRED — the path to log in users. It's use to protect private routes (like /dashboard). It's used in apiClient (/libs/api.js) upon 401 errors from our API
     loginUrl: "/api/auth/signin",
     // REQUIRED — the path you want to redirect users to after a successful login (i.e. /dashboard, /private). This is normally a private page for users to manage their accounts. It's used in apiClient (/libs/api.js) upon 401 errors from our API & in ButtonSignin.js
-    callbackUrl: "/dashboard",
+    callbackUrl: process.env.NODE_ENV === "development" ? "http://localhost:3000/dashboard" : `https://${domainName}/dashboard`,
   },
 } as ConfigProps;
 

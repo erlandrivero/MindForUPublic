@@ -10,7 +10,10 @@ const leadSchema = new mongoose.Schema(
     last_name: { type: String, trim: true, required: true },
     email: { type: String, trim: true, lowercase: true, required: true },
     phone: { type: String, trim: true },
-    message: { type: String, trim: true }
+    message: { type: String, trim: true },
+    company_name: { type: String, trim: true },
+    industry: { type: String, trim: true },
+    company_size: { type: String, trim: true }
   },
   {
     timestamps: true,
