@@ -11,7 +11,7 @@ const MidCtaSection = () => (
         Join thousands of businesses who have already revolutionized their operations and reclaimed their peace of mind.
       </p>
       <Link href="#pricing" scroll={true} className="bg-[#18C5C2] text-white font-bold py-3 px-8 rounded-full hover:bg-[#1A7F6B] transition duration-300 inline-block">
-        Start Your Free Trial Now
+        Get Started Today
       </Link>
       <div className="flex flex-row gap-8 text-base text-white/90 mt-4 items-center justify-center">
         <span className="flex items-center gap-2" style={{color: '#7ce2e2'}}><CheckCircle className="w-5 h-5 text-[#7ce2e2]" />No Credit Card Required</span>

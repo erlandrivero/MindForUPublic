@@ -56,18 +56,18 @@ const Hero = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center lg:justify-start">
           <Link href="#pricing" scroll={true} className="bg-[#18C5C2] text-white font-bold py-3 px-8 rounded-full hover:bg-[#1A7F6B] transition duration-300 inline-block">
-          Start Your Free Trial Now
+          Get Started Today
         </Link>
         </div>
         {/* Checkmark Text */}
         <div className="flex flex-col sm:flex-row gap-4 text-sm mt-2 items-center">
           <span className="flex items-center gap-2 font-medium" style={{ color: '#000' }}>
   <CheckCircle className="w-8 h-8 text-[#18C5C2]" />
-  No Credit Card Required
+  24/7 AI Assistant
 </span>
           <span className="flex items-center gap-2 font-medium" style={{ color: '#000' }}>
   <CheckCircle className="w-8 h-8 text-[#18C5C2]" />
-  14-Day Free Trial
+  Immediate ROI
 </span>
         </div>
       </div>
