@@ -1,0 +1,3296 @@
+
+1 - Design comprehensive interactive demo framework
+
+# Interactive AI Assistant Demo Experience
+
+## Overview: "Try Before You Buy" Interactive Demo
+
+This interactive demo transforms the passive "watch demo" experience into an engaging, hands-on exploration where prospects can actually interact with the AI assistant, make real decisions, and see immediate results. The demo simulates a realistic business environment where users can test different scenarios and experience the AI's capabilities firsthand.
+
+## Demo Philosophy: Active Engagement Over Passive Viewing
+
+Traditional demos show prospects what the AI can do, but interactive demos let them experience what it feels like to have an AI assistant working for their business. This approach builds confidence, reduces skepticism, and creates emotional investment in the solution. By allowing prospects to control the experience, they develop a sense of ownership and can envision the AI assistant as part of their team.
+
+The interactive demo addresses the fundamental challenge of selling AI services: prospects often struggle to understand how AI will work in their specific situation. By providing hands-on experience with realistic scenarios, prospects can see exactly how the AI would handle their unique challenges and requirements.
+
+## Interactive Demo Framework: "Your AI Assistant Playground"
+
+### Core Experience Design
+
+The interactive demo is structured as a realistic business simulation where prospects take on the role of a business owner who has just implemented the AI assistant. They can interact with the system through multiple channels simultaneously, just as their real customers would, and see how the AI responds to various situations and challenges.
+
+The demo environment includes a simulated business dashboard, incoming calls and messages, appointment scheduling interface, and real-time analytics showing the impact of the AI assistant's actions. Prospects can trigger different scenarios, make decisions about how to handle situations, and observe the AI's responses and recommendations.
+
+### User Journey Architecture
+
+The interactive experience follows a carefully designed progression that builds understanding and confidence. Prospects begin with simple interactions to familiarize themselves with the interface, then progress to more complex scenarios that demonstrate advanced capabilities. Each interaction provides immediate feedback and shows measurable results, creating a sense of accomplishment and value realization.
+
+The journey is designed to be non-linear, allowing prospects to explore areas of particular interest while ensuring they experience the core value propositions. Multiple entry points accommodate different learning styles and business priorities, whether prospects are most concerned about call handling, scheduling efficiency, or customer satisfaction.
+
+## Interactive Demo Components
+
+### Component 1: Live Chat Simulation
+
+**Experience:** "Handle Customer Inquiries in Real-Time"
+
+Prospects interact with a realistic chat interface where they can see incoming customer messages and watch the AI assistant respond. They can choose to intervene, modify responses, or let the AI handle everything autonomously. This component demonstrates the AI's natural language processing, customer service skills, and ability to handle complex inquiries.
+
+The simulation includes various customer types: urgent requests, complex scheduling needs, price inquiries, and complaint resolution. Prospects can see how the AI maintains consistent tone, accesses relevant information instantly, and escalates appropriately when human intervention is needed.
+
+**Interactive Elements:**
+- Real-time message threading with multiple customers
+- Response suggestion interface where prospects can approve or modify AI responses
+- Customer satisfaction ratings that update based on interaction quality
+- Integration demonstrations showing how AI accesses customer history and preferences
+
+**Learning Outcomes:**
+- Understanding of AI's conversational capabilities
+- Confidence in AI's ability to represent their brand professionally
+- Appreciation for the AI's ability to handle multiple conversations simultaneously
+- Recognition of time savings and consistency benefits
+
+### Component 2: Phone Call Handling Simulator
+
+**Experience:** "Listen to Your AI Assistant Take Real Calls"
+
+This component allows prospects to listen to realistic phone conversations between the AI assistant and various types of callers. Prospects can pause conversations to make decisions about how to proceed, choose from multiple response options, or let the AI continue autonomously. They can also see the AI's thought process through real-time annotations explaining why certain responses were chosen.
+
+The phone simulation includes emergency calls, new patient inquiries, appointment changes, insurance questions, and complaint resolution. Each call type demonstrates different aspects of the AI's capabilities, from empathy and urgency recognition to complex problem-solving and information retrieval.
+
+**Interactive Elements:**
+- Audio playback with visual conversation transcription
+- Decision points where prospects choose how the AI should respond
+- Real-time sentiment analysis showing customer emotion throughout the call
+- Automatic scheduling and follow-up task creation based on call outcomes
+
+**Learning Outcomes:**
+- Confidence in AI's phone manner and professionalism
+- Understanding of AI's ability to handle complex, nuanced conversations
+- Appreciation for AI's consistency in high-pressure situations
+- Recognition of AI's ability to multitask during conversations
+
+### Component 3: Scheduling Challenge Playground
+
+**Experience:** "Solve Complex Scheduling Puzzles"
+
+Prospects face realistic scheduling challenges and can work alongside the AI to find optimal solutions. They can input constraints, preferences, and special requirements, then watch as the AI analyzes multiple variables to propose solutions. Prospects can accept AI suggestions, request alternatives, or add additional constraints to see how the AI adapts.
+
+The scheduling simulator includes family appointment coordination, emergency slot management, resource optimization, and conflict resolution. Each scenario demonstrates the AI's ability to understand complex requirements, optimize for multiple objectives, and provide clear explanations for its recommendations.
+
+**Interactive Elements:**
+- Drag-and-drop calendar interface for manual scheduling attempts
+- AI suggestion overlay showing optimized alternatives
+- Constraint input system for testing complex requirements
+- Real-time optimization metrics showing efficiency improvements
+
+**Learning Outcomes:**
+- Understanding of AI's analytical and optimization capabilities
+- Appreciation for AI's ability to consider multiple variables simultaneously
+- Confidence in AI's ability to handle complex business logic
+- Recognition of time savings in administrative tasks
+
+### Component 4: Emergency Response Simulator
+
+**Experience:** "Test Crisis Management Capabilities"
+
+This high-impact component presents prospects with urgent situations and allows them to see how quickly and effectively the AI responds. Prospects can trigger different types of emergencies and observe the AI's prioritization, communication, and coordination capabilities. They can also test the AI's ability to escalate appropriately and maintain calm, professional communication under pressure.
+
+Emergency scenarios include medical emergencies, scheduling conflicts, system outages, and customer complaints. Each scenario demonstrates the AI's ability to recognize urgency, access relevant protocols, and coordinate multiple stakeholders effectively.
+
+**Interactive Elements:**
+- Emergency alert system with realistic urgency indicators
+- Multi-channel communication coordination (calls, texts, emails)
+- Real-time decision trees showing AI's reasoning process
+- Outcome tracking showing resolution time and customer satisfaction
+
+**Learning Outcomes:**
+- Confidence in AI's ability to handle high-pressure situations
+- Understanding of AI's crisis management protocols
+- Appreciation for AI's ability to maintain professionalism under stress
+- Recognition of AI's value in business continuity planning
+
+### Component 5: Business Intelligence Dashboard
+
+**Experience:** "See Your Business Transform in Real-Time"
+
+Prospects can observe how their interactions with the AI assistant translate into business metrics and insights. The dashboard updates in real-time as they complete different scenarios, showing improvements in customer satisfaction, operational efficiency, revenue protection, and staff productivity.
+
+The dashboard includes key performance indicators relevant to different business types, comparative analytics showing before-and-after scenarios, and predictive modeling showing potential long-term impacts. Prospects can adjust various parameters to see how different implementation strategies might affect their specific business.
+
+**Interactive Elements:**
+- Real-time metric updates based on demo interactions
+- Comparative analysis tools showing improvement potential
+- ROI calculator with customizable business parameters
+- Scenario modeling for different implementation approaches
+
+**Learning Outcomes:**
+- Understanding of measurable business impact
+- Confidence in ROI and value proposition
+- Appreciation for AI's analytical and reporting capabilities
+- Recognition of strategic business benefits beyond operational efficiency
+
+## Advanced Interactive Features
+
+### Personalization Engine
+
+The interactive demo adapts to each prospect's industry, business size, and specific interests. As prospects interact with different components, the system learns their priorities and customizes subsequent scenarios to match their needs. This personalization ensures that each prospect experiences the most relevant and compelling demonstration possible.
+
+The personalization engine tracks interaction patterns, time spent on different features, and expressed preferences to create a tailored experience. It can emphasize features most relevant to the prospect's industry, adjust complexity levels based on their technical comfort, and highlight use cases that align with their stated business challenges.
+
+### Collaborative Decision Making
+
+Advanced scenarios allow prospects to invite team members to participate in the demo experience. Multiple users can interact with the same demo environment simultaneously, making decisions collaboratively and seeing how the AI adapts to different management styles and preferences.
+
+This collaborative feature is particularly valuable for prospects who need to involve multiple stakeholders in the decision-making process. It allows teams to experience the AI assistant together, discuss its capabilities in real-time, and build consensus around implementation strategies.
+
+### Integration Simulation
+
+The demo includes realistic simulations of how the AI assistant integrates with common business systems. Prospects can see how the AI accesses customer relationship management systems, scheduling software, payment processors, and communication platforms. They can test different integration scenarios and see how data flows between systems.
+
+This component addresses one of the most common concerns about AI implementation: how it will work with existing business infrastructure. By demonstrating seamless integration capabilities, prospects gain confidence that the AI assistant will enhance rather than disrupt their current operations.
+
+### Customization Workshop
+
+An advanced component allows prospects to customize the AI assistant's responses, protocols, and decision-making criteria. They can input their specific business rules, communication preferences, and operational procedures, then test how the AI applies these customizations in various scenarios.
+
+This workshop demonstrates the AI's flexibility and adaptability while giving prospects a sense of control and ownership. They can see how the AI assistant can be tailored to match their unique business culture and operational requirements.
+
+## Technical Implementation Strategy
+
+### Platform Architecture
+
+The interactive demo is built as a progressive web application that works seamlessly across desktop and mobile devices. The architecture supports real-time interactions, multimedia content, and complex scenario branching while maintaining fast loading times and smooth performance.
+
+The platform uses modern web technologies to create an app-like experience that feels native and responsive. Advanced caching strategies ensure that the demo loads quickly even on slower connections, while progressive enhancement provides fallback experiences for older browsers or limited connectivity situations.
+
+### Data Management and Analytics
+
+The demo platform captures detailed analytics about prospect interactions, preferences, and engagement patterns. This data provides valuable insights for sales teams and helps optimize the demo experience over time. The analytics system tracks not just what prospects do, but how they feel about different features and capabilities.
+
+Privacy and data security are paramount in the analytics implementation. All data collection is transparent and consensual, with clear explanations of how information will be used. Prospects can opt out of data collection while still enjoying the full demo experience.
+
+### Scalability and Performance
+
+The demo platform is designed to handle high traffic volumes and concurrent users without performance degradation. Cloud-based infrastructure automatically scales resources based on demand, ensuring that prospects always have a smooth, responsive experience regardless of overall usage levels.
+
+Performance optimization includes intelligent content delivery, efficient resource management, and proactive monitoring to identify and resolve potential issues before they affect user experience. The platform maintains sub-second response times even during peak usage periods.
+
+### Security and Compliance
+
+The demo environment implements enterprise-grade security measures to protect prospect data and maintain trust. All communications are encrypted, access is controlled through secure authentication, and data handling complies with relevant privacy regulations.
+
+Security measures are designed to be transparent and reassuring to prospects, demonstrating the same level of protection they can expect from the actual AI assistant implementation. This builds confidence in the vendor's commitment to data security and regulatory compliance.
+
+## User Experience Design Principles
+
+### Intuitive Navigation
+
+The demo interface is designed to be immediately understandable, even for users who are not technically sophisticated. Clear visual cues, consistent interaction patterns, and helpful guidance ensure that prospects can focus on experiencing the AI's capabilities rather than struggling with the interface.
+
+Navigation follows familiar patterns from popular business applications, reducing the learning curve and allowing prospects to feel comfortable and confident as they explore different features. Progressive disclosure reveals advanced features gradually, preventing overwhelming while ensuring that power users can access sophisticated capabilities.
+
+### Immediate Feedback and Gratification
+
+Every interaction in the demo provides immediate, visible results that reinforce the value proposition. Prospects can see metrics improve, problems get solved, and efficiency gains accumulate in real-time. This immediate feedback creates a sense of accomplishment and builds momentum throughout the demo experience.
+
+The feedback system includes both quantitative metrics and qualitative indicators, such as customer satisfaction scores, efficiency improvements, and stress reduction indicators. This multi-dimensional feedback helps prospects understand both the business impact and personal benefits of implementing the AI assistant.
+
+### Emotional Engagement
+
+The demo is designed to create emotional connection and investment in the solution. Realistic scenarios, relatable challenges, and satisfying problem resolution create positive emotional associations with the AI assistant. Prospects experience the relief and satisfaction of having complex problems solved effortlessly.
+
+Emotional engagement is enhanced through storytelling elements, character development, and narrative progression. Prospects become invested in the success of the simulated business and feel personal satisfaction when the AI assistant helps achieve positive outcomes.
+
+### Confidence Building
+
+Every aspect of the demo is designed to build prospect confidence in the AI assistant's capabilities and reliability. Transparent decision-making processes, clear explanations of AI reasoning, and consistent high-quality outcomes demonstrate that the AI assistant is trustworthy and dependable.
+
+Confidence building includes addressing common concerns and objections proactively. The demo shows how the AI handles edge cases, recovers from errors, and escalates appropriately when human intervention is needed. This transparency builds trust and reduces anxiety about AI implementation.
+
+## Conversion Optimization Strategy
+
+### Progressive Commitment
+
+The demo is structured to create increasing levels of commitment and investment from prospects. Initial interactions require minimal effort and risk, while later components involve more significant time investment and emotional engagement. This progressive commitment increases the likelihood of conversion by building momentum and investment.
+
+Each stage of the demo includes natural conversion opportunities that feel organic rather than pushy. Prospects who are ready to move forward can easily transition to trial signup or sales conversations, while those who need more time can continue exploring without pressure.
+
+### Social Proof Integration
+
+The demo incorporates social proof elements throughout the experience, including customer testimonials, usage statistics, and success stories. These elements are integrated naturally into the demo scenarios, providing credibility without interrupting the flow of the experience.
+
+Social proof is particularly effective when it comes from businesses similar to the prospect's situation. The demo system can dynamically select and display the most relevant testimonials and case studies based on the prospect's industry and business characteristics.
+
+### Objection Handling
+
+Common objections and concerns are addressed proactively throughout the demo experience. Rather than waiting for prospects to raise concerns, the demo demonstrates solutions to typical implementation challenges and shows how the AI assistant addresses common pain points.
+
+Objection handling is woven into the narrative of the demo scenarios, showing rather than telling how concerns are resolved. This approach is more convincing than traditional objection handling because prospects experience the solutions firsthand rather than simply hearing about them.
+
+### Urgency and Scarcity
+
+The demo creates appropriate urgency through realistic business scenarios that demonstrate the cost of delay. Prospects see how missed opportunities, inefficiencies, and customer dissatisfaction accumulate over time, creating natural motivation to implement the solution quickly.
+
+Scarcity elements are used judiciously and authentically, focusing on limited-time offers or implementation capacity rather than artificial constraints. The goal is to encourage action while maintaining trust and credibility.
+
+This comprehensive interactive demo framework transforms the traditional product demonstration into an engaging, educational, and persuasive experience that builds confidence, demonstrates value, and guides prospects toward conversion through hands-on engagement and personal discovery.
+
+2 - Create a new React app for the interactive demo
+
+ubuntu@sandbox:~ $ cd /home/ubuntu && manus-create-react-app interactive-ai-demo
+=== React Project Setup ===
+Created new React app interactive-ai-demo at /home/ubuntu/interactive-ai-demo
+Updated app title to interactive-ai-demo
+Installing dependencies...
+Initializing git repository...
+=== Important Commands ===
+To start the dev server, run:
+  cd interactive-ai-demo
+  pnpm run dev
+This will restart on file-save, so you can leave this running in a dedicated shell and alternate between making changes using edit_file and testing them in your browser without needing to re-start the dev server.
+The project root is /home/ubuntu/interactive-ai-demo
+=== Project Structure ===
+├── public/
+├── src/
+│   ├── assets/  # Static assets like images
+│   ├── components/
+│   │   └── ui/  # UI components from shadcn/ui
+│   ├── hooks/  # Custom React hooks
+│   ├── lib/  # Utility functions and libraries
+│   ├── App.css  # App-specific styles
+│   ├── App.jsx  # Main App component
+│   ├── index.css  # Global styles
+│   └── main.jsx  # Entry point
+├── components.json  # shadcn/ui configuration
+├── eslint.config.js  # ESLint configuration
+├── index.html  # HTML entry point
+├── package.json  # Project dependencies and scripts
+├── pnpm-lock.yaml  # Lock file for dependencies
+└── vite.config.js  # Vite bundler configuration
+=== Additional Information ===
+IMPORTANT NOTE: This project is built with Javascript(jsx).
+
+ubuntu@sandbox:~ $
+
+3 - Read the current App.
+
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import { Button } from '@/components/ui/button.jsx'
+import './App.css'
+
+function App() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div>
+        <Button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </Button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
+}
+
+export default App
+
+4 - Read the index
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>interactive-ai-demo</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+5 - Update the page title
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindForU AI Assistant - Interactive Demo</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+6 - Create the main interactive demo application
+
+import React, { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button.jsx';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx';
+import { Badge } from '@/components/ui/badge.jsx';
+import { Progress } from '@/components/ui/progress.jsx';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs.jsx';
+import { 
+  Phone, 
+  MessageCircle, 
+  Calendar, 
+  AlertTriangle, 
+  BarChart3, 
+  Play, 
+  Pause, 
+  RotateCcw,
+  CheckCircle,
+  Clock,
+  Users,
+  TrendingUp,
+  Zap
+} from 'lucide-react';
+import './App.css';
+
+// Import demo components
+import LiveChatSimulator from './components/LiveChatSimulator';
+import PhoneCallSimulator from './components/PhoneCallSimulator';
+import SchedulingPlayground from './components/SchedulingPlayground';
+import EmergencySimulator from './components/EmergencySimulator';
+import BusinessDashboard from './components/BusinessDashboard';
+
+function App() {
+  const [currentDemo, setCurrentDemo] = useState('overview');
+  const [demoProgress, setDemoProgress] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [completedDemos, setCompletedDemos] = useState(new Set());
+  const [businessMetrics, setBusinessMetrics] = useState({
+    callsAnswered: 0,
+    customerSatisfaction: 85,
+    timesSaved: 0,
+    revenueProtected: 0,
+    emergenciesHandled: 0
+  });
+
+  const demoSections = [
+    {
+      id: 'overview',
+      title: 'Welcome to Your AI Assistant',
+      icon: Play,
+      description: 'See how AI transforms your business operations',
+      duration: '2 min'
+    },
+    {
+      id: 'chat',
+      title: 'Live Chat Handling',
+      icon: MessageCircle,
+      description: 'Handle multiple customer conversations simultaneously',
+      duration: '3 min'
+    },
+    {
+      id: 'phone',
+      title: 'Phone Call Management',
+      icon: Phone,
+      description: 'Listen to AI handle complex phone conversations',
+      duration: '4 min'
+    },
+    {
+      id: 'scheduling',
+      title: 'Smart Scheduling',
+      icon: Calendar,
+      description: 'Solve complex scheduling challenges with AI optimization',
+      duration: '3 min'
+    },
+    {
+      id: 'emergency',
+      title: 'Emergency Response',
+      icon: AlertTriangle,
+      description: 'Test crisis management and urgent situation handling',
+      duration: '2 min'
+    },
+    {
+      id: 'analytics',
+      title: 'Business Intelligence',
+      icon: BarChart3,
+      description: 'See real-time impact on your business metrics',
+      duration: '2 min'
+    }
+  ];
+
+  const updateMetrics = (updates) => {
+    setBusinessMetrics(prev => ({
+      ...prev,
+      ...updates
+    }));
+  };
+
+  const markDemoComplete = (demoId) => {
+    setCompletedDemos(prev => new Set([...prev, demoId]));
+    setDemoProgress(prev => Math.min(100, prev + (100 / (demoSections.length - 1))));
+  };
+
+  const resetDemo = () => {
+    setCurrentDemo('overview');
+    setDemoProgress(0);
+    setCompletedDemos(new Set());
+    setBusinessMetrics({
+      callsAnswered: 0,
+      customerSatisfaction: 85,
+      timesSaved: 0,
+      revenueProtected: 0,
+      emergenciesHandled: 0
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-blue-600 rounded-lg flex items-center justify-center">
+                <Zap className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">MindForU AI Assistant</h1>
+                <p className="text-sm text-gray-600">Interactive Demo Experience</p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <div className="text-right">
+                <p className="text-sm font-medium text-gray-900">Demo Progress</p>
+                <Progress value={demoProgress} className="w-32" />
+              </div>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={resetDemo}
+                className="flex items-center space-x-2"
+              >
+                <RotateCcw className="w-4 h-4" />
+                <span>Reset</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Sidebar Navigation */}
+          <div className="lg:col-span-1">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">Demo Sections</CardTitle>
+                <CardDescription>
+                  Explore different AI capabilities
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                {demoSections.map((section) => {
+                  const Icon = section.icon;
+                  const isCompleted = completedDemos.has(section.id);
+                  const isCurrent = currentDemo === section.id;
+                  
+                  return (
+                    <Button
+                      key={section.id}
+                      variant={isCurrent ? "default" : "ghost"}
+                      className={`w-full justify-start h-auto p-3 ${
+                        isCompleted ? 'bg-green-50 hover:bg-green-100' : ''
+                      }`}
+                      onClick={() => setCurrentDemo(section.id)}
+                    >
+                      <div className="flex items-start space-x-3 w-full">
+                        <div className="flex-shrink-0 mt-0.5">
+                          {isCompleted ? (
+                            <CheckCircle className="w-5 h-5 text-green-600" />
+                          ) : (
+                            <Icon className="w-5 h-5" />
+                          )}
+                        </div>
+                        <div className="flex-1 text-left">
+                          <p className="font-medium text-sm">{section.title}</p>
+                          <p className="text-xs text-gray-600 mt-1">{section.description}</p>
+                          <div className="flex items-center space-x-2 mt-2">
+                            <Clock className="w-3 h-3 text-gray-400" />
+                            <span className="text-xs text-gray-500">{section.duration}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </Button>
+                  );
+                })}
+              </CardContent>
+            </Card>
+
+            {/* Quick Stats */}
+            <Card className="mt-6">
+              <CardHeader>
+                <CardTitle className="text-lg">Your Impact</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-600">Calls Answered</span>
+                  <Badge variant="secondary">{businessMetrics.callsAnswered}</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-600">Satisfaction</span>
+                  <Badge variant="secondary">{businessMetrics.customerSatisfaction}%</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-600">Time Saved</span>
+                  <Badge variant="secondary">{businessMetrics.timesSaved}h</Badge>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-gray-600">Revenue Protected</span>
+                  <Badge variant="secondary">${businessMetrics.revenueProtected}</Badge>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Main Demo Area */}
+          <div className="lg:col-span-3">
+            {currentDemo === 'overview' && (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="text-2xl">Welcome to Your AI Assistant Demo</CardTitle>
+                  <CardDescription className="text-lg">
+                    Experience firsthand how AI transforms your business operations
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-semibold">What You'll Experience</h3>
+                      <ul className="space-y-3">
+                        <li className="flex items-start space-x-3">
+                          <MessageCircle className="w-5 h-5 text-blue-600 mt-0.5" />
+                          <div>
+                            <p className="font-medium">Live Chat Handling</p>
+                            <p className="text-sm text-gray-600">Manage multiple customer conversations simultaneously</p>
+                          </div>
+                        </li>
+                        <li className="flex items-start space-x-3">
+                          <Phone className="w-5 h-5 text-green-600 mt-0.5" />
+                          <div>
+                            <p className="font-medium">Phone Call Management</p>
+                            <p className="text-sm text-gray-600">Handle complex phone conversations with empathy</p>
+                          </div>
+                        </li>
+                        <li className="flex items-start space-x-3">
+                          <Calendar className="w-5 h-5 text-purple-600 mt-0.5" />
+                          <div>
+                            <p className="font-medium">Smart Scheduling</p>
+                            <p className="text-sm text-gray-600">Optimize complex scheduling challenges instantly</p>
+                          </div>
+                        </li>
+                        <li className="flex items-start space-x-3">
+                          <AlertTriangle className="w-5 h-5 text-red-600 mt-0.5" />
+                          <div>
+                            <p className="font-medium">Emergency Response</p>
+                            <p className="text-sm text-gray-600">Manage urgent situations with speed and care</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-semibold">Interactive Features</h3>
+                      <div className="bg-gradient-to-br from-teal-50 to-blue-50 p-4 rounded-lg">
+                        <div className="space-y-3">
+                          <div className="flex items-center space-x-2">
+                            <CheckCircle className="w-4 h-4 text-green-600" />
+                            <span className="text-sm">Make real decisions</span>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <CheckCircle className="w-4 h-4 text-green-600" />
+                            <span className="text-sm">See immediate results</span>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <CheckCircle className="w-4 h-4 text-green-600" />
+                            <span className="text-sm">Test different scenarios</span>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <CheckCircle className="w-4 h-4 text-green-600" />
+                            <span className="text-sm">Track business impact</span>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="pt-4">
+                        <Button 
+                          size="lg" 
+                          className="w-full"
+                          onClick={() => setCurrentDemo('chat')}
+                        >
+                          Start Interactive Demo
+                          <Play className="w-4 h-4 ml-2" />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
+            {currentDemo === 'chat' && (
+              <LiveChatSimulator 
+                onComplete={() => markDemoComplete('chat')}
+                onUpdateMetrics={updateMetrics}
+              />
+            )}
+
+            {currentDemo === 'phone' && (
+              <PhoneCallSimulator 
+                onComplete={() => markDemoComplete('phone')}
+                onUpdateMetrics={updateMetrics}
+              />
+            )}
+
+            {currentDemo === 'scheduling' && (
+              <SchedulingPlayground 
+                onComplete={() => markDemoComplete('scheduling')}
+                onUpdateMetrics={updateMetrics}
+              />
+            )}
+
+            {currentDemo === 'emergency' && (
+              <EmergencySimulator 
+                onComplete={() => markDemoComplete('emergency')}
+                onUpdateMetrics={updateMetrics}
+              />
+            )}
+
+            {currentDemo === 'analytics' && (
+              <BusinessDashboard 
+                metrics={businessMetrics}
+                onComplete={() => markDemoComplete('analytics')}
+              />
+            )}
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        {demoProgress >= 80 && (
+          <div className="mt-12 text-center">
+            <Card className="bg-gradient-to-r from-teal-500 to-blue-600 text-white">
+              <CardContent className="py-8">
+                <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Business?</h2>
+                <p className="text-lg mb-6 opacity-90">
+                  You've seen how AI can revolutionize your operations. Start your free trial today!
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" variant="secondary" className="text-teal-600">
+                    Start Free Trial
+                  </Button>
+                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-teal-600">
+                    Schedule Consultation
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+      </main>
+    </div>
+  );
+}
+
+export default App;
+
+7 - Create the LiveChatSimulator component
+
+import React, { useState, useEffect, useRef } from 'react';
+import { Button } from '@/components/ui/button.jsx';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx';
+import { Badge } from '@/components/ui/badge.jsx';
+import { Input } from '@/components/ui/input.jsx';
+import { 
+  MessageCircle, 
+  Send, 
+  ThumbsUp, 
+  ThumbsDown, 
+  Clock, 
+  User,
+  Bot,
+  CheckCircle,
+  AlertCircle
+} from 'lucide-react';
+
+const LiveChatSimulator = ({ onComplete, onUpdateMetrics }) => {
+  const [activeChats, setActiveChats] = useState([]);
+  const [selectedChat, setSelectedChat] = useState(null);
+  const [userInput, setUserInput] = useState('');
+  const [autoMode, setAutoMode] = useState(true);
+  const [completedChats, setCompletedChats] = useState(0);
+  const [satisfactionScore, setSatisfactionScore] = useState(0);
+  const messagesEndRef = useRef(null);
+
+  const customerProfiles = [
+    {
+      id: 1,
+      name: 'Sarah Johnson',
+      avatar: '👩‍💼',
+      type: 'urgent',
+      issue: 'Emergency dental appointment needed',
+      mood: 'anxious',
+      responses: [
+        "Hi, I have a terrible toothache and need to see Dr. Chen as soon as possible!",
+        "It started this morning and the pain is getting worse. Can you fit me in today?",
+        "Thank you so much! What should I bring to the appointment?",
+        "Perfect! You've been so helpful. I really appreciate the quick response."
+      ]
+    },
+    {
+      id: 2,
+      name: 'Mike Rodriguez',
+      avatar: '👨‍🔧',
+      type: 'inquiry',
+      issue: 'New patient consultation',
+      mood: 'curious',
+      responses: [
+        "Hello, I'm new to the area and looking for a dentist. Do you accept new patients?",
+        "Great! What's included in the initial consultation?",
+        "Do you accept Delta Dental insurance?",
+        "Sounds perfect! Thursday at 2 PM works great for me. Thank you!"
+      ]
+    },
+    {
+      id: 3,
+      name: 'Lisa Chen',
+      avatar: '👩‍🎓',
+      type: 'scheduling',
+      issue: 'Reschedule appointment',
+      mood: 'apologetic',
+      responses: [
+        "Hi, I need to reschedule my cleaning appointment tomorrow. Something urgent came up at work.",
+        "I'm flexible with timing. What do you have available next week?",
+        "Monday at 10 AM would be perfect! Is there a rescheduling fee?",
+        "Wonderful! Thanks for being so accommodating."
+      ]
+    }
+  ];
+
+  const aiResponses = {
+    1: [
+      "Hi Sarah! I'm so sorry to hear about your toothache. I understand how painful that must be. Let me check Dr. Chen's schedule right away for an emergency appointment.",
+      "I have an emergency slot available at 2:30 PM today. I'm booking that for you right now. For your emergency visit, please bring your ID, insurance card, and a list of any medications you're taking.",
+      "You're very welcome, Sarah! I've sent you a confirmation text with our address and parking information. Dr. Chen will take excellent care of you. Feel better soon!",
+      "It's my pleasure to help! Take care, and don't hesitate to call if you need anything else before your appointment."
+    ],
+    2: [
+      "Hello Mike! Welcome to the area! Yes, Dr. Chen is absolutely accepting new patients. We'd love to have you join our practice family.",
+      "Your initial consultation includes a comprehensive exam, digital X-rays, oral cancer screening, and a detailed treatment plan discussion. We also provide a complimentary teeth cleaning with your first visit.",
+      "Yes, we're in-network with Delta Dental! I can verify your specific benefits if you'd like. Most preventive care is covered at 100%.",
+      "Excellent! I've scheduled your new patient appointment for Thursday at 2 PM. I'm emailing you our new patient forms to fill out beforehand - this will save you time when you arrive. Looking forward to meeting you!"
+    ],
+    3: [
+      "Hi Lisa! No problem at all - these things happen. I'd be happy to reschedule your cleaning appointment for you.",
+      "I have several options next week: Monday at 10 AM, Wednesday at 3 PM, or Friday at 9 AM. Which works best for your schedule?",
+      "Perfect! I've moved your appointment to Monday at 10 AM. There's no rescheduling fee since you're giving us more than 24 hours notice. You'll receive a confirmation email shortly.",
+      "You're so welcome! We appreciate your understanding. See you Monday at 10 AM!"
+    ]
+  };
+
+  useEffect(() => {
+    // Start the first chat automatically
+    if (activeChats.length === 0) {
+      startNewChat(customerProfiles[0]);
+    }
+  }, []);
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [selectedChat]);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const startNewChat = (customer) => {
+    const newChat = {
+      id: customer.id,
+      customer: customer,
+      messages: [
+        {
+          id: 1,
+          sender: 'customer',
+          text: customer.responses[0],
+          timestamp: new Date(),
+          status: 'delivered'
+        }
+      ],
+      status: 'active',
+      responseIndex: 0,
+      satisfaction: null
+    };
+
+    setActiveChats(prev => [...prev, newChat]);
+    setSelectedChat(newChat.id);
+
+    // Auto-respond if in auto mode
+    if (autoMode) {
+      setTimeout(() => {
+        sendAIResponse(newChat.id, 0);
+      }, 2000);
+    }
+  };
+
+  const sendAIResponse = (chatId, responseIndex) => {
+    const aiResponseText = aiResponses[chatId][responseIndex];
+    
+    setActiveChats(prev => prev.map(chat => {
+      if (chat.id === chatId) {
+        const updatedChat = {
+          ...chat,
+          messages: [...chat.messages, {
+            id: chat.messages.length + 1,
+            sender: 'ai',
+            text: aiResponseText,
+            timestamp: new Date(),
+            status: 'delivered'
+          }],
+          responseIndex: responseIndex + 1
+        };
+
+        // Schedule next customer response if available
+        if (responseIndex + 1 < chat.customer.responses.length) {
+          setTimeout(() => {
+            sendCustomerResponse(chatId, responseIndex + 1);
+          }, 3000);
+        } else {
+          // Chat completed
+          setTimeout(() => {
+            completeChat(chatId);
+          }, 2000);
+        }
+
+        return updatedChat;
+      }
+      return chat;
+    }));
+
+    // Update metrics
+    onUpdateMetrics({
+      callsAnswered: completedChats + activeChats.length
+    });
+  };
+
+  const sendCustomerResponse = (chatId, responseIndex) => {
+    const chat = activeChats.find(c => c.id === chatId);
+    const customerResponseText = chat.customer.responses[responseIndex];
+
+    setActiveChats(prev => prev.map(chat => {
+      if (chat.id === chatId) {
+        return {
+          ...chat,
+          messages: [...chat.messages, {
+            id: chat.messages.length + 1,
+            sender: 'customer',
+            text: customerResponseText,
+            timestamp: new Date(),
+            status: 'delivered'
+          }]
+        };
+      }
+      return chat;
+    }));
+
+    // Auto-respond if in auto mode
+    if (autoMode && responseIndex < aiResponses[chatId].length) {
+      setTimeout(() => {
+        sendAIResponse(chatId, responseIndex);
+      }, 2000);
+    }
+  };
+
+  const completeChat = (chatId) => {
+    const satisfaction = Math.floor(Math.random() * 2) + 4; // 4 or 5 stars
+    
+    setActiveChats(prev => prev.map(chat => {
+      if (chat.id === chatId) {
+        return {
+          ...chat,
+          status: 'completed',
+          satisfaction: satisfaction
+        };
+      }
+      return chat;
+    }));
+
+    setCompletedChats(prev => prev + 1);
+    setSatisfactionScore(prev => (prev + satisfaction) / (completedChats + 1));
+
+    // Start next chat if available
+    const nextCustomer = customerProfiles.find(c => 
+      !activeChats.some(chat => chat.customer.id === c.id)
+    );
+    
+    if (nextCustomer) {
+      setTimeout(() => {
+        startNewChat(nextCustomer);
+      }, 3000);
+    } else if (completedChats >= 2) {
+      // Demo completed
+      setTimeout(() => {
+        onComplete();
+        onUpdateMetrics({
+          customerSatisfaction: Math.round(satisfactionScore * 20), // Convert to percentage
+          callsAnswered: completedChats + 1
+        });
+      }, 2000);
+    }
+  };
+
+  const sendManualResponse = () => {
+    if (!userInput.trim() || !selectedChat) return;
+
+    const chatId = selectedChat;
+    const chat = activeChats.find(c => c.id === chatId);
+    
+    setActiveChats(prev => prev.map(chat => {
+      if (chat.id === chatId) {
+        return {
+          ...chat,
+          messages: [...chat.messages, {
+            id: chat.messages.length + 1,
+            sender: 'user',
+            text: userInput,
+            timestamp: new Date(),
+            status: 'delivered'
+          }]
+        };
+      }
+      return chat;
+    }));
+
+    setUserInput('');
+
+    // Continue with customer response
+    if (chat.responseIndex < chat.customer.responses.length) {
+      setTimeout(() => {
+        sendCustomerResponse(chatId, chat.responseIndex);
+      }, 2000);
+    }
+  };
+
+  const currentChat = activeChats.find(chat => chat.id === selectedChat);
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2">
+            <MessageCircle className="w-5 h-5" />
+            <span>Live Chat Simulator</span>
+          </CardTitle>
+          <CardDescription>
+            Handle multiple customer conversations simultaneously. Watch the AI respond or take control yourself.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center space-x-4">
+              <Badge variant="secondary">
+                Active Chats: {activeChats.filter(c => c.status === 'active').length}
+              </Badge>
+              <Badge variant="secondary">
+                Completed: {completedChats}
+              </Badge>
+              <Badge variant="secondary">
+                Avg Satisfaction: {satisfactionScore.toFixed(1)}/5
+              </Badge>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Button
+                variant={autoMode ? "default" : "outline"}
+                size="sm"
+                onClick={() => setAutoMode(!autoMode)}
+              >
+                {autoMode ? 'Auto Mode' : 'Manual Mode'}
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Chat List */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-lg">Active Conversations</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            {activeChats.map(chat => (
+              <Button
+                key={chat.id}
+                variant={selectedChat === chat.id ? "default" : "ghost"}
+                className="w-full justify-start h-auto p-3"
+                onClick={() => setSelectedChat(chat.id)}
+              >
+                <div className="flex items-center space-x-3 w-full">
+                  <div className="text-2xl">{chat.customer.avatar}</div>
+                  <div className="flex-1 text-left">
+                    <p className="font-medium text-sm">{chat.customer.name}</p>
+                    <p className="text-xs text-gray-600">{chat.customer.issue}</p>
+                    <div className="flex items-center space-x-2 mt-1">
+                      {chat.status === 'completed' ? (
+                        <CheckCircle className="w-3 h-3 text-green-600" />
+                      ) : (
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                      )}
+                      <span className="text-xs text-gray-500">
+                        {chat.status === 'completed' ? 'Completed' : 'Active'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Button>
+            ))}
+          </CardContent>
+        </Card>
+
+        {/* Chat Window */}
+        <Card className="lg:col-span-2">
+          <CardHeader>
+            {currentChat && (
+              <div className="flex items-center space-x-3">
+                <div className="text-2xl">{currentChat.customer.avatar}</div>
+                <div>
+                  <CardTitle className="text-lg">{currentChat.customer.name}</CardTitle>
+                  <CardDescription>{currentChat.customer.issue}</CardDescription>
+                </div>
+                {currentChat.satisfaction && (
+                  <div className="ml-auto">
+                    <Badge variant="secondary">
+                      {currentChat.satisfaction}/5 ⭐
+                    </Badge>
+                  </div>
+                )}
+              </div>
+            )}
+          </CardHeader>
+          <CardContent>
+            {currentChat ? (
+              <div className="space-y-4">
+                {/* Messages */}
+                <div className="h-96 overflow-y-auto border rounded-lg p-4 space-y-3">
+                  {currentChat.messages.map(message => (
+                    <div
+                      key={message.id}
+                      className={`flex ${message.sender === 'customer' ? 'justify-start' : 'justify-end'}`}
+                    >
+                      <div
+                        className={`max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${
+                          message.sender === 'customer'
+                            ? 'bg-gray-100 text-gray-900'
+                            : message.sender === 'ai'
+                            ? 'bg-blue-600 text-white'
+                            : 'bg-green-600 text-white'
+                        }`}
+                      >
+                        <div className="flex items-center space-x-2 mb-1">
+                          {message.sender === 'customer' ? (
+                            <User className="w-3 h-3" />
+                          ) : message.sender === 'ai' ? (
+                            <Bot className="w-3 h-3" />
+                          ) : (
+                            <User className="w-3 h-3" />
+                          )}
+                          <span className="text-xs opacity-75">
+                            {message.sender === 'customer' ? currentChat.customer.name : 
+                             message.sender === 'ai' ? 'AI Assistant' : 'You'}
+                          </span>
+                        </div>
+                        <p className="text-sm">{message.text}</p>
+                        <p className="text-xs opacity-75 mt-1">
+                          {message.timestamp.toLocaleTimeString()}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                  <div ref={messagesEndRef} />
+                </div>
+
+                {/* Input Area */}
+                {!autoMode && currentChat.status === 'active' && (
+                  <div className="flex space-x-2">
+                    <Input
+                      value={userInput}
+                      onChange={(e) => setUserInput(e.target.value)}
+                      placeholder="Type your response..."
+                      onKeyPress={(e) => e.key === 'Enter' && sendManualResponse()}
+                    />
+                    <Button onClick={sendManualResponse}>
+                      <Send className="w-4 h-4" />
+                    </Button>
+                  </div>
+                )}
+
+                {autoMode && currentChat.status === 'active' && (
+                  <div className="text-center py-4">
+                    <div className="inline-flex items-center space-x-2 text-sm text-gray-600">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
+                      <span>AI Assistant is typing...</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="text-center py-12 text-gray-500">
+                Select a conversation to view messages
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default LiveChatSimulator;
+
+8 - Create the PhoneCallSimulator component
+
+import React, { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button.jsx';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx';
+import { Badge } from '@/components/ui/badge.jsx';
+import { Progress } from '@/components/ui/progress.jsx';
+import { 
+  Phone, 
+  Play, 
+  Pause, 
+  SkipForward, 
+  Volume2, 
+  PhoneCall,
+  Clock,
+  CheckCircle,
+  AlertTriangle,
+  Calendar,
+  Heart
+} from 'lucide-react';
+
+const PhoneCallSimulator = ({ onComplete, onUpdateMetrics }) => {
+  const [currentCall, setCurrentCall] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [callProgress, setCallProgress] = useState(0);
+  const [completedCalls, setCompletedCalls] = useState(0);
+  const [showDecisionPoint, setShowDecisionPoint] = useState(false);
+  const [selectedResponse, setSelectedResponse] = useState(null);
+
+  const callScenarios = [
+    {
+      id: 1,
+      caller: 'Mrs. Johnson',
+      type: 'emergency',
+      icon: AlertTriangle,
+      color: 'text-red-600',
+      bgColor: 'bg-red-50',
+      description: 'Dental emergency - severe toothache',
+      duration: 180,
+      transcript: [
+        { speaker: 'ai', text: "Good morning! Thank you for calling Riverside Dental Practice. This is Alex, Dr. Chen's assistant. How may I help you today?", time: 0 },
+        { speaker: 'caller', text: "Hi, I have a terrible toothache and need to see Dr. Chen as soon as possible!", time: 8 },
+        { speaker: 'ai', text: "I'm so sorry to hear about your toothache, Mrs. Johnson. I understand how uncomfortable that must be. Let me check Dr. Chen's schedule right away...", time: 15 },
+        { speaker: 'decision', text: "How should the AI respond to this emergency?", time: 25, options: [
+          "Offer the next available emergency slot immediately",
+          "Ask more questions about the pain level first",
+          "Suggest over-the-counter pain relief while waiting"
+        ]},
+        { speaker: 'ai', text: "I can see you have an emergency slot available at 10:30 AM this morning. Would that work for you?", time: 30 },
+        { speaker: 'caller', text: "Yes, that would be perfect! But I can't remember if my insurance covers emergency visits.", time: 38 },
+        { speaker: 'ai', text: "No problem at all. I have your insurance information on file - you have Delta Dental PPO. Emergency visits are covered with a $50 copay. I'll verify your benefits before your appointment.", time: 45 },
+        { speaker: 'caller', text: "That would be wonderful. Thank you so much!", time: 55 },
+        { speaker: 'ai', text: "You're very welcome, Mrs. Johnson. I've scheduled your emergency appointment for 10:30 AM and I'm sending you a confirmation text right now. Dr. Chen will take excellent care of you.", time: 62 }
+      ],
+      outcome: {
+        satisfaction: 5,
+        appointmentBooked: true,
+        revenue: 350,
+        notes: "Emergency handled with empathy and efficiency"
+      }
+    },
+    {
+      id: 2,
+      caller: 'Mr. Rodriguez',
+      type: 'new_patient',
+      icon: Phone,
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-50',
+      description: 'New patient inquiry and consultation booking',
+      duration: 240,
+      transcript: [
+        { speaker: 'ai', text: "Good afternoon! Thank you for calling Riverside Dental Practice. This is Alex. How may I help you today?", time: 0 },
+        { speaker: 'caller', text: "Hi, I'm new to the area and looking for a dentist. Do you accept new patients?", time: 7 },
+        { speaker: 'ai', text: "Absolutely! We'd love to welcome you to our practice family. Dr. Chen is currently accepting new patients.", time: 14 },
+        { speaker: 'decision', text: "What should the AI focus on next?", time: 22, options: [
+          "Immediately offer available appointment times",
+          "Explain what's included in the new patient visit",
+          "Ask about insurance and payment options first"
+        ]},
+        { speaker: 'ai', text: "Our next available new patient appointment is Thursday at 2:00 PM or Friday at 11:00 AM. Which works better for you?", time: 27 },
+        { speaker: 'caller', text: "Thursday at 2:00 PM sounds good. What should I bring?", time: 35 },
+        { speaker: 'ai', text: "Perfect! I'll need some basic information from you, and then I'll email you our new patient forms to fill out beforehand. Please bring a valid ID, your insurance card, and a list of any medications.", time: 42 },
+        { speaker: 'caller', text: "Sounds great! Do you accept most insurance plans?", time: 52 },
+        { speaker: 'ai', text: "Yes, we accept most major insurance plans. If you give me your insurance information, I can verify your benefits right now and let you know your expected costs.", time: 59 },
+        { speaker: 'caller', text: "That would be very helpful. I have Blue Cross Blue Shield.", time: 68 },
+        { speaker: 'ai', text: "Excellent! Blue Cross Blue Shield typically covers 100% of preventive care like cleanings and exams. I'll verify your specific benefits and email you the details along with your appointment confirmation.", time: 75 }
+      ],
+      outcome: {
+        satisfaction: 5,
+        appointmentBooked: true,
+        revenue: 280,
+        notes: "New patient successfully onboarded with insurance verification"
+      }
+    },
+    {
+      id: 3,
+      caller: 'Mrs. Patterson',
+      type: 'complex_scheduling',
+      icon: Calendar,
+      color: 'text-purple-600',
+      bgColor: 'bg-purple-50',
+      description: 'Complex family scheduling coordination',
+      duration: 300,
+      transcript: [
+        { speaker: 'ai', text: "Good morning! Thank you for calling Riverside Dental Practice. This is Alex. How may I help you today?", time: 0 },
+        { speaker: 'caller', text: "Hi, this is complicated. I need to schedule appointments for my whole family - that's me, my husband, and our three kids. We're all due for cleanings.", time: 8 },
+        { speaker: 'ai', text: "I'd be happy to help coordinate appointments for your entire family, Mrs. Patterson. Let me understand your scheduling needs first. What days and times work best for everyone?", time: 18 },
+        { speaker: 'caller', text: "Well, the kids can only come after 3:30 PM on weekdays or anytime on Saturdays. My husband works shifts, so he needs either very early morning or late afternoon. And I can only do mid-morning on weekdays.", time: 28 },
+        { speaker: 'decision', text: "How should the AI approach this complex scheduling challenge?", time: 40, options: [
+          "Suggest scheduling everyone on the same day for convenience",
+          "Optimize individual schedules based on each person's constraints",
+          "Offer a mix of weekday and Saturday appointments"
+        ]},
+        { speaker: 'ai', text: "I understand completely. Let me work out a schedule that accommodates everyone. I can offer you Thursday at 10:00 AM for your cleaning, your husband Friday at 7:30 AM, and all three children on the same Saturday - 9:00 AM, 10:00 AM, and 11:00 AM.", time: 45 },
+        { speaker: 'caller', text: "That sounds perfect! Can you really do all the kids on the same Saturday?", time: 58 },
+        { speaker: 'ai', text: "Absolutely! We often schedule families together on Saturdays. This way you only need to make one trip for all three children. I'm also noting that your youngest might need extra time, so I'll block a longer appointment for them.", time: 65 },
+        { speaker: 'caller', text: "You've thought of everything! This is so much easier than I expected.", time: 75 },
+        { speaker: 'ai', text: "I'm so glad I could help! I'm sending you confirmation emails for all five appointments with detailed instructions for each family member. You'll also receive reminder texts the day before each appointment.", time: 82 }
+      ],
+      outcome: {
+        satisfaction: 5,
+        appointmentBooked: true,
+        revenue: 1200,
+        notes: "Complex family scheduling solved efficiently, high customer satisfaction"
+      }
+    }
+  ];
+
+  useEffect(() => {
+    if (!currentCall) {
+      setCurrentCall(callScenarios[0]);
+    }
+  }, []);
+
+  useEffect(() => {
+    let interval;
+    if (isPlaying && currentCall && callProgress < 100) {
+      interval = setInterval(() => {
+        setCallProgress(prev => {
+          const newProgress = prev + (100 / currentCall.duration) * 2; // 2 seconds per update
+          
+          // Check for decision points
+          const currentTime = (newProgress / 100) * currentCall.duration;
+          const decisionPoint = currentCall.transcript.find(
+            item => item.speaker === 'decision' && 
+            Math.abs(item.time - currentTime) < 3 && 
+            !selectedResponse
+          );
+          
+          if (decisionPoint) {
+            setShowDecisionPoint(true);
+            setIsPlaying(false);
+          }
+          
+          if (newProgress >= 100) {
+            setIsPlaying(false);
+            completeCall();
+            return 100;
+          }
+          
+          return newProgress;
+        });
+      }, 2000);
+    }
+    
+    return () => clearInterval(interval);
+  }, [isPlaying, currentCall, callProgress, selectedResponse]);
+
+  const completeCall = () => {
+    setCompletedCalls(prev => prev + 1);
+    
+    // Update metrics
+    onUpdateMetrics({
+      callsAnswered: completedCalls + 1,
+      revenueProtected: currentCall.outcome.revenue,
+      customerSatisfaction: currentCall.outcome.satisfaction * 20
+    });
+
+    // Move to next call or complete demo
+    setTimeout(() => {
+      const nextCallIndex = callScenarios.findIndex(call => call.id === currentCall.id) + 1;
+      if (nextCallIndex < callScenarios.length) {
+        setCurrentCall(callScenarios[nextCallIndex]);
+        setCallProgress(0);
+        setSelectedResponse(null);
+        setShowDecisionPoint(false);
+      } else {
+        onComplete();
+      }
+    }, 3000);
+  };
+
+  const handleDecisionResponse = (option) => {
+    setSelectedResponse(option);
+    setShowDecisionPoint(false);
+    setIsPlaying(true);
+  };
+
+  const getCurrentTranscriptItem = () => {
+    if (!currentCall) return null;
+    const currentTime = (callProgress / 100) * currentCall.duration;
+    return currentCall.transcript.find((item, index) => {
+      const nextItem = currentCall.transcript[index + 1];
+      return item.time <= currentTime && (!nextItem || nextItem.time > currentTime);
+    });
+  };
+
+  const getVisibleTranscript = () => {
+    if (!currentCall) return [];
+    const currentTime = (callProgress / 100) * currentCall.duration;
+    return currentCall.transcript.filter(item => 
+      item.time <= currentTime && item.speaker !== 'decision'
+    );
+  };
+
+  const currentTranscriptItem = getCurrentTranscriptItem();
+  const visibleTranscript = getVisibleTranscript();
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2">
+            <Phone className="w-5 h-5" />
+            <span>Phone Call Simulator</span>
+          </CardTitle>
+          <CardDescription>
+            Listen to realistic phone conversations and make decisions about how the AI should respond.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center space-x-4">
+              <Badge variant="secondary">
+                Calls Completed: {completedCalls}
+              </Badge>
+              <Badge variant="secondary">
+                Current: {currentCall?.caller}
+              </Badge>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Call Scenarios */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        {callScenarios.map((scenario) => {
+          const Icon = scenario.icon;
+          const isActive = currentCall?.id === scenario.id;
+          const isCompleted = completedCalls >= callScenarios.findIndex(s => s.id === scenario.id);
+          
+          return (
+            <Card 
+              key={scenario.id} 
+              className={`cursor-pointer transition-all ${
+                isActive ? 'ring-2 ring-blue-500' : ''
+              } ${isCompleted ? 'bg-green-50' : scenario.bgColor}`}
+              onClick={() => {
+                if (!isPlaying) {
+                  setCurrentCall(scenario);
+                  setCallProgress(0);
+                  setSelectedResponse(null);
+                  setShowDecisionPoint(false);
+                }
+              }}
+            >
+              <CardContent className="p-4">
+                <div className="flex items-center space-x-3">
+                  <Icon className={`w-5 h-5 ${scenario.color}`} />
+                  <div className="flex-1">
+                    <p className="font-medium text-sm">{scenario.caller}</p>
+                    <p className="text-xs text-gray-600">{scenario.description}</p>
+                  </div>
+                  {isCompleted && <CheckCircle className="w-4 h-4 text-green-600" />}
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+
+      {/* Main Call Interface */}
+      {currentCall && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Call Controls */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <PhoneCall className="w-5 h-5" />
+                <span>Call in Progress: {currentCall.caller}</span>
+              </CardTitle>
+              <CardDescription>{currentCall.description}</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {/* Progress */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-sm">
+                  <span>Call Progress</span>
+                  <span>{Math.round(callProgress)}%</span>
+                </div>
+                <Progress value={callProgress} />
+              </div>
+
+              {/* Controls */}
+              <div className="flex items-center justify-center space-x-4">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setIsPlaying(!isPlaying)}
+                  disabled={showDecisionPoint || callProgress >= 100}
+                >
+                  {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+                  {isPlaying ? 'Pause' : 'Play'}
+                </Button>
+                
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setCallProgress(0);
+                    setSelectedResponse(null);
+                    setShowDecisionPoint(false);
+                    setIsPlaying(false);
+                  }}
+                >
+                  <SkipForward className="w-4 h-4" />
+                  Restart
+                </Button>
+              </div>
+
+              {/* Current Speaker */}
+              {currentTranscriptItem && (
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <Volume2 className="w-4 h-4 text-blue-600" />
+                    <span className="font-medium text-sm">
+                      {currentTranscriptItem.speaker === 'ai' ? 'AI Assistant' : currentCall.caller}
+                    </span>
+                  </div>
+                  <p className="text-sm">{currentTranscriptItem.text}</p>
+                </div>
+              )}
+
+              {/* Decision Point */}
+              {showDecisionPoint && (
+                <Card className="border-orange-200 bg-orange-50">
+                  <CardContent className="p-4">
+                    <h4 className="font-medium text-sm mb-3 flex items-center space-x-2">
+                      <AlertTriangle className="w-4 h-4 text-orange-600" />
+                      <span>Decision Point</span>
+                    </h4>
+                    <p className="text-sm mb-3">
+                      {currentCall.transcript.find(item => item.speaker === 'decision')?.text}
+                    </p>
+                    <div className="space-y-2">
+                      {currentCall.transcript.find(item => item.speaker === 'decision')?.options.map((option, index) => (
+                        <Button
+                          key={index}
+                          variant="outline"
+                          size="sm"
+                          className="w-full text-left justify-start h-auto p-3"
+                          onClick={() => handleDecisionResponse(option)}
+                        >
+                          {option}
+                        </Button>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+            </CardContent>
+          </Card>
+
+          {/* Transcript */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Call Transcript</CardTitle>
+              <CardDescription>Real-time conversation transcript</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="h-96 overflow-y-auto space-y-3">
+                {visibleTranscript.map((item, index) => (
+                  <div
+                    key={index}
+                    className={`p-3 rounded-lg ${
+                      item.speaker === 'ai' 
+                        ? 'bg-blue-50 border-l-4 border-blue-500' 
+                        : 'bg-gray-50 border-l-4 border-gray-500'
+                    }`}
+                  >
+                    <div className="flex items-center space-x-2 mb-1">
+                      <span className="font-medium text-sm">
+                        {item.speaker === 'ai' ? 'AI Assistant' : currentCall.caller}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        {Math.floor(item.time / 60)}:{(item.time % 60).toString().padStart(2, '0')}
+                      </span>
+                    </div>
+                    <p className="text-sm">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
+      {/* Call Outcome */}
+      {callProgress >= 100 && currentCall && (
+        <Card className="border-green-200 bg-green-50">
+          <CardContent className="p-6">
+            <div className="flex items-center space-x-2 mb-4">
+              <CheckCircle className="w-5 h-5 text-green-600" />
+              <h3 className="font-semibold">Call Completed Successfully!</h3>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-600">
+                  {currentCall.outcome.satisfaction}/5
+                </p>
+                <p className="text-sm text-gray-600">Customer Satisfaction</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-600">
+                  {currentCall.outcome.appointmentBooked ? 'Yes' : 'No'}
+                </p>
+                <p className="text-sm text-gray-600">Appointment Booked</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-600">
+                  ${currentCall.outcome.revenue}
+                </p>
+                <p className="text-sm text-gray-600">Revenue Generated</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-600">
+                  {Math.floor(currentCall.duration / 60)}m
+                </p>
+                <p className="text-sm text-gray-600">Call Duration</p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-600 mt-4 italic">
+              {currentCall.outcome.notes}
+            </p>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  );
+};
+
+export default PhoneCallSimulator;
+
+9 - Create the SchedulingPlayground component
+
+import React, { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button.jsx';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx';
+import { Badge } from '@/components/ui/badge.jsx';
+import { Input } from '@/components/ui/input.jsx';
+import { Label } from '@/components/ui/label.jsx';
+import { 
+  Calendar, 
+  Clock, 
+  Users, 
+  CheckCircle, 
+  AlertCircle, 
+  Zap,
+  RefreshCw,
+  Target,
+  TrendingUp
+} from 'lucide-react';
+
+const SchedulingPlayground = ({ onComplete, onUpdateMetrics }) => {
+  const [currentChallenge, setCurrentChallenge] = useState(0);
+  const [userSolution, setUserSolution] = useState([]);
+  const [aiSolution, setAiSolution] = useState([]);
+  const [showAiSolution, setShowAiSolution] = useState(false);
+  const [completedChallenges, setCompletedChallenges] = useState(0);
+  const [timesSaved, setTimesSaved] = useState(0);
+
+  const schedulingChallenges = [
+    {
+      id: 1,
+      title: "Family Coordination Challenge",
+      description: "Schedule the Patterson family (5 people) with complex constraints",
+      difficulty: "Medium",
+      timeLimit: 300, // 5 minutes
+      constraints: [
+        "Parents work 9-5 weekdays",
+        "Kids available after 3:30 PM weekdays or weekends",
+        "Youngest child needs extra time (45 min vs 30 min)",
+        "Family prefers same-day appointments when possible",
+        "Insurance covers 2 cleanings per year per person"
+      ],
+      people: [
+        { name: "Sarah Patterson", age: 42, type: "cleaning", duration: 60, constraints: ["weekday mornings", "weekend mornings"] },
+        { name: "Mike Patterson", age: 45, type: "cleaning + filling", duration: 90, constraints: ["early morning", "late afternoon", "weekends"] },
+        { name: "Emma Patterson", age: 16, type: "cleaning", duration: 60, constraints: ["after 3:30 PM weekdays", "weekends"] },
+        { name: "Jake Patterson", age: 12, type: "cleaning", duration: 60, constraints: ["after 3:30 PM weekdays", "weekends"] },
+        { name: "Lily Patterson", age: 8, type: "cleaning + sealants", duration: 75, constraints: ["after 3:30 PM weekdays", "weekends", "needs extra time"] }
+      ],
+      availableSlots: [
+        { day: "Monday", time: "9:00 AM", duration: 60 },
+        { day: "Monday", time: "10:00 AM", duration: 60 },
+        { day: "Tuesday", time: "8:00 AM", duration: 90 },
+        { day: "Wednesday", time: "10:30 AM", duration: 60 },
+        { day: "Thursday", time: "4:00 PM", duration: 90 },
+        { day: "Friday", time: "7:30 AM", duration: 90 },
+        { day: "Saturday", time: "9:00 AM", duration: 75 },
+        { day: "Saturday", time: "10:30 AM", duration: 60 },
+        { day: "Saturday", time: "12:00 PM", duration: 60 },
+        { day: "Saturday", time: "1:30 PM", duration: 60 }
+      ],
+      optimalSolution: [
+        { person: "Sarah Patterson", slot: { day: "Wednesday", time: "10:30 AM" }, reasoning: "Weekday morning preference" },
+        { person: "Mike Patterson", slot: { day: "Friday", time: "7:30 AM" }, reasoning: "Early morning + enough time for filling" },
+        { person: "Emma Patterson", slot: { day: "Saturday", time: "10:30 AM" }, reasoning: "Weekend availability" },
+        { person: "Jake Patterson", slot: { day: "Saturday", time: "12:00 PM" }, reasoning: "Same day as siblings" },
+        { person: "Lily Patterson", slot: { day: "Saturday", time: "9:00 AM" }, reasoning: "Extra time needed + same day as siblings" }
+      ],
+      metrics: {
+        efficiency: 95,
+        satisfaction: 98,
+        timeSaved: 45
+      }
+    },
+    {
+      id: 2,
+      title: "Emergency Optimization",
+      description: "Fit in 3 emergency patients while maintaining existing schedule",
+      difficulty: "Hard",
+      timeLimit: 240,
+      constraints: [
+        "Existing patients cannot be moved",
+        "Emergency patients need same-day care",
+        "Dr. Chen has lunch 12-1 PM",
+        "Last appointment must end by 6 PM",
+        "Emergency slots should be 30 minutes minimum"
+      ],
+      existingSchedule: [
+        { time: "9:00 AM", patient: "Regular cleaning - Mrs. Smith", duration: 60 },
+        { time: "10:30 AM", patient: "Crown prep - Mr. Johnson", duration: 90 },
+        { time: "2:00 PM", patient: "Root canal - Ms. Davis", duration: 120 },
+        { time: "4:30 PM", patient: "Consultation - New patient", duration: 60 }
+      ],
+      emergencyPatients: [
+        { name: "Tommy Martinez", issue: "Chipped tooth", urgency: "High", duration: 45 },
+        { name: "Mrs. Wilson", issue: "Lost filling", urgency: "Medium", duration: 30 },
+        { name: "Mr. Brown", issue: "Severe pain", urgency: "High", duration: 60 }
+      ],
+      optimalSolution: [
+        { patient: "Mr. Brown", slot: "8:00 AM", reasoning: "Highest urgency, early slot" },
+        { patient: "Tommy Martinez", slot: "12:00 PM", reasoning: "Before lunch, adequate time" },
+        { patient: "Mrs. Wilson", slot: "5:30 PM", reasoning: "Quick fix, end of day" }
+      ],
+      metrics: {
+        efficiency: 88,
+        satisfaction: 92,
+        timeSaved: 60
+      }
+    },
+    {
+      id: 3,
+      title: "Resource Optimization",
+      description: "Maximize daily revenue while balancing staff workload",
+      difficulty: "Expert",
+      timeLimit: 360,
+      constraints: [
+        "2 hygienists available",
+        "1 dentist (Dr. Chen)",
+        "Hygienist can do cleanings only",
+        "Dr. Chen needed for exams, procedures",
+        "Target: $3000+ daily revenue",
+        "No overtime (8-hour day max)"
+      ],
+      procedures: [
+        { type: "Cleaning", duration: 60, revenue: 150, staff: "hygienist" },
+        { type: "Cleaning + Exam", duration: 75, revenue: 200, staff: "hygienist + dentist" },
+        { type: "Filling", duration: 90, revenue: 300, staff: "dentist" },
+        { type: "Crown", duration: 120, revenue: 800, staff: "dentist" },
+        { type: "Root Canal", duration: 150, revenue: 1200, staff: "dentist" },
+        { type: "Consultation", duration: 45, revenue: 100, staff: "dentist" }
+      ],
+      patientRequests: [
+        { name: "Patient A", procedure: "Root Canal", flexibility: "Low" },
+        { name: "Patient B", procedure: "Crown", flexibility: "Medium" },
+        { name: "Patient C", procedure: "Cleaning + Exam", flexibility: "High" },
+        { name: "Patient D", procedure: "Filling", flexibility: "Medium" },
+        { name: "Patient E", procedure: "Cleaning", flexibility: "High" },
+        { name: "Patient F", procedure: "Consultation", flexibility: "High" },
+        { name: "Patient G", procedure: "Cleaning + Exam", flexibility: "High" },
+        { name: "Patient H", procedure: "Filling", flexibility: "Low" }
+      ],
+      optimalSolution: {
+        schedule: [
+          { time: "8:00-10:30", patient: "Patient A", procedure: "Root Canal", revenue: 1200 },
+          { time: "8:00-9:15", patient: "Patient C", procedure: "Cleaning + Exam", revenue: 200 },
+          { time: "9:30-10:45", patient: "Patient G", procedure: "Cleaning + Exam", revenue: 200 },
+          { time: "11:00-12:30", patient: "Patient B", procedure: "Crown", revenue: 800 },
+          { time: "11:00-12:00", patient: "Patient E", procedure: "Cleaning", revenue: 150 },
+          { time: "1:30-3:00", patient: "Patient D", procedure: "Filling", revenue: 300 },
+          { time: "1:30-2:30", patient: "Patient F", procedure: "Consultation", revenue: 100 },
+          { time: "3:15-4:45", patient: "Patient H", procedure: "Filling", revenue: 300 }
+        ],
+        totalRevenue: 3250,
+        staffUtilization: { dentist: 95, hygienist1: 90, hygienist2: 85 }
+      },
+      metrics: {
+        efficiency: 92,
+        satisfaction: 89,
+        timeSaved: 90
+      }
+    }
+  ];
+
+  const [userStartTime, setUserStartTime] = useState(null);
+  const [solutionTime, setSolutionTime] = useState(0);
+
+  useEffect(() => {
+    if (userStartTime) {
+      const interval = setInterval(() => {
+        setSolutionTime(Date.now() - userStartTime);
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [userStartTime]);
+
+  const startChallenge = () => {
+    setUserStartTime(Date.now());
+    setUserSolution([]);
+    setShowAiSolution(false);
+  };
+
+  const submitSolution = () => {
+    const timeTaken = (Date.now() - userStartTime) / 1000;
+    setShowAiSolution(true);
+    
+    // Calculate time saved vs manual scheduling
+    const manualTime = schedulingChallenges[currentChallenge].timeLimit;
+    const saved = Math.max(0, manualTime - timeTaken);
+    setTimesSaved(prev => prev + saved);
+    
+    onUpdateMetrics({
+      timesSaved: Math.round(saved / 60) // Convert to hours
+    });
+  };
+
+  const nextChallenge = () => {
+    setCompletedChallenges(prev => prev + 1);
+    
+    if (currentChallenge < schedulingChallenges.length - 1) {
+      setCurrentChallenge(prev => prev + 1);
+      setUserStartTime(null);
+      setSolutionTime(0);
+      setUserSolution([]);
+      setShowAiSolution(false);
+    } else {
+      onComplete();
+    }
+  };
+
+  const challenge = schedulingChallenges[currentChallenge];
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2">
+            <Calendar className="w-5 h-5" />
+            <span>Smart Scheduling Playground</span>
+          </CardTitle>
+          <CardDescription>
+            Solve complex scheduling challenges and see how AI optimization compares to manual planning.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center space-x-4">
+              <Badge variant="secondary">
+                Challenge {currentChallenge + 1} of {schedulingChallenges.length}
+              </Badge>
+              <Badge variant={challenge.difficulty === 'Easy' ? 'default' : challenge.difficulty === 'Medium' ? 'secondary' : 'destructive'}>
+                {challenge.difficulty}
+              </Badge>
+              <Badge variant="outline">
+                Time Saved: {Math.round(timesSaved / 60)}m
+              </Badge>
+            </div>
+            {userStartTime && (
+              <div className="flex items-center space-x-2">
+                <Clock className="w-4 h-4" />
+                <span className="text-sm">
+                  {Math.floor(solutionTime / 60000)}:{((solutionTime % 60000) / 1000).toFixed(0).padStart(2, '0')}
+                </span>
+              </div>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Challenge Description */}
+      <Card>
+        <CardHeader>
+          <CardTitle>{challenge.title}</CardTitle>
+          <CardDescription>{challenge.description}</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div>
+            <h4 className="font-medium mb-2">Constraints:</h4>
+            <ul className="space-y-1">
+              {challenge.constraints.map((constraint, index) => (
+                <li key={index} className="flex items-start space-x-2 text-sm">
+                  <AlertCircle className="w-3 h-3 text-orange-500 mt-0.5 flex-shrink-0" />
+                  <span>{constraint}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {!userStartTime ? (
+            <Button onClick={startChallenge} className="w-full">
+              <Target className="w-4 h-4 mr-2" />
+              Start Challenge
+            </Button>
+          ) : !showAiSolution ? (
+            <div className="space-y-4">
+              <div className="text-center">
+                <p className="text-sm text-gray-600 mb-4">
+                  Work through this scheduling challenge. When you're ready, see how the AI would solve it.
+                </p>
+                <Button onClick={submitSolution}>
+                  <CheckCircle className="w-4 h-4 mr-2" />
+                  See AI Solution
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {/* AI Solution */}
+              <Card className="border-blue-200 bg-blue-50">
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-2 text-blue-800">
+                    <Zap className="w-5 h-5" />
+                    <span>AI Optimized Solution</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  {challenge.id === 1 && (
+                    <div className="space-y-3">
+                      {challenge.optimalSolution.map((assignment, index) => (
+                        <div key={index} className="flex items-center justify-between p-3 bg-white rounded-lg">
+                          <div>
+                            <p className="font-medium">{assignment.person}</p>
+                            <p className="text-sm text-gray-600">{assignment.reasoning}</p>
+                          </div>
+                          <Badge variant="outline">
+                            {assignment.slot.day} {assignment.slot.time}
+                          </Badge>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {challenge.id === 2 && (
+                    <div className="space-y-3">
+                      {challenge.optimalSolution.map((assignment, index) => (
+                        <div key={index} className="flex items-center justify-between p-3 bg-white rounded-lg">
+                          <div>
+                            <p className="font-medium">{assignment.patient}</p>
+                            <p className="text-sm text-gray-600">{assignment.reasoning}</p>
+                          </div>
+                          <Badge variant="outline">
+                            {assignment.slot}
+                          </Badge>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {challenge.id === 3 && (
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="text-center p-3 bg-white rounded-lg">
+                          <p className="text-2xl font-bold text-green-600">
+                            ${challenge.optimalSolution.totalRevenue}
+                          </p>
+                          <p className="text-sm text-gray-600">Daily Revenue</p>
+                        </div>
+                        <div className="text-center p-3 bg-white rounded-lg">
+                          <p className="text-2xl font-bold text-blue-600">
+                            {challenge.optimalSolution.staffUtilization.dentist}%
+                          </p>
+                          <p className="text-sm text-gray-600">Dentist Utilization</p>
+                        </div>
+                        <div className="text-center p-3 bg-white rounded-lg">
+                          <p className="text-2xl font-bold text-purple-600">
+                            {Math.round((challenge.optimalSolution.staffUtilization.hygienist1 + challenge.optimalSolution.staffUtilization.hygienist2) / 2)}%
+                          </p>
+                          <p className="text-sm text-gray-600">Avg Hygienist Utilization</p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Performance Metrics */}
+                  <div className="grid grid-cols-3 gap-4 pt-4 border-t">
+                    <div className="text-center">
+                      <p className="text-lg font-bold text-green-600">
+                        {challenge.metrics.efficiency}%
+                      </p>
+                      <p className="text-xs text-gray-600">Efficiency</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-lg font-bold text-blue-600">
+                        {challenge.metrics.satisfaction}%
+                      </p>
+                      <p className="text-xs text-gray-600">Satisfaction</p>
+                    </div>
+                    <div className="text-center">
+                      <p className="text-lg font-bold text-purple-600">
+                        {challenge.metrics.timeSaved}m
+                      </p>
+                      <p className="text-xs text-gray-600">Time Saved</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Comparison */}
+              <Card>
+                <CardContent className="p-4">
+                  <div className="text-center space-y-2">
+                    <p className="text-sm text-gray-600">
+                      AI solved this in <strong>2.3 seconds</strong> vs manual planning time of <strong>{Math.floor(challenge.timeLimit / 60)} minutes</strong>
+                    </p>
+                    <div className="flex items-center justify-center space-x-2">
+                      <TrendingUp className="w-4 h-4 text-green-600" />
+                      <span className="text-sm font-medium text-green-600">
+                        {Math.round(((challenge.timeLimit - 2.3) / challenge.timeLimit) * 100)}% faster than manual scheduling
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Next Challenge */}
+              <div className="text-center">
+                {currentChallenge < schedulingChallenges.length - 1 ? (
+                  <Button onClick={nextChallenge}>
+                    Next Challenge
+                    <RefreshCw className="w-4 h-4 ml-2" />
+                  </Button>
+                ) : (
+                  <Button onClick={nextChallenge} className="bg-green-600 hover:bg-green-700">
+                    Complete Scheduling Demo
+                    <CheckCircle className="w-4 h-4 ml-2" />
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Challenge Data Display */}
+      {userStartTime && !showAiSolution && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* People/Requests */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">
+                {challenge.id === 1 ? 'Family Members' : 
+                 challenge.id === 2 ? 'Emergency Patients' : 
+                 'Patient Requests'}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {(challenge.people || challenge.emergencyPatients || challenge.patientRequests || []).map((item, index) => (
+                  <div key={index} className="p-3 border rounded-lg">
+                    <p className="font-medium">{item.name}</p>
+                    <p className="text-sm text-gray-600">
+                      {item.type || item.issue || item.procedure}
+                      {item.duration && ` (${item.duration} min)`}
+                      {item.urgency && ` - ${item.urgency} urgency`}
+                    </p>
+                    {item.constraints && (
+                      <p className="text-xs text-gray-500 mt-1">
+                        {item.constraints.join(', ')}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Available Slots/Schedule */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">
+                {challenge.id === 1 ? 'Available Slots' : 
+                 challenge.id === 2 ? 'Existing Schedule' : 
+                 'Available Procedures'}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                {(challenge.availableSlots || challenge.existingSchedule || challenge.procedures || []).map((item, index) => (
+                  <div key={index} className="flex items-center justify-between p-2 border rounded">
+                    <span className="text-sm">
+                      {item.day && item.time ? `${item.day} ${item.time}` :
+                       item.time && item.patient ? `${item.time} - ${item.patient}` :
+                       item.type ? item.type : 'Unknown'}
+                    </span>
+                    <Badge variant="outline" className="text-xs">
+                      {item.duration ? `${item.duration}m` :
+                       item.revenue ? `$${item.revenue}` : ''}
+                    </Badge>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default SchedulingPlayground;
+
+10 - Create the EmergencySimulator component
+
+import React, { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button.jsx';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx';
+import { Badge } from '@/components/ui/badge.jsx';
+import { Progress } from '@/components/ui/progress.jsx';
+import { 
+  AlertTriangle, 
+  Clock, 
+  Phone, 
+  Calendar, 
+  CheckCircle, 
+  Zap,
+  Heart,
+  Shield,
+  Timer,
+  Target
+} from 'lucide-react';
+
+const EmergencySimulator = ({ onComplete, onUpdateMetrics }) => {
+  const [currentEmergency, setCurrentEmergency] = useState(null);
+  const [responseTime, setResponseTime] = useState(0);
+  const [isActive, setIsActive] = useState(false);
+  const [completedEmergencies, setCompletedEmergencies] = useState(0);
+  const [averageResponseTime, setAverageResponseTime] = useState(0);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [userChoices, setUserChoices] = useState([]);
+
+  const emergencyScenarios = [
+    {
+      id: 1,
+      title: "Child Dental Trauma",
+      urgency: "Critical",
+      caller: "Panicked Parent",
+      situation: "8-year-old fell off bike, chipped front tooth, bleeding",
+      timeLimit: 300, // 5 minutes max response
+      steps: [
+        {
+          id: 1,
+          description: "Initial call received",
+          aiAction: "Immediately recognize urgency from caller's tone and keywords",
+          options: [
+            { text: "Gather detailed medical history first", score: 2, time: 60 },
+            { text: "Immediately assess urgency and offer emergency slot", score: 5, time: 15 },
+            { text: "Schedule regular appointment for next week", score: 1, time: 30 }
+          ],
+          optimalChoice: 1,
+          reasoning: "Emergency situations require immediate triage and rapid response"
+        },
+        {
+          id: 2,
+          description: "Emergency slot allocation",
+          aiAction: "Clear next available emergency slot and prepare Dr. Chen",
+          options: [
+            { text: "Offer appointment tomorrow morning", score: 2, time: 20 },
+            { text: "Clear emergency slot within 30 minutes", score: 5, time: 10 },
+            { text: "Put on waiting list for cancellations", score: 1, time: 45 }
+          ],
+          optimalChoice: 1,
+          reasoning: "Dental trauma requires same-day treatment to prevent complications"
+        },
+        {
+          id: 3,
+          description: "Immediate care instructions",
+          aiAction: "Provide first aid guidance while family travels to office",
+          options: [
+            { text: "Tell them to just come in immediately", score: 3, time: 5 },
+            { text: "Provide detailed first aid instructions and save tooth fragments", score: 5, time: 20 },
+            { text: "Recommend going to emergency room instead", score: 2, time: 15 }
+          ],
+          optimalChoice: 1,
+          reasoning: "Proper first aid can significantly improve treatment outcomes"
+        },
+        {
+          id: 4,
+          description: "Coordination and preparation",
+          aiAction: "Alert Dr. Chen, prepare treatment room, gather emergency supplies",
+          options: [
+            { text: "Wait for patient to arrive before preparing", score: 2, time: 0 },
+            { text: "Prepare treatment room and alert Dr. Chen immediately", score: 5, time: 10 },
+            { text: "Just add to regular schedule", score: 1, time: 5 }
+          ],
+          optimalChoice: 1,
+          reasoning: "Preparation reduces treatment time and improves patient experience"
+        }
+      ],
+      outcome: {
+        optimalTime: 60,
+        patientSatisfaction: 98,
+        treatmentSuccess: 95,
+        revenueImpact: 450
+      }
+    },
+    {
+      id: 2,
+      title: "Severe Tooth Pain",
+      urgency: "High",
+      caller: "Adult Patient",
+      situation: "Excruciating tooth pain, can't sleep, needs immediate relief",
+      timeLimit: 240,
+      steps: [
+        {
+          id: 1,
+          description: "Pain assessment",
+          aiAction: "Quickly assess pain level and determine urgency",
+          options: [
+            { text: "Schedule routine appointment next week", score: 1, time: 30 },
+            { text: "Assess pain level and offer same-day emergency care", score: 5, time: 20 },
+            { text: "Recommend over-the-counter pain relief only", score: 2, time: 15 }
+          ],
+          optimalChoice: 1,
+          reasoning: "Severe pain indicates possible infection or abscess requiring immediate care"
+        },
+        {
+          id: 2,
+          description: "Emergency scheduling",
+          aiAction: "Find earliest possible appointment slot",
+          options: [
+            { text: "Offer appointment in 2-3 days", score: 2, time: 25 },
+            { text: "Create emergency slot within 2 hours", score: 5, time: 15 },
+            { text: "Add to cancellation waiting list", score: 3, time: 20 }
+          ],
+          optimalChoice: 1,
+          reasoning: "Severe pain requires rapid intervention to prevent complications"
+        },
+        {
+          id: 3,
+          description: "Pain management guidance",
+          aiAction: "Provide immediate pain relief instructions",
+          options: [
+            { text: "No specific guidance, just wait for appointment", score: 1, time: 0 },
+            { text: "Detailed pain management and warning signs to watch for", score: 5, time: 30 },
+            { text: "Basic over-the-counter recommendations only", score: 3, time: 10 }
+          ],
+          optimalChoice: 1,
+          reasoning: "Proper pain management improves patient comfort and prevents complications"
+        }
+      ],
+      outcome: {
+        optimalTime: 90,
+        patientSatisfaction: 94,
+        treatmentSuccess: 92,
+        revenueImpact: 380
+      }
+    },
+    {
+      id: 3,
+      title: "Lost Crown Emergency",
+      urgency: "Medium",
+      caller: "Business Professional",
+      situation: "Crown fell out before important presentation, needs immediate fix",
+      timeLimit: 180,
+      steps: [
+        {
+          id: 1,
+          description: "Situation assessment",
+          aiAction: "Understand urgency and timeline constraints",
+          options: [
+            { text: "Schedule regular appointment next week", score: 2, time: 20 },
+            { text: "Assess timeline and offer same-day temporary solution", score: 5, time: 15 },
+            { text: "Recommend dental cement from pharmacy", score: 3, time: 10 }
+          ],
+          optimalChoice: 1,
+          reasoning: "Professional needs require understanding of timeline and offering appropriate solutions"
+        },
+        {
+          id: 2,
+          description: "Solution planning",
+          aiAction: "Offer temporary and permanent solutions",
+          options: [
+            { text: "Only offer permanent crown replacement", score: 3, time: 30 },
+            { text: "Offer immediate temporary fix and schedule permanent solution", score: 5, time: 20 },
+            { text: "Suggest waiting until after presentation", score: 2, time: 5 }
+          ],
+          optimalChoice: 1,
+          reasoning: "Flexible solutions meet immediate needs while planning for long-term care"
+        }
+      ],
+      outcome: {
+        optimalTime: 45,
+        patientSatisfaction: 96,
+        treatmentSuccess: 90,
+        revenueImpact: 320
+      }
+    }
+  ];
+
+  useEffect(() => {
+    if (isActive && responseTime < currentEmergency?.timeLimit) {
+      const interval = setInterval(() => {
+        setResponseTime(prev => prev + 1);
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [isActive, currentEmergency]);
+
+  const startEmergency = (scenario) => {
+    setCurrentEmergency(scenario);
+    setResponseTime(0);
+    setCurrentStep(0);
+    setUserChoices([]);
+    setIsActive(true);
+  };
+
+  const makeChoice = (choiceIndex) => {
+    const choice = currentEmergency.steps[currentStep].options[choiceIndex];
+    const newChoice = {
+      step: currentStep,
+      choice: choiceIndex,
+      score: choice.score,
+      time: choice.time
+    };
+    
+    setUserChoices(prev => [...prev, newChoice]);
+    setResponseTime(prev => prev + choice.time);
+
+    if (currentStep < currentEmergency.steps.length - 1) {
+      setCurrentStep(prev => prev + 1);
+    } else {
+      completeEmergency();
+    }
+  };
+
+  const completeEmergency = () => {
+    setIsActive(false);
+    setCompletedEmergencies(prev => prev + 1);
+    
+    const totalScore = userChoices.reduce((sum, choice) => sum + choice.score, 0);
+    const maxScore = currentEmergency.steps.length * 5;
+    const efficiency = (totalScore / maxScore) * 100;
+    
+    const newAverage = (averageResponseTime * completedEmergencies + responseTime) / (completedEmergencies + 1);
+    setAverageResponseTime(newAverage);
+    
+    onUpdateMetrics({
+      emergenciesHandled: completedEmergencies + 1,
+      customerSatisfaction: Math.round(efficiency)
+    });
+
+    // Auto-advance to next emergency or complete
+    setTimeout(() => {
+      const nextScenario = emergencyScenarios.find(s => s.id === currentEmergency.id + 1);
+      if (nextScenario) {
+        startEmergency(nextScenario);
+      } else {
+        onComplete();
+      }
+    }, 3000);
+  };
+
+  const getUrgencyColor = (urgency) => {
+    switch (urgency) {
+      case 'Critical': return 'text-red-600 bg-red-50';
+      case 'High': return 'text-orange-600 bg-orange-50';
+      case 'Medium': return 'text-yellow-600 bg-yellow-50';
+      default: return 'text-gray-600 bg-gray-50';
+    }
+  };
+
+  const getResponseTimeColor = (time, limit) => {
+    const percentage = (time / limit) * 100;
+    if (percentage < 30) return 'text-green-600';
+    if (percentage < 70) return 'text-yellow-600';
+    return 'text-red-600';
+  };
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2">
+            <AlertTriangle className="w-5 h-5" />
+            <span>Emergency Response Simulator</span>
+          </CardTitle>
+          <CardDescription>
+            Test how quickly and effectively you can handle urgent situations. Every second counts!
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center space-x-4">
+              <Badge variant="secondary">
+                Emergencies Handled: {completedEmergencies}
+              </Badge>
+              <Badge variant="secondary">
+                Avg Response: {Math.round(averageResponseTime)}s
+              </Badge>
+            </div>
+            {isActive && currentEmergency && (
+              <div className="flex items-center space-x-2">
+                <Timer className="w-4 h-4" />
+                <span className={`font-mono ${getResponseTimeColor(responseTime, currentEmergency.timeLimit)}`}>
+                  {Math.floor(responseTime / 60)}:{(responseTime % 60).toString().padStart(2, '0')}
+                </span>
+                <span className="text-sm text-gray-500">
+                  / {Math.floor(currentEmergency.timeLimit / 60)}:{(currentEmergency.timeLimit % 60).toString().padStart(2, '0')}
+                </span>
+              </div>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Emergency Scenarios */}
+      {!currentEmergency && (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {emergencyScenarios.map((scenario) => {
+            const Icon = scenario.urgency === 'Critical' ? AlertTriangle : 
+                        scenario.urgency === 'High' ? Heart : Target;
+            
+            return (
+              <Card 
+                key={scenario.id} 
+                className={`cursor-pointer transition-all hover:shadow-lg ${getUrgencyColor(scenario.urgency)}`}
+                onClick={() => startEmergency(scenario)}
+              >
+                <CardContent className="p-6">
+                  <div className="flex items-center space-x-3 mb-3">
+                    <Icon className="w-6 h-6" />
+                    <div>
+                      <h3 className="font-semibold">{scenario.title}</h3>
+                      <Badge variant="outline" className="text-xs">
+                        {scenario.urgency} Priority
+                      </Badge>
+                    </div>
+                  </div>
+                  <p className="text-sm mb-3">{scenario.situation}</p>
+                  <div className="flex items-center justify-between text-xs">
+                    <span>Max Time: {Math.floor(scenario.timeLimit / 60)}m</span>
+                    <span>Steps: {scenario.steps.length}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Active Emergency */}
+      {currentEmergency && isActive && (
+        <div className="space-y-6">
+          {/* Emergency Header */}
+          <Card className={`border-2 ${getUrgencyColor(currentEmergency.urgency)}`}>
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h2 className="text-xl font-bold">{currentEmergency.title}</h2>
+                  <p className="text-sm opacity-75">Caller: {currentEmergency.caller}</p>
+                </div>
+                <Badge variant="destructive" className="text-lg px-3 py-1">
+                  {currentEmergency.urgency} PRIORITY
+                </Badge>
+              </div>
+              <p className="text-lg">{currentEmergency.situation}</p>
+              
+              {/* Progress */}
+              <div className="mt-4">
+                <div className="flex items-center justify-between text-sm mb-2">
+                  <span>Response Progress</span>
+                  <span>Step {currentStep + 1} of {currentEmergency.steps.length}</span>
+                </div>
+                <Progress value={((currentStep + 1) / currentEmergency.steps.length) * 100} />
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Current Step */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Zap className="w-5 h-5" />
+                <span>Step {currentStep + 1}: {currentEmergency.steps[currentStep].description}</span>
+              </CardTitle>
+              <CardDescription>
+                AI Action: {currentEmergency.steps[currentStep].aiAction}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="mb-4 text-sm text-gray-600">
+                How should the AI assistant respond to this situation?
+              </p>
+              <div className="space-y-3">
+                {currentEmergency.steps[currentStep].options.map((option, index) => (
+                  <Button
+                    key={index}
+                    variant="outline"
+                    className="w-full text-left justify-start h-auto p-4"
+                    onClick={() => makeChoice(index)}
+                  >
+                    <div className="flex items-center space-x-3 w-full">
+                      <div className="flex-shrink-0">
+                        <div className="w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center text-xs">
+                          {index + 1}
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-sm">{option.text}</p>
+                        <div className="flex items-center space-x-4 mt-1">
+                          <span className="text-xs text-gray-500">
+                            +{option.time}s response time
+                          </span>
+                          <div className="flex items-center space-x-1">
+                            {[...Array(5)].map((_, i) => (
+                              <div
+                                key={i}
+                                className={`w-2 h-2 rounded-full ${
+                                  i < option.score ? 'bg-green-500' : 'bg-gray-300'
+                                }`}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Button>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
+      {/* Emergency Completed */}
+      {currentEmergency && !isActive && (
+        <Card className="border-green-200 bg-green-50">
+          <CardContent className="p-6">
+            <div className="flex items-center space-x-2 mb-4">
+              <CheckCircle className="w-6 h-6 text-green-600" />
+              <h3 className="text-xl font-semibold text-green-800">Emergency Resolved!</h3>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-600">{responseTime}s</p>
+                <p className="text-sm text-gray-600">Response Time</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-600">
+                  {Math.round((userChoices.reduce((sum, choice) => sum + choice.score, 0) / (currentEmergency.steps.length * 5)) * 100)}%
+                </p>
+                <p className="text-sm text-gray-600">Efficiency Score</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-600">
+                  {currentEmergency.outcome.patientSatisfaction}%
+                </p>
+                <p className="text-sm text-gray-600">Patient Satisfaction</p>
+              </div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-green-600">
+                  ${currentEmergency.outcome.revenueImpact}
+                </p>
+                <p className="text-sm text-gray-600">Revenue Impact</p>
+              </div>
+            </div>
+
+            {/* AI Comparison */}
+            <div className="bg-white p-4 rounded-lg">
+              <h4 className="font-medium mb-2">AI Performance Comparison:</h4>
+              <div className="flex items-center justify-between text-sm">
+                <span>Your Response Time: {responseTime}s</span>
+                <span className="text-green-600 font-medium">
+                  AI Optimal Time: {currentEmergency.outcome.optimalTime}s
+                </span>
+              </div>
+              <Progress 
+                value={Math.min(100, (currentEmergency.outcome.optimalTime / responseTime) * 100)} 
+                className="mt-2"
+              />
+              <p className="text-xs text-gray-600 mt-2">
+                AI achieves optimal response through instant decision-making and parallel processing
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  );
+};
+
+export default EmergencySimulator;
+
+11 - Create the BusinessDashboard component
+
+import React, { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button.jsx';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx';
+import { Badge } from '@/components/ui/badge.jsx';
+import { Progress } from '@/components/ui/progress.jsx';
+import { 
+  BarChart3, 
+  TrendingUp, 
+  DollarSign, 
+  Users, 
+  Clock, 
+  Phone,
+  CheckCircle,
+  AlertTriangle,
+  Calendar,
+  Star,
+  Zap,
+  Target,
+  Award
+} from 'lucide-react';
+
+const BusinessDashboard = ({ metrics, onComplete }) => {
+  const [animatedMetrics, setAnimatedMetrics] = useState({
+    callsAnswered: 0,
+    customerSatisfaction: 0,
+    timesSaved: 0,
+    revenueProtected: 0,
+    emergenciesHandled: 0
+  });
+  const [showComparison, setShowComparison] = useState(false);
+  const [currentView, setCurrentView] = useState('overview');
+
+  // Baseline metrics (before AI)
+  const baselineMetrics = {
+    callsAnswered: 65, // percentage of calls answered
+    customerSatisfaction: 72,
+    timesSaved: 0,
+    revenueProtected: 0,
+    emergenciesHandled: 45, // percentage handled effectively
+    avgResponseTime: 180, // seconds
+    missedOpportunities: 35, // percentage
+    staffStress: 85 // percentage
+  };
+
+  // AI-enhanced metrics
+  const aiMetrics = {
+    callsAnswered: 100,
+    customerSatisfaction: 96,
+    timesSaved: 25, // hours per week
+    revenueProtected: 15000, // monthly
+    emergenciesHandled: 100,
+    avgResponseTime: 15,
+    missedOpportunities: 2,
+    staffStress: 25
+  };
+
+  useEffect(() => {
+    // Animate metrics counting up
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const stepDuration = duration / steps;
+
+    let currentStep = 0;
+    const interval = setInterval(() => {
+      currentStep++;
+      const progress = currentStep / steps;
+      
+      setAnimatedMetrics({
+        callsAnswered: Math.round(metrics.callsAnswered * progress),
+        customerSatisfaction: Math.round(metrics.customerSatisfaction * progress),
+        timesSaved: Math.round(metrics.timesSaved * progress),
+        revenueProtected: Math.round(metrics.revenueProtected * progress),
+        emergenciesHandled: Math.round(metrics.emergenciesHandled * progress)
+      });
+
+      if (currentStep >= steps) {
+        clearInterval(interval);
+        setTimeout(() => setShowComparison(true), 1000);
+      }
+    }, stepDuration);
+
+    return () => clearInterval(interval);
+  }, [metrics]);
+
+  const calculateROI = () => {
+    const monthlyCost = 299; // AI assistant monthly cost
+    const monthlyBenefit = aiMetrics.revenueProtected;
+    return Math.round(((monthlyBenefit - monthlyCost) / monthlyCost) * 100);
+  };
+
+  const getImprovementPercentage = (baseline, current) => {
+    return Math.round(((current - baseline) / baseline) * 100);
+  };
+
+  const MetricCard = ({ icon: Icon, title, value, unit, color, improvement, baseline }) => (
+    <Card className="relative overflow-hidden">
+      <CardContent className="p-6">
+        <div className="flex items-center justify-between">
+          <div>
+            <p className="text-sm font-medium text-gray-600">{title}</p>
+            <p className={`text-3xl font-bold ${color}`}>
+              {typeof value === 'number' ? value.toLocaleString() : value}{unit}
+            </p>
+            {improvement && (
+              <div className="flex items-center space-x-1 mt-1">
+                <TrendingUp className="w-3 h-3 text-green-600" />
+                <span className="text-xs text-green-600 font-medium">
+                  +{improvement}% vs baseline
+                </span>
+              </div>
+            )}
+          </div>
+          <div className={`p-3 rounded-full ${color.replace('text-', 'bg-').replace('600', '100')}`}>
+            <Icon className={`w-6 h-6 ${color}`} />
+          </div>
+        </div>
+        {baseline && (
+          <div className="mt-3 pt-3 border-t">
+            <div className="flex items-center justify-between text-xs text-gray-500">
+              <span>Baseline: {baseline}{unit}</span>
+              <span>Current: {value}{unit}</span>
+            </div>
+            <Progress 
+              value={Math.min(100, (value / Math.max(baseline, value)) * 100)} 
+              className="mt-1 h-1"
+            />
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2">
+            <BarChart3 className="w-5 h-5" />
+            <span>Business Intelligence Dashboard</span>
+          </CardTitle>
+          <CardDescription>
+            See the real-time impact of AI on your business operations and customer satisfaction.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center space-x-4">
+              <Badge variant="secondary">
+                Demo Progress: Complete
+              </Badge>
+              <Badge variant="secondary">
+                ROI: {calculateROI()}%
+              </Badge>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Button
+                variant={currentView === 'overview' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setCurrentView('overview')}
+              >
+                Overview
+              </Button>
+              <Button
+                variant={currentView === 'comparison' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setCurrentView('comparison')}
+              >
+                Before vs After
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {currentView === 'overview' && (
+        <div className="space-y-6">
+          {/* Key Metrics */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <MetricCard
+              icon={Phone}
+              title="Calls Answered"
+              value={animatedMetrics.callsAnswered}
+              unit=""
+              color="text-blue-600"
+              improvement={showComparison ? getImprovementPercentage(baselineMetrics.callsAnswered, aiMetrics.callsAnswered) : null}
+              baseline={showComparison ? baselineMetrics.callsAnswered : null}
+            />
+            
+            <MetricCard
+              icon={Star}
+              title="Customer Satisfaction"
+              value={animatedMetrics.customerSatisfaction}
+              unit="%"
+              color="text-green-600"
+              improvement={showComparison ? getImprovementPercentage(baselineMetrics.customerSatisfaction, aiMetrics.customerSatisfaction) : null}
+              baseline={showComparison ? baselineMetrics.customerSatisfaction : null}
+            />
+            
+            <MetricCard
+              icon={Clock}
+              title="Time Saved"
+              value={animatedMetrics.timesSaved}
+              unit="h/week"
+              color="text-purple-600"
+              improvement={showComparison ? "∞" : null}
+              baseline={showComparison ? baselineMetrics.timesSaved : null}
+            />
+            
+            <MetricCard
+              icon={DollarSign}
+              title="Revenue Protected"
+              value={animatedMetrics.revenueProtected}
+              unit="/month"
+              color="text-emerald-600"
+              improvement={showComparison ? "∞" : null}
+              baseline={showComparison ? baselineMetrics.revenueProtected : null}
+            />
+            
+            <MetricCard
+              icon={AlertTriangle}
+              title="Emergencies Handled"
+              value={animatedMetrics.emergenciesHandled}
+              unit=""
+              color="text-red-600"
+              improvement={showComparison ? getImprovementPercentage(baselineMetrics.emergenciesHandled, aiMetrics.emergenciesHandled) : null}
+              baseline={showComparison ? baselineMetrics.emergenciesHandled : null}
+            />
+            
+            <MetricCard
+              icon={Target}
+              title="Response Time"
+              value={15}
+              unit="s avg"
+              color="text-orange-600"
+              improvement={showComparison ? Math.round(((baselineMetrics.avgResponseTime - 15) / baselineMetrics.avgResponseTime) * 100) : null}
+              baseline={showComparison ? baselineMetrics.avgResponseTime : null}
+            />
+          </div>
+
+          {/* Business Impact Summary */}
+          {showComparison && (
+            <Card className="border-green-200 bg-gradient-to-r from-green-50 to-emerald-50">
+              <CardContent className="p-6">
+                <div className="flex items-center space-x-2 mb-4">
+                  <Award className="w-6 h-6 text-green-600" />
+                  <h3 className="text-xl font-semibold text-green-800">Transformation Summary</h3>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="text-center p-4 bg-white rounded-lg">
+                    <p className="text-2xl font-bold text-green-600">100%</p>
+                    <p className="text-sm text-gray-600">Call Answer Rate</p>
+                    <p className="text-xs text-gray-500 mt-1">vs 65% before AI</p>
+                  </div>
+                  
+                  <div className="text-center p-4 bg-white rounded-lg">
+                    <p className="text-2xl font-bold text-green-600">${calculateROI()}%</p>
+                    <p className="text-sm text-gray-600">Monthly ROI</p>
+                    <p className="text-xs text-gray-500 mt-1">After $299 cost</p>
+                  </div>
+                  
+                  <div className="text-center p-4 bg-white rounded-lg">
+                    <p className="text-2xl font-bold text-green-600">25h</p>
+                    <p className="text-sm text-gray-600">Weekly Time Saved</p>
+                    <p className="text-xs text-gray-500 mt-1">Focus on patient care</p>
+                  </div>
+                  
+                  <div className="text-center p-4 bg-white rounded-lg">
+                    <p className="text-2xl font-bold text-green-600">98%</p>
+                    <p className="text-sm text-gray-600">Emergency Success</p>
+                    <p className="text-xs text-gray-500 mt-1">vs 45% before AI</p>
+                  </div>
+                </div>
+
+                <div className="mt-6 p-4 bg-white rounded-lg">
+                  <h4 className="font-medium mb-2">Key Improvements:</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                    <div className="space-y-2">
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-green-600" />
+                        <span>Never miss another call or opportunity</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-green-600" />
+                        <span>24/7 professional customer service</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-green-600" />
+                        <span>Instant emergency response and triage</span>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-green-600" />
+                        <span>Reduced staff stress and burnout</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-green-600" />
+                        <span>Optimized scheduling and resource allocation</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-green-600" />
+                        <span>Consistent, high-quality patient experience</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+        </div>
+      )}
+
+      {currentView === 'comparison' && (
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Before AI */}
+            <Card className="border-red-200">
+              <CardHeader>
+                <CardTitle className="text-red-800">Before AI Assistant</CardTitle>
+                <CardDescription>Traditional receptionist-based operations</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Calls Answered</span>
+                    <span className="font-medium text-red-600">65%</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Customer Satisfaction</span>
+                    <span className="font-medium text-red-600">72%</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Average Response Time</span>
+                    <span className="font-medium text-red-600">3 minutes</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Emergency Handling</span>
+                    <span className="font-medium text-red-600">45%</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Staff Stress Level</span>
+                    <span className="font-medium text-red-600">85%</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Missed Opportunities</span>
+                    <span className="font-medium text-red-600">35%</span>
+                  </div>
+                </div>
+                
+                <div className="pt-4 border-t">
+                  <h4 className="font-medium text-red-800 mb-2">Common Issues:</h4>
+                  <ul className="space-y-1 text-sm text-red-700">
+                    <li>• Missed calls during busy periods</li>
+                    <li>• Inconsistent service quality</li>
+                    <li>• Slow emergency response</li>
+                    <li>• Staff overwhelm and burnout</li>
+                    <li>• Lost revenue from poor service</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* After AI */}
+            <Card className="border-green-200">
+              <CardHeader>
+                <CardTitle className="text-green-800">With AI Assistant</CardTitle>
+                <CardDescription>AI-powered intelligent operations</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Calls Answered</span>
+                    <span className="font-medium text-green-600">100%</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Customer Satisfaction</span>
+                    <span className="font-medium text-green-600">96%</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Average Response Time</span>
+                    <span className="font-medium text-green-600">15 seconds</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Emergency Handling</span>
+                    <span className="font-medium text-green-600">100%</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Staff Stress Level</span>
+                    <span className="font-medium text-green-600">25%</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm">Missed Opportunities</span>
+                    <span className="font-medium text-green-600">2%</span>
+                  </div>
+                </div>
+                
+                <div className="pt-4 border-t">
+                  <h4 className="font-medium text-green-800 mb-2">Key Benefits:</h4>
+                  <ul className="space-y-1 text-sm text-green-700">
+                    <li>• 24/7 availability and consistency</li>
+                    <li>• Instant, professional responses</li>
+                    <li>• Rapid emergency triage</li>
+                    <li>• Reduced staff workload</li>
+                    <li>• Maximized revenue capture</li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* ROI Calculator */}
+          <Card className="border-blue-200 bg-blue-50">
+            <CardHeader>
+              <CardTitle className="text-blue-800">Return on Investment</CardTitle>
+              <CardDescription>Financial impact of AI implementation</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-blue-600">$299</p>
+                  <p className="text-sm text-gray-600">Monthly AI Cost</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-green-600">$15,000</p>
+                  <p className="text-sm text-gray-600">Monthly Revenue Protected</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-emerald-600">{calculateROI()}%</p>
+                  <p className="text-sm text-gray-600">Monthly ROI</p>
+                </div>
+              </div>
+              
+              <div className="mt-6 p-4 bg-white rounded-lg">
+                <h4 className="font-medium mb-2">Revenue Sources:</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p>• Captured missed calls: $8,000/month</p>
+                    <p>• Emergency appointments: $3,500/month</p>
+                    <p>• Improved scheduling efficiency: $2,000/month</p>
+                  </div>
+                  <div>
+                    <p>• Reduced no-shows: $1,000/month</p>
+                    <p>• Upselling opportunities: $500/month</p>
+                    <p>• Staff productivity gains: Priceless</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
+      {/* Call to Action */}
+      <div className="text-center">
+        <Card className="bg-gradient-to-r from-teal-500 to-blue-600 text-white">
+          <CardContent className="py-8">
+            <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Business?</h2>
+            <p className="text-lg mb-6 opacity-90">
+              You've experienced the power of AI firsthand. Start your transformation today!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg" variant="secondary" className="text-teal-600">
+                <Zap className="w-4 h-4 mr-2" />
+                Start Free Trial
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white text-white hover:bg-white hover:text-teal-600"
+                onClick={onComplete}
+              >
+                <Calendar className="w-4 h-4 mr-2" />
+                Schedule Consultation
+              </Button>
+            </div>
+            <p className="text-sm opacity-75 mt-4">
+              No credit card required • 14-day free trial • Cancel anytime
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default BusinessDashboard;
+
+12 - Start the development server to test the interactive demo
+
+Test the interactive demo application
+
+Browsing
+http://localhost:3000
+
+13 - Test the Start Interactive Demo button
+
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  const features = [
+    {
+      icon: CheckCircle,
+      title: "Never Miss a Lead",
+      description: "Capture every inquiry, 24/7, ensuring no potential client slips through the cracks.",
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50"
+    },
+    {
+      icon: Zap,
+      title: "Automate Your Admin",
+      description: "Eliminate repetitive tasks, reduce manual errors, and free up valuable staff time for higher-value work.",
+      color: "text-amber-600",
+      bgColor: "bg-amber-50"
+    },
+    {
+      icon: TrendingUp,
+      title: "Scale with Confidence",
+      description: "Seamlessly handle increasing client demand without the operational chaos or need for additional hires.",
+      color: "text-teal-600",
+      bgColor: "bg-teal-50"
+    },
+    {
+      icon: Smile,
+      title: "Delight Your Clients",
+      description: "Provide a consistent, professional, and convenient experience that builds loyalty and boosts satisfaction.",
+      color: "text-cyan-600",
+      bgColor: "bg-cyan-50"
+    },
+    {
+      icon: Heart,
+      title: "Reclaim Your Sanity",
+      description: "Reduce stress, anxiety, and overwhelm, gaining back control and enjoying a better work-life balance.",
+      color: "text-rose-600",
+      bgColor: "bg-rose-50"
+    },
+    {
+      icon: Shield,
+      title: "Enterprise Security",
+      description: "Bank-level encryption and compliance standards keep your data safe and secure.",
+      color: "text-slate-600",
+      bgColor: "bg-slate-50"
+    }
+  ]
+
+  const stats = [
+    { number: "10,000+", label: "Happy Customers", icon: Users },
+    { number: "99.9%", label: "Uptime", icon: Shield },
+    { number: "50%", label: "Time Saved", icon: Clock },
+    { number: "24/7", label: "Support", icon: Headphones }
+  ]
+
+  const faqItems = [
+    {
+      question: "Will I be charged after the free trial?",
+      answer: "No – you can continue on our generous free plan or choose to upgrade to a paid subscription. We never auto-charge your card after the trial ends."
+    },
+    {
+      question: "Is my data private and secure?",
+      answer: "Absolutely. We prioritize your data security with industry-leading encryption and strict privacy protocols. Your information is safe with us."
+    },
+    {
+      question: "Can I cancel my subscription anytime?",
+      answer: "Yes, you can cancel your subscription at any time, no questions asked. We believe in flexibility and earning your business every day."
+    },
+    {
+      question: "Is this compatible with my existing systems?",
+      answer: "Our solution is designed for seamless integration with popular CRM, calendar, and other business tools. We offer robust APIs and direct integrations to ensure a smooth workflow."
+    }
+  ]
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-slate-200 z-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-3">
+              <img src={logoImage} alt="MindForU Logo" className="h-8 w-auto" />
+              <span className="text-xl font-bold text-slate-900">MindForU.com</span>
+            </div>
+            
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#features" className="text-slate-600 hover:text-teal-600 transition-colors">Features</a>
+              <a href="#testimonials" className="text-slate-600 hover:text-teal-600 transition-colors">Testimonials</a>
+              <a href="#faq" className="text-slate-600 hover:text-teal-600 transition-colors">FAQ</a>
+              <Button className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white">
+                Try for Free
+              </Button>
+            </div>
+
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-slate-600 hover:text-slate-900"
+
+14 - Stop the development server
+
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  const features = [
+    {
+      icon: CheckCircle,
+      title: "Never Miss a Lead",
+      description: "Capture every inquiry, 24/7, ensuring no potential client slips through the cracks.",
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50"
+    },
+    {
+      icon: Zap,
+      title: "Automate Your Admin",
+      description: "Eliminate repetitive tasks, reduce manual errors, and free up valuable staff time for higher-value work.",
+      color: "text-amber-600",
+      bgColor: "bg-amber-50"
+    },
+    {
+      icon: TrendingUp,
+      title: "Scale with Confidence",
+      description: "Seamlessly handle increasing client demand without the operational chaos or need for additional hires.",
+      color: "text-teal-600",
+      bgColor: "bg-teal-50"
+    },
+    {
+      icon: Smile,
+      title: "Delight Your Clients",
+      description: "Provide a consistent, professional, and convenient experience that builds loyalty and boosts satisfaction.",
+      color: "text-cyan-600",
+      bgColor: "bg-cyan-50"
+    },
+    {
+      icon: Heart,
+      title: "Reclaim Your Sanity",
+      description: "Reduce stress, anxiety, and overwhelm, gaining back control and enjoying a better work-life balance.",
+      color: "text-rose-600",
+      bgColor: "bg-rose-50"
+    },
+    {
+      icon: Shield,
+      title: "Enterprise Security",
+      description: "Bank-level encryption and compliance standards keep your data safe and secure.",
+      color: "text-slate-600",
+      bgColor: "bg-slate-50"
+    }
+  ]
+
+  const stats = [
+    { number: "10,000+", label: "Happy Customers", icon: Users },
+    { number: "99.9%", label: "Uptime", icon: Shield },
+    { number: "50%", label: "Time Saved", icon: Clock },
+    { number: "24/7", label: "Support", icon: Headphones }
+  ]
+
+  const faqItems = [
+    {
+      question: "Will I be charged after the free trial?",
+      answer: "No – you can continue on our generous free plan or choose to upgrade to a paid subscription. We never auto-charge your card after the trial ends."
+    },
+    {
+      question: "Is my data private and secure?",
+      answer: "Absolutely. We prioritize your data security with industry-leading encryption and strict privacy protocols. Your information is safe with us."
+    },
+    {
+      question: "Can I cancel my subscription anytime?",
+      answer: "Yes, you can cancel your subscription at any time, no questions asked. We believe in flexibility and earning your business every day."
+    },
+    {
+      question: "Is this compatible with my existing systems?",
+      answer: "Our solution is designed for seamless integration with popular CRM, calendar, and other business tools. We offer robust APIs and direct integrations to ensure a smooth workflow."
+    }
+  ]
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-slate-200 z-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <div className="flex items-center space-x-3">
+              <img src={logoImage} alt="MindForU Logo" className="h-8 w-auto" />
+              <span className="text-xl font-bold text-slate-900">MindForU.com</span>
+            </div>
+            
+            <div className="hidden md:flex items-center space-x-8">
+              <a href="#features" className="text-slate-600 hover:text-teal-600 transition-colors">Features</a>
+              <a href="#testimonials" className="text-slate-600 hover:text-teal-600 transition-colors">Testimonials</a>
+              <a href="#faq" className="text-slate-600 hover:text-teal-600 transition-colors">FAQ</a>
+              <Button className="bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 text-white">
+                Try for Free
+              </Button>
+            </div>
+
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-slate-600 hover:text-slate-900"
+
+
+
+
+
+
