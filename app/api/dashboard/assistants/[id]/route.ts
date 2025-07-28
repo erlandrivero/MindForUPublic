@@ -127,7 +127,9 @@ export async function DELETE(
     }
 
     // TODO: In the future, also delete from Vapi API
-    console.log(`Assistant ${assistant?.name || 'Unknown'} deleted by user ${user.email}`);
+    // Use type assertion to access name property safely
+    const assistantName = assistant ? (assistant as any).name || 'Unknown' : 'Unknown';
+    console.log(`Assistant ${assistantName} deleted by user ${user.email}`);
 
     return NextResponse.json({
       message: 'Assistant deleted successfully'
