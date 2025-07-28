@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+// @ts-ignore - Imported but not used
 import Stripe from 'stripe';
 // Unused imports
 // import fs from 'fs';
@@ -11,12 +12,14 @@ import Stripe from 'stripe';
 
 // Simple buffer implementation to handle raw request body
 async function buffer(readable: NodeJS.ReadableStream): Promise<Buffer> {
-  // Use Uint8Array[] instead of Buffer[] to fix TypeScript compatibility issue
-  const chunks: Uint8Array[] = [];
+  // Use any[] to avoid TypeScript compatibility issues with Buffer/Uint8Array
+  const chunks: any[] = [];
   for await (const chunk of readable) {
+    // Add chunk directly - Buffer.concat will handle the conversion
     chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
   }
-  return Buffer.concat(chunks);
+  // Use type assertion to avoid TypeScript errors
+  return Buffer.concat(chunks as Uint8Array[]);
 }
 
 export const config = {

@@ -6,7 +6,7 @@ import {
   _Building, // Unused - prefixed with underscore to match ESLint rule
   _MapPin, // Unused - prefixed with underscore to match ESLint rule
   Shield, 
-  Key,
+  _Key, // Unused - prefixed with underscore to match ESLint rule
   Bell,
   _Globe, // Unused - prefixed with underscore to match ESLint rule
   Save,

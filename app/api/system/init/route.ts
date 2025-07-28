@@ -4,7 +4,7 @@ import { initScheduledTasks } from '@/lib/scheduled-tasks';
 // Track if tasks have been initialized
 let tasksInitialized = false;
 
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
     // Only initialize tasks once
     if (!tasksInitialized) {

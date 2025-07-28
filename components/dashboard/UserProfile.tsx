@@ -3,16 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import { 
   User, 
-  Mail, // Now properly imported without underscore
-  Phone, // Now properly imported without underscore
+  // Mail, Phone, Edit3, and X imports removed as they're unused
   Shield, 
-  Edit3, 
   Save, 
   Key, 
   AlertCircle, 
   CheckCircle,
-  Camera, // Added missing Camera import
-  X // Added X for modal close button
+  Camera
 } from 'lucide-react';
 
 interface UserData {

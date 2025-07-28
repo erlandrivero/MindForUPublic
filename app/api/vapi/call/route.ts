@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/libs/next-auth';
+import { getServerSession as _getServerSession } from 'next-auth';
+import { authOptions as _authOptions } from '@/libs/next-auth';
 
 export async function POST(_req: NextRequest) {
   try {
