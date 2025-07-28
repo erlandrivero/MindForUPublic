@@ -168,7 +168,7 @@ export async function GET(req: NextRequest) {
   }
 }
 
-// Export function to get call volume data (used by other APIs)
-export async function getCallVolumeData(userId: string, days: number = 7) {
+// Helper function to get call volume data (used by other APIs)
+async function getCallVolumeData(userId: string, days: number = 7) {
   return Call.getCallVolumeForUser(userId, days);
 }
