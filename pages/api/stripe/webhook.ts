@@ -47,8 +47,8 @@ export const config = {
 
 // Simple buffer implementation to handle raw request body
 async function buffer(readable: NodeJS.ReadableStream): Promise<Buffer> {
-  // @ts-ignore - Ignoring type issues with Buffer.concat
-  const chunks: any[] = [];
+  // Use Uint8Array[] instead of any[] to fix TypeScript compatibility issue
+  const chunks: Uint8Array[] = [];
   for await (const chunk of readable) {
     chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
   }
@@ -191,7 +191,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               console.log(`Found user with email ${customerEmail}, updating subscription data`);
               
               // Get subscription details from Stripe
-              let subscriptionDetails;
+              let _subscriptionDetails; // Prefixed with _ to indicate it's unused
               let planName = 'Starter Plan'; // Default
               let planLimits = 80; // Default minutes for Starter
               

@@ -4,7 +4,7 @@ import { authOptions } from '@/libs/next-auth';
 import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
 
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
     

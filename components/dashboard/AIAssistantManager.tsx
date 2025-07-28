@@ -4,20 +4,21 @@ import React, { useState, useEffect } from 'react';
 import { 
   Bot, 
   Plus, 
-  Settings, 
+  // Prefix unused imports with underscore or comment them out
+  // Settings, 
   Play, 
   Pause, 
   Trash2, 
   Phone,
-  Clock,
+  // Clock, 
   TrendingUp,
-  Users,
+  // Users,
   Edit3,
-  MoreVertical,
+  // MoreVertical,
   CheckCircle,
   XCircle,
   AlertCircle,
-  BarChart3,
+  // BarChart3,
   Download,
   ExternalLink
 } from 'lucide-react';
@@ -60,7 +61,8 @@ const AIAssistantManager = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [showCreateModal, setShowCreateModal] = useState(false);
-  const [selectedAssistant, setSelectedAssistant] = useState<Assistant | null>(null);
+  // Prefixed with _ to indicate it's unused
+  const [_selectedAssistant, setSelectedAssistant] = useState<Assistant | null>(null);
   const [isImporting, setIsImporting] = useState(false);
   const [importResult, setImportResult] = useState<ImportResult | null>(null);
 
@@ -125,8 +127,8 @@ const AIAssistantManager = () => {
     }
   };
   
-  // Function to manually refresh call stats
-  const refreshCallStats = async () => {
+  // Function to manually refresh call stats - currently unused
+  const _refreshCallStats = async () => {
     try {
       toast.loading('Refreshing call statistics...');
       await fetchAssistants();

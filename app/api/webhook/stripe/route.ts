@@ -206,7 +206,7 @@ export async function POST(req: NextRequest) {
           const plan = configFile.stripe.plans.find((p) => p.priceId === priceId);
           
           // Find or create client record for this user
-          let client = await clientsCollection.findOne({ 
+          const client = await clientsCollection.findOne({ 
             userId: user._id 
           });
           

@@ -6,7 +6,7 @@ import User from '@/models/User';
 import Assistant from '@/models/Assistant';
 import vapi from '@/libs/vapi';
 
-export async function POST(req: NextRequest) {
+export async function POST(_req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
     

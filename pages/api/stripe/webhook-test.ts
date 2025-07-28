@@ -1,15 +1,18 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
-import fs from 'fs';
-import path from 'path';
+// Unused imports
+// import fs from 'fs';
+// import path from 'path';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-  apiVersion: '2023-08-16',
-});
+// Unused variable
+// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+//   apiVersion: '2023-08-16',
+// });
 
 // Simple buffer implementation to handle raw request body
 async function buffer(readable: NodeJS.ReadableStream): Promise<Buffer> {
-  const chunks: Buffer[] = [];
+  // Use Uint8Array[] instead of Buffer[] to fix TypeScript compatibility issue
+  const chunks: Uint8Array[] = [];
   for await (const chunk of readable) {
     chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
   }
@@ -28,7 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log('WEBHOOK-TEST: Received webhook request');
     
     const buf = await buffer(req);
-    const sig = req.headers['stripe-signature'] as string;
+    const _sig = req.headers['stripe-signature'] as string; // Prefixed with _ to indicate it's unused
     
     console.log('WEBHOOK-TEST: Headers received:', JSON.stringify(req.headers));
     

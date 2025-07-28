@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/libs/next-auth';
 import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
-import Assistant from '@/models/Assistant';
+// Assistant model not used in this file
 import Call from '@/models/Call';
 
 export async function GET(req: NextRequest) {
@@ -125,7 +125,7 @@ export async function GET(req: NextRequest) {
     // Calculate summary metrics
     const totalCalls = callVolume.reduce((sum, item) => sum + item.calls, 0);
     const totalSuccessful = callVolume.reduce((sum, item) => sum + item.successful, 0);
-    const totalFailed = callVolume.reduce((sum, item) => sum + item.failed, 0);
+    const _totalFailed = callVolume.reduce((sum, item) => sum + item.failed, 0); // Prefixed with _ to indicate it's unused
     const overallSuccessRate = totalCalls > 0 ? (totalSuccessful / totalCalls * 100) : 0;
 
     // Get average duration from all calls

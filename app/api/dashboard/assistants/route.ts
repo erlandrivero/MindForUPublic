@@ -14,13 +14,14 @@ interface PhoneNumberMetadata {
   [key: string]: string;
 }
 
+// Used for documentation purposes
 interface PhoneNumberCreateParams {
   name: string;
   assistantId: string;
   metadata: PhoneNumberMetadata;
 }
 
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
     
@@ -137,7 +138,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json();
-    const { name, description, type, configuration, createPhoneNumber = true, areaCode = '555' } = body;
+    const { name, description, type, configuration, createPhoneNumber = true, _areaCode = '555' } = body; // Prefixed with _ to indicate it's unused
 
     if (!name || !type) {
       return NextResponse.json(

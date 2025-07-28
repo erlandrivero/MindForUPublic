@@ -17,7 +17,7 @@ import User from '@/models/User';
 import Invoice from '@/models/Invoice';
 import { MongoClient } from 'mongodb';
 
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
     console.log('Starting dashboard invoices API route');
     
@@ -238,7 +238,7 @@ export async function GET(req: NextRequest) {
 }
 
 // Refresh invoices from clients collection and store in MongoDB
-export async function POST(req: NextRequest) {
+export async function POST(_req: NextRequest) {
   try {
     console.log('=== INVOICE API POST ROUTE STARTED ===');
     console.log('Checking authentication...');
