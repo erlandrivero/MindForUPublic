@@ -30,9 +30,9 @@ async function main() {
       console.log('.env.local file does not exist');
     }
     
-    // Try to create a temporary MongoDB URI for testing
-    process.env.MONGODB_URI = 'mongodb+srv://username:password@cluster.mongodb.net/database?retryWrites=true&w=majority';
-    console.log('Created temporary MONGODB_URI for testing (will fail to connect)');
+    // Set a placeholder URI without credentials for testing
+    process.env.MONGODB_URI = 'mongodb://localhost:27017/test-db';
+    console.log('Created placeholder MONGODB_URI for testing (will fail to connect)');
   }
   
   // Connect to MongoDB

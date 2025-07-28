@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/libs/auth';
+import { authOptions } from '@/libs/next-auth';
 import connectMongo from '@/libs/mongoose';
 import mongoose from 'mongoose';
 import Call from '@/models/Call';

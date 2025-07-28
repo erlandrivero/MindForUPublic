@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/libs/auth';
+import { authOptions } from '@/libs/next-auth';
 import { syncCallData } from '@/lib/scheduled-tasks';
 
 /**
