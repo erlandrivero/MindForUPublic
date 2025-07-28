@@ -30,7 +30,9 @@ export async function POST(_req: NextRequest) {
     const vapiAssistantsResponse = await vapi.assistants.list();
 
     // Filter out assistants that are already in our database
-    const newVapiAssistants = vapiAssistantsResponse.data.filter(
+    // Use type assertion to access data property
+    const assistantsData = (vapiAssistantsResponse as any).data || [];
+    const newVapiAssistants = assistantsData.filter(
       (vapiAssistant: any) => !existingVapiIds.includes(vapiAssistant.id)
     );
 
@@ -63,7 +65,9 @@ export async function POST(_req: NextRequest) {
         let phoneNumber = null;
         try {
           const phoneNumbersResponse = await vapi.phoneNumbers.list();
-          const assignedPhoneNumber = phoneNumbersResponse.data.find(
+          // Use type assertion to access data property
+          const phoneNumbersData = (phoneNumbersResponse as any).data || [];
+          const assignedPhoneNumber = phoneNumbersData.find(
             (phone: any) => phone.assistantId === vapiAssistant.id
           );
           
