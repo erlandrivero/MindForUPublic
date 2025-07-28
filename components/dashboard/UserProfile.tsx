@@ -3,18 +3,16 @@
 import React, { useState, useEffect } from 'react';
 import { 
   User, 
-  Mail, 
-  Phone, 
-  MapPin, 
+  Mail, // Now properly imported without underscore
+  Phone, // Now properly imported without underscore
   Shield, 
-  Bell, 
+  Edit3, 
+  Save, 
   Key, 
-  Globe, 
-  Save,
-  Edit3,
-  Camera,
-  AlertCircle,
-  CheckCircle
+  AlertCircle, 
+  CheckCircle,
+  Camera, // Added missing Camera import
+  X // Added X for modal close button
 } from 'lucide-react';
 
 interface UserData {
@@ -251,12 +249,13 @@ const UserProfile = () => {
                   accept="image/jpeg,image/png,image/gif"
                   className="hidden"
                 />
-                <button 
+                <button
+                  type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
+                  className="absolute bottom-0 right-0 h-8 w-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  aria-label="Upload profile picture"
                 >
-                  <Camera className="w-4 h-4 mr-2" />
-                  Change Photo
+                  <Camera className="h-4 w-4 text-gray-600" aria-hidden="true" />
                 </button>
                 <p className="mt-1 text-xs text-gray-500">JPG, GIF or PNG. 1MB max.</p>
               </div>
@@ -445,10 +444,12 @@ const UserProfile = () => {
                   <p className="text-sm text-gray-500">Last changed 3 months ago</p>
                 </div>
                 <button
+                  type="button"
                   onClick={() => setShowPasswordChange(true)}
                   className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
+                  aria-label="Change password"
                 >
-                  <Key className="w-4 h-4 mr-2" />
+                  <Key className="w-4 h-4 mr-2" aria-hidden="true" />
                   Change Password
                 </button>
               </div>
@@ -462,14 +463,16 @@ const UserProfile = () => {
                   </p>
                 </div>
                 <button
+                  type="button"
                   onClick={enableTwoFactor}
                   className={`inline-flex items-center px-3 py-2 border shadow-sm text-sm leading-4 font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 ${
                     userData.twoFactorEnabled
                       ? 'border-red-300 text-red-700 bg-white hover:bg-red-50'
                       : 'border-teal-300 text-teal-700 bg-teal-50 hover:bg-teal-100'
                   }`}
+                  aria-label={userData.twoFactorEnabled ? 'Disable two-factor authentication' : 'Enable two-factor authentication'}
                 >
-                  <Shield className="w-4 h-4 mr-2" />
+                  <Shield className="w-4 h-4 mr-2" aria-hidden="true" />
                   {userData.twoFactorEnabled ? 'Disable 2FA' : 'Enable 2FA'}
                 </button>
               </div>
@@ -525,17 +528,21 @@ const UserProfile = () => {
               </div>
               <div className="mt-6 flex space-x-3">
                 <button
+                  type="button"
                   onClick={() => {
                     alert('Password change functionality will be implemented here');
                     setShowPasswordChange(false);
                   }}
                   className="flex-1 px-4 py-2 bg-teal-500 text-white text-sm font-medium rounded-md shadow-sm hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
+                  aria-label="Update password"
                 >
                   Update Password
                 </button>
                 <button
+                  type="button"
                   onClick={() => setShowPasswordChange(false)}
                   className="flex-1 px-4 py-2 bg-gray-300 text-gray-700 text-sm font-medium rounded-md shadow-sm hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300"
+                  aria-label="Cancel password change"
                 >
                   Cancel
                 </button>

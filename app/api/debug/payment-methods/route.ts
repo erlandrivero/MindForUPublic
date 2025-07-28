@@ -5,7 +5,7 @@ import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
 import { MongoClient } from 'mongodb';
 
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
     console.log('Starting debug payment-methods API route');
     

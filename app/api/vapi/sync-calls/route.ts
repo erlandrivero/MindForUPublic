@@ -7,9 +7,7 @@ import Assistant from '@/models/Assistant';
 import Call from '@/models/Call';
 import vapi from '@/libs/vapi';
 
-// Using the vapi client from libs
-
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
     

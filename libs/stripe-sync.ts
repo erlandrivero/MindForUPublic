@@ -36,7 +36,10 @@ export const syncPaymentMethods = async (userId: string | Types.ObjectId) => {
     
     // Get the default payment method for this customer
     const customer = await stripe.customers.retrieve(user.customerId);
-    const defaultPaymentMethodId = typeof customer !== 'string' ? customer.invoice_settings?.default_payment_method : null;
+    // Properly handle the customer type and check if it's deleted
+    const defaultPaymentMethodId = typeof customer !== 'string' && !('deleted' in customer) 
+      ? customer.invoice_settings?.default_payment_method 
+      : null;
     
     // Process each payment method
     for (const pm of paymentMethods.data) {

@@ -9,7 +9,7 @@ import vapi from '@/libs/vapi';
 // Maximum number of phone numbers allowed per user
 const MAX_PHONE_NUMBERS_PER_USER = 3;
 
-export async function POST(req: NextRequest) {
+export async function POST(_req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
     
@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const body = await req.json();
+    const body = await _req.json();
     const { phoneNumberId, assistantId } = body;
 
     if (!phoneNumberId || !assistantId) {

@@ -42,7 +42,7 @@ interface MigrationResult {
  * 3. If assigned, find the assistant in our database and update the phone number metadata with the user ID
  * 4. If not assigned, it will be left as-is (admin can manually assign later)
  */
-export async function POST(req: NextRequest) {
+export async function POST(_req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
     

@@ -7,7 +7,7 @@ import Assistant from '@/models/Assistant';
 
 // PATCH - Update assistant (status, configuration, etc.)
 export async function PATCH(
-  req: NextRequest,
+  _req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
@@ -18,7 +18,7 @@ export async function PATCH(
     }
 
     const { id } = params;
-    const body = await req.json();
+    const body = await _req.json();
 
     await connectMongo();
 
@@ -94,7 +94,7 @@ export async function PATCH(
 
 // DELETE - Delete assistant
 export async function DELETE(
-  req: NextRequest,
+  _req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {

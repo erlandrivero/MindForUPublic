@@ -14,7 +14,7 @@ interface CallModelWithStatics extends mongoose.Model<any> {
   getCallTypeDistribution(userId: string): Promise<any[]>;
 }
 
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
     
@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { searchParams } = new URL(req.url);
+    const { searchParams } = new URL(_req.url);
     const range = searchParams.get('range') || '7d';
 
     await connectMongo();
@@ -177,6 +177,6 @@ export async function GET(req: NextRequest) {
 }
 
 // Helper function to get call volume data (used by other APIs)
-async function getCallVolumeData(userId: string, days: number = 7) {
+async function _getCallVolumeData(userId: string, days: number = 7) {
   return (Call as unknown as CallModelWithStatics).getCallVolumeForUser(userId, days);
 }

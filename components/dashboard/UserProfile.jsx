@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { 
   User, 
-  Mail, 
-  Phone, 
-  Building, 
-  MapPin, 
+  _Mail, // Unused - prefixed with underscore to match ESLint rule
+  _Phone, // Unused - prefixed with underscore to match ESLint rule
+  _Building, // Unused - prefixed with underscore to match ESLint rule
+  _MapPin, // Unused - prefixed with underscore to match ESLint rule
   Shield, 
   Key,
   Bell,
-  Globe,
+  _Globe, // Unused - prefixed with underscore to match ESLint rule
   Save,
   Edit,
   Camera,
-  Check,
+  Check, // Used in SecurityTab component
   X
 } from 'lucide-react';
 
@@ -45,7 +45,7 @@ const UserProfile = () => {
     marketingEmails: false
   });
 
-  const [security, setSecurity] = useState({
+  const [security, _setSecurity] = useState({
     twoFactorEnabled: true,
     lastPasswordChange: '2024-12-15',
     activeSessions: 3
@@ -84,14 +84,22 @@ const UserProfile = () => {
           <div className="h-24 w-24 rounded-full bg-teal-500 flex items-center justify-center">
             <User className="h-12 w-12 text-white" />
           </div>
-          <button className="absolute bottom-0 right-0 h-8 w-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center hover:bg-gray-50">
+          <button 
+            type="button"
+            className="absolute bottom-0 right-0 h-8 w-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-teal-500"
+            aria-label="Upload profile picture"
+          >
             <Camera className="h-4 w-4 text-gray-600" />
           </button>
         </div>
         <div>
           <h3 className="text-lg font-medium text-gray-900">Profile Picture</h3>
           <p className="text-sm text-gray-500">Update your profile picture</p>
-          <button className="mt-2 text-sm text-teal-600 hover:text-teal-500">
+          <button 
+            type="button"
+            className="mt-2 text-sm text-teal-600 hover:text-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+            aria-label="Change profile picture"
+          >
             Change picture
           </button>
         </div>
@@ -356,7 +364,11 @@ const UserProfile = () => {
                 Last changed on {new Date(security.lastPasswordChange).toLocaleDateString()}
               </p>
             </div>
-            <button className="text-sm text-teal-600 hover:text-teal-500">
+            <button
+              type="button"
+              className="text-sm text-teal-600 hover:text-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+              aria-label="Change password"
+            >
               Change Password
             </button>
           </div>
@@ -371,7 +383,11 @@ const UserProfile = () => {
                 You have {security.activeSessions} active sessions
               </p>
             </div>
-            <button className="text-sm text-teal-600 hover:text-teal-500">
+            <button
+              type="button"
+              className="text-sm text-teal-600 hover:text-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+              aria-label="Manage active sessions"
+            >
               Manage Sessions
             </button>
           </div>
@@ -406,26 +422,32 @@ const UserProfile = () => {
           {isEditing ? (
             <>
               <button
+                type="button"
                 onClick={() => setIsEditing(false)}
-                className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+                className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                aria-label="Cancel editing"
               >
-                <X className="h-4 w-4 mr-2" />
+                <X className="h-4 w-4 mr-2" aria-hidden="true" />
                 Cancel
               </button>
               <button
+                type="button"
                 onClick={handleSave}
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700"
+                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+                aria-label="Save profile changes"
               >
-                <Save className="h-4 w-4 mr-2" />
+                <Save className="h-4 w-4 mr-2" aria-hidden="true" />
                 Save Changes
               </button>
             </>
           ) : (
             <button
+              type="button"
               onClick={() => setIsEditing(true)}
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+              aria-label="Edit profile"
             >
-              <Edit className="h-4 w-4 mr-2" />
+              <Edit className="h-4 w-4 mr-2" aria-hidden="true" />
               Edit Profile
             </button>
           )}
@@ -438,14 +460,18 @@ const UserProfile = () => {
           {tabs.map((tab) => (
             <button
               key={tab.id}
+              type="button"
               onClick={() => setActiveTab(tab.id)}
               className={`${
                 activeTab === tab.id
                   ? 'border-teal-500 text-teal-600'
                   : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-              } whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm flex items-center`}
+              } whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm flex items-center focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2`}
+              aria-selected={activeTab === tab.id}
+              role="tab"
+              aria-controls={`${tab.id}-panel`}
             >
-              <tab.icon className="h-4 w-4 mr-2" />
+              <tab.icon className="h-4 w-4 mr-2" aria-hidden="true" />
               {tab.name}
             </button>
           ))}
@@ -454,9 +480,30 @@ const UserProfile = () => {
 
       {/* Tab Content */}
       <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        {activeTab === 'profile' && <ProfileTab />}
-        {activeTab === 'notifications' && <NotificationsTab />}
-        {activeTab === 'security' && <SecurityTab />}
+        <div 
+          id="profile-panel" 
+          role="tabpanel" 
+          aria-labelledby="profile-tab"
+          className={activeTab === 'profile' ? '' : 'hidden'}
+        >
+          {activeTab === 'profile' && <ProfileTab />}
+        </div>
+        <div 
+          id="notifications-panel" 
+          role="tabpanel" 
+          aria-labelledby="notifications-tab"
+          className={activeTab === 'notifications' ? '' : 'hidden'}
+        >
+          {activeTab === 'notifications' && <NotificationsTab />}
+        </div>
+        <div 
+          id="security-panel" 
+          role="tabpanel" 
+          aria-labelledby="security-tab"
+          className={activeTab === 'security' ? '' : 'hidden'}
+        >
+          {activeTab === 'security' && <SecurityTab />}
+        </div>
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 import connectMongo from "@/libs/mongoose";
 import { ObjectId } from "mongodb";
 
-interface Client {
+interface _Client {
   _id: ObjectId;
   email: string;
   userId?: string;
@@ -13,7 +13,7 @@ interface Client {
   paymentMethods?: any[];
 }
 
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
     // Get session to verify admin access
     const session = await getServerSession(authOptions);

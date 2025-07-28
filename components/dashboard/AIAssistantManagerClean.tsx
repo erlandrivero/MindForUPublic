@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 
 // Type definitions
-type AssistantType = 'customer_service' | 'appointment_scheduling' | 'sales_qualification' | 'general_assistant' | 'technical_support';
+type _AssistantType = 'customer_service' | 'appointment_scheduling' | 'sales_qualification' | 'general_assistant' | 'technical_support';
 
 interface Assistant {
   id: string;
@@ -67,7 +67,7 @@ const AIAssistantManager = () => {
   const [formData, setFormData] = useState({
     name: '',
     description: descriptionTemplates.customer_service, // Default to customer service template
-    type: 'customer_service' as AssistantType,
+    type: 'customer_service' as _AssistantType,
     voice: 'alloy', // Add voice property directly to formData
     language: 'en', // Add language property directly to formData
     configuration: {
@@ -75,15 +75,6 @@ const AIAssistantManager = () => {
       language: 'en'
     }
   });
-
-  // Handle assistant type change and update description template
-  const handleTypeChange = (newType: AssistantType) => {
-    setFormData(prev => ({
-      ...prev,
-      type: newType,
-      description: descriptionTemplates[newType] // Auto-update description template
-    }));
-  };
   const [settingsData, setSettingsData] = useState({
     name: '',
     description: '',
@@ -433,7 +424,11 @@ const AIAssistantManager = () => {
           type: 'customer_service',
           description: '',
           voice: 'alloy',
-          language: 'en'
+          language: 'en',
+          configuration: {
+            voice: 'alloy',
+            language: 'en'
+          }
         });
         // Refresh the data to update stats
         fetchAssistants();
@@ -631,7 +626,7 @@ const AIAssistantManager = () => {
                           <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                             assistant.status === 'active' 
                               ? 'bg-green-100 text-green-800' 
-                              : assistant.status === 'training'
+                              : assistant.status === 'paused'
                               ? 'bg-yellow-100 text-yellow-800'
                               : 'bg-gray-100 text-gray-800'
                           }`}>
@@ -742,7 +737,11 @@ const AIAssistantManager = () => {
                 </label>
                 <select
                   value={formData.type}
-                  onChange={(e) => handleTypeChange(e.target.value as AssistantType)}
+                  onChange={(e) => setFormData(prev => ({
+                    ...prev,
+                    type: e.target.value as _AssistantType,
+                    description: descriptionTemplates[e.target.value as keyof typeof descriptionTemplates]
+                  }))}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
                   required
                 >
@@ -818,10 +817,14 @@ const AIAssistantManager = () => {
                     setShowCreateModal(false);
                     setFormData({
                       name: '',
-                      type: 'customer-service',
+                      type: 'customer_service',
                       description: '',
                       voice: 'alloy',
-                      language: 'en'
+                      language: 'en',
+                      configuration: {
+                        voice: 'alloy',
+                        language: 'en'
+                      }
                     });
                   }}
                   className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"

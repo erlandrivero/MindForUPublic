@@ -251,7 +251,7 @@ export async function GET(_req: NextRequest) {
 }
 
 // Refresh payment methods from clients collection
-export async function POST(req: NextRequest) {
+export async function POST(_req: NextRequest) {
   try {
     console.log('Starting payment methods refresh (POST)');
     
@@ -269,7 +269,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Force refresh by calling GET handler
-    return GET(req);
+    return GET(_req);
     
   } catch (error) {
     console.error('Payment methods refresh error:', error);

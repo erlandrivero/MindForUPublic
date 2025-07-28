@@ -68,7 +68,7 @@ export async function GET(_req: NextRequest) {
   }
 }
 
-export async function PUT(req: NextRequest) {
+export async function PUT(_req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
     
@@ -76,7 +76,7 @@ export async function PUT(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const body = await req.json();
+    const body = await _req.json();
     const { 
       name, 
       phone, 
@@ -146,7 +146,7 @@ export async function PUT(req: NextRequest) {
 }
 
 // PATCH endpoint for specific profile updates (like notification preferences)
-export async function PATCH(req: NextRequest) {
+export async function PATCH(_req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
     
@@ -154,7 +154,7 @@ export async function PATCH(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const body = await req.json();
+    const body = await _req.json();
     const { type, data } = body;
 
     await connectMongo();

@@ -6,7 +6,7 @@ import User from '@/models/User';
 import Assistant from '@/models/Assistant';
 import vapi from '@/libs/vapi';
 
-export async function POST(req: NextRequest) {
+export async function POST(_req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
     
@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const body = await req.json();
+    const body = await _req.json();
     const { phoneNumberId } = body;
 
     if (!phoneNumberId) {

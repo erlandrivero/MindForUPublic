@@ -6,7 +6,7 @@ import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
 import Assistant from '@/models/Assistant';
 
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
     
@@ -24,7 +24,7 @@ export async function GET(req: NextRequest) {
     }
     
     // Get query parameters
-    const { searchParams } = new URL(req.url);
+    const { searchParams } = new URL(_req.url);
     const unassignedOnly = searchParams.get('unassigned') === 'true';
     
     // List all phone numbers from Vapi
@@ -100,7 +100,7 @@ export async function GET(req: NextRequest) {
   }
 }
 
-export async function DELETE(req: NextRequest) {
+export async function DELETE(_req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
     
@@ -108,7 +108,7 @@ export async function DELETE(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { searchParams } = new URL(req.url);
+    const { searchParams } = new URL(_req.url);
     const phoneNumberId = searchParams.get('id');
 
     if (!phoneNumberId) {

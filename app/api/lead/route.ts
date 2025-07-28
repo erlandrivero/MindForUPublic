@@ -5,10 +5,10 @@ import Lead from "@/models/Lead";
 // This route is used to store the leads that are generated from the landing page.
 // The API call is initiated by <ButtonLead /> component
 // Duplicate emails just return 200 OK
-export async function POST(req: NextRequest) {
+export async function POST(_req: NextRequest) {
   await connectMongo();
 
-  const body = await req.json();
+  const body = await _req.json();
 
   if (!body.email) {
     return NextResponse.json({ error: "Email is required" }, { status: 400 });

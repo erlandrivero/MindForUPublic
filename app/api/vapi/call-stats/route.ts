@@ -6,7 +6,7 @@ import User from '@/models/User';
 import Assistant from '@/models/Assistant';
 import vapi from '@/libs/vapi';
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   try {
     console.log('Starting call-stats API route');
     console.log('VAPI_PRIVATE_KEY:', process.env.VAPI_PRIVATE_KEY ? 'Exists (first 4 chars): ' + process.env.VAPI_PRIVATE_KEY.substring(0, 4) : 'Missing');

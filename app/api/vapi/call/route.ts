@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/libs/next-auth';
 
-export async function POST(req: NextRequest) {
+export async function POST(_req: NextRequest) {
   try {
     console.log('[VAPI PROXY] Starting call request...');
     
@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
     //   return NextResponse.json({ error: 'Unauthorized - Please log in' }, { status: 401 });
     // }
 
-    const body = await req.json();
+    const body = await _req.json();
     const { assistantId, ...callOptions } = body;
 
     if (!assistantId) {

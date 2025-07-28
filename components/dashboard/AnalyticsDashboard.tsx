@@ -51,6 +51,12 @@ interface AnalyticsData {
     hour: string;
     calls: number;
   }>;
+  summary?: {
+    totalCalls?: number;
+    successRate?: number;
+    avgDuration?: number;
+    uniqueCallers?: number;
+  };
 }
 
 interface MetricCard {
@@ -65,7 +71,6 @@ const AnalyticsDashboard = () => {
   const [analyticsData, setAnalyticsData] = useState<AnalyticsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [timeRange, setTimeRange] = useState('7d');
-  const [refreshing, setRefreshing] = useState(false);
 
   // Real API integration
   useEffect(() => {
@@ -129,44 +134,33 @@ const AnalyticsDashboard = () => {
     fetchAnalytics();
   }, [timeRange]);
 
-  const refreshData = async () => {
-    setRefreshing(true);
-    // Simulate API refresh
-    setTimeout(() => {
-      setRefreshing(false);
-    }, 1000);
-  };
-
-  const exportData = () => {
-    // TODO: Implement data export functionality
-    alert('Export functionality will be implemented here');
-  };
+  // Functions for refreshing and exporting data will be implemented here when needed
 
   const metricCards: MetricCard[] = [
     {
       title: 'Total Calls',
-      value: analyticsData?.summary?.totalCalls?.toString() || '0',
+      value: analyticsData && analyticsData.summary && analyticsData.summary.totalCalls ? analyticsData.summary.totalCalls.toString() : '0',
       change: '+12.3%', // TODO: Calculate from historical data
       changeType: 'increase',
       icon: Phone
     },
     {
       title: 'Success Rate',
-      value: `${analyticsData?.summary?.successRate || 0}%`,
+      value: `${analyticsData && analyticsData.summary && analyticsData.summary.successRate ? analyticsData.summary.successRate : 0}%`,
       change: '+2.1%', // TODO: Calculate from historical data
       changeType: 'increase',
       icon: TrendingUp
     },
     {
       title: 'Avg Duration',
-      value: `${analyticsData?.summary?.avgDuration || 0}m`,
+      value: `${analyticsData && analyticsData.summary && analyticsData.summary.avgDuration ? analyticsData.summary.avgDuration : 0}m`,
       change: '-0.3m', // TODO: Calculate from historical data
       changeType: 'decrease',
       icon: Clock
     },
     {
       title: 'Unique Callers',
-      value: analyticsData?.summary?.uniqueCallers?.toString() || '0',
+      value: analyticsData && analyticsData.summary && analyticsData.summary.uniqueCallers ? analyticsData.summary.uniqueCallers.toString() : '0',
       change: 'No change', // TODO: Calculate from historical data
       changeType: 'neutral',
       icon: Users
@@ -194,11 +188,29 @@ const AnalyticsDashboard = () => {
         <div className="mt-4 sm:mt-0 flex space-x-3">
           {/* Time selection dropdown removed */}
           <button
-            onClick={refreshData}
-            disabled={refreshing}
+            onClick={() => {
+              // Refresh data by re-fetching analytics
+              const fetchAnalytics = async () => {
+                try {
+                  setLoading(true);
+                  const response = await fetch(`/api/dashboard/analytics?range=${timeRange}`);
+                  if (!response.ok) {
+                    throw new Error('Failed to fetch analytics data');
+                  }
+                  const data = await response.json();
+                  setAnalyticsData(data);
+                } catch (error) {
+                  console.error('Error refreshing analytics:', error);
+                } finally {
+                  setLoading(false);
+                }
+              };
+              fetchAnalytics();
+            }}
+            disabled={loading}
             className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
           >
-            <RefreshCw className={`w-4 h-4 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
+            <RefreshCw className={`w-4 h-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
             Refresh
           </button>
           {/* Export button removed */}
@@ -273,7 +285,7 @@ const AnalyticsDashboard = () => {
                 cx="50%"
                 cy="50%"
                 labelLine={false}
-                label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                label={({ name, percent }) => `${name} ${percent ? (percent * 100).toFixed(0) : 0}%`}
                 outerRadius={80}
                 fill="#8884d8"
                 dataKey="value"

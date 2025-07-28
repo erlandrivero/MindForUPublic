@@ -7,7 +7,7 @@ import { syncCallData } from '@/lib/scheduled-tasks';
  * API endpoint to manually trigger call data sync from Vapi to MongoDB
  * This is useful for testing and debugging
  */
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
     // Check authentication
     const session = await getServerSession(authOptions);

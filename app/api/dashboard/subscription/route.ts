@@ -3,7 +3,6 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/libs/next-auth';
 import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
-// Assistant model is not used in this file
 import Call from '@/models/Call';
 import { MongoClient } from 'mongodb';
 
@@ -25,10 +24,10 @@ export async function GET(_req: NextRequest) {
     }
 
     // Initialize subscription data from user model as fallback
-    let subscription = user.subscription || {};
+    const subscription = user.subscription || {};
     let planName = subscription.planName || '';
     let planPrice = subscription.planPrice || 0;
-    let billingCycle = subscription.billingCycle || 'monthly';
+    const billingCycle = subscription.billingCycle || 'monthly';
     
     // Only set status and dates if there's a plan
     let status = planName ? (subscription.status || 'active') : '';

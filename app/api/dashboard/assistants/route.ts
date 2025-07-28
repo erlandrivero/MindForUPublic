@@ -15,7 +15,7 @@ interface PhoneNumberMetadata {
 }
 
 // Used for documentation purposes
-interface PhoneNumberCreateParams {
+interface _PhoneNumberCreateParams {
   name: string;
   assistantId: string;
   metadata: PhoneNumberMetadata;
@@ -129,7 +129,7 @@ export async function GET(_req: NextRequest) {
   }
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(_req: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
     
@@ -137,7 +137,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const body = await req.json();
+    const body = await _req.json();
     const { name, description, type, configuration, createPhoneNumber = true, _areaCode = '555' } = body; // Prefixed with _ to indicate it's unused
 
     if (!name || !type) {

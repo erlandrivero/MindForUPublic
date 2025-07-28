@@ -9,7 +9,7 @@ import Call from '@/models/Call';
  * API endpoint to check MongoDB collections and call data
  * This is useful for debugging and verifying data
  */
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
     // Check authentication
     const session = await getServerSession(authOptions);

@@ -8,7 +8,7 @@ import Call from '@/models/Call';
 import { MongoClient } from 'mongodb';
 
 
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   try {
     console.log('Starting dashboard stats API route');
     console.log('VAPI_PRIVATE_KEY:', process.env.VAPI_PRIVATE_KEY ? 'Exists (first 4 chars): ' + process.env.VAPI_PRIVATE_KEY.substring(0, 4) : 'Missing');

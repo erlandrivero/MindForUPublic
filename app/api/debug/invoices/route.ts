@@ -5,7 +5,10 @@ import connectMongo from '@/libs/mongoose';
 import Invoice from '@/models/Invoice';
 
 // Debug API route to check and create invoices
-export async function GET(req: NextRequest) {
+export async function GET(
+  _req: NextRequest,
+  { params }: { params: {} }
+) {
   try {
     console.log('=== DEBUG INVOICES API GET ROUTE STARTED ===');
     
@@ -99,7 +102,7 @@ export async function GET(req: NextRequest) {
 }
 
 // Debug API to create a test invoice
-export async function POST(req: NextRequest) {
+export async function POST(_req: NextRequest) {
   try {
     console.log('=== DEBUG INVOICES API POST ROUTE STARTED ===');
     
@@ -111,9 +114,9 @@ export async function POST(req: NextRequest) {
     // Get the request body if any
     let requestBody = {};
     try {
-      requestBody = await req.json();
+      requestBody = await _req.json();
       console.log('Request body:', requestBody);
-    } catch (e) {
+    } catch (_e) {
       console.log('No request body provided, using default test data');
     }
     

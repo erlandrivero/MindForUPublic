@@ -33,26 +33,26 @@ function logMessage(message: string) {
 
 // Simple buffer implementation to handle raw request body
 async function buffer(readable: NodeJS.ReadableStream): Promise<Buffer> {
-  const chunks: Buffer[] = [];
+  const chunks: any[] = [];
   for await (const chunk of readable) {
     chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
   }
-  return Buffer.concat(chunks);
+  return Buffer.concat(chunks as Uint8Array[]);
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(_req: NextRequest) {
   const eventId = uuidv4().substring(0, 8);
   logMessage(`[${eventId}] Webhook test endpoint received a request`);
   
   try {
     // Get the raw body
-    const buf = await buffer(req.body as unknown as NodeJS.ReadableStream);
+    const buf = await buffer(_req.body as unknown as NodeJS.ReadableStream);
     const rawBody = buf.toString('utf8');
     
     // Get the Stripe signature header
-    const sig = req.headers.get('stripe-signature');
+    const sig = _req.headers.get('stripe-signature');
     
-    logMessage(`[${eventId}] Request headers: ${JSON.stringify(Object.fromEntries(req.headers.entries()))}`);
+    logMessage(`[${eventId}] Request headers: ${JSON.stringify(Object.fromEntries(_req.headers.entries()))}`);
     logMessage(`[${eventId}] Stripe signature: ${sig || 'None'}`);
     
     // Try to parse the event without verification first (for logging)
@@ -103,7 +103,7 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET(req: NextRequest) {
+export async function GET(_req: NextRequest) {
   // Check if logs exist and return the last few entries
   try {
     let logContent = 'No logs found';
@@ -119,7 +119,7 @@ export async function GET(req: NextRequest) {
       const fileDescriptor = fs.openSync(logFilePath, 'r');
       fs.readSync(
         fileDescriptor,
-        buffer,
+        buffer as any,
         0,
         bytesToRead,
         fileSizeInBytes - bytesToRead
