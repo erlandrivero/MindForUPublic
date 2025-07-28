@@ -115,7 +115,7 @@ export async function GET(req: NextRequest) {
     };
 
     const formattedCallTypes = callTypes ? callTypes.map(item => ({
-      name: item._id.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase()),
+      name: item._id.replace('_', ' ').replace(/\b\w/g, (l: string) => l.toUpperCase()),
       value: item.count,
       color: typeColors[item._id as keyof typeof typeColors] || '#6B7280'
     })) : [];
