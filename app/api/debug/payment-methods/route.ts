@@ -41,7 +41,8 @@ export async function GET(req: NextRequest) {
       }).toArray();
       
       // Check if there's a dedicated payment methods collection (capital M)
-      let dedicatedPaymentMethods = [];
+      // Explicitly type the variable to fix the implicit any[] type error
+      let dedicatedPaymentMethods: Record<string, any>[] = [];
       if (collectionNames.includes('paymentMethods')) {
         const paymentMethodsCollection = database.collection('paymentMethods');
         dedicatedPaymentMethods = await paymentMethodsCollection.find({
@@ -50,7 +51,8 @@ export async function GET(req: NextRequest) {
       }
       
       // Check if there's a dedicated paymentmethods collection (lowercase)
-      let lowercasePaymentMethods = [];
+      // Explicitly type the variable to fix potential implicit any[] type error
+      let lowercasePaymentMethods: Record<string, any>[] = [];
       if (collectionNames.includes('paymentmethods')) {
         const lowercaseCollection = database.collection('paymentmethods');
         lowercasePaymentMethods = await lowercaseCollection.find({
