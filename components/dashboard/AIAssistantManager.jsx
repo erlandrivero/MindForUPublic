@@ -265,9 +265,9 @@ const AIAssistantManager = () => {
                   Response Time
                 </label>
                 <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
-                  <option>Fast (< 300ms)</option>
-                  <option>Balanced (< 500ms)</option>
-                  <option>Accurate (< 800ms)</option>
+                  <option>Fast (&lt; 300ms)</option>
+                  <option>Balanced (&lt; 500ms)</option>
+                  <option>Accurate (&lt; 800ms)</option>
                 </select>
               </div>
               <div>
