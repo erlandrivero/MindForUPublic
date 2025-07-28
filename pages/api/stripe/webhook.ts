@@ -2,6 +2,10 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 import { MongoClient } from 'mongodb';
 import { v4 as uuidv4 } from 'uuid';
+import connectMongo from '@/libs/mongoose';
+import User from '@/models/User';
+import fs from 'fs';
+import path from 'path';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: '2023-08-16',
@@ -9,14 +13,42 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
 
 const mongoClient = new MongoClient(process.env.MONGODB_URI as string);
 
+// Ensure logs directory exists
+const logsDir = path.join(process.cwd(), 'logs');
+if (!fs.existsSync(logsDir)) {
+  try {
+    fs.mkdirSync(logsDir, { recursive: true });
+  } catch (err) {
+    console.error('Failed to create logs directory:', err);
+  }
+}
+
+const logFilePath = path.join(logsDir, 'stripe-webhook.log');
+
+// Helper function to log messages
+function logMessage(message: string) {
+  const timestamp = new Date().toISOString();
+  const logEntry = `[${timestamp}] ${message}\n`;
+  
+  console.log(logEntry.trim());
+  
+  try {
+    fs.appendFileSync(logFilePath, logEntry);
+  } catch (error) {
+    console.error('Error writing to log file:', error);
+  }
+}
+
 export const config = {
   api: {
     bodyParser: false,
   },
 };
 
-async function buffer(readable: NodeJS.ReadableStream) {
-  const chunks = [];
+// Simple buffer implementation to handle raw request body
+async function buffer(readable: NodeJS.ReadableStream): Promise<Buffer> {
+  // @ts-ignore - Ignoring type issues with Buffer.concat
+  const chunks: any[] = [];
   for await (const chunk of readable) {
     chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
   }
@@ -24,6 +56,9 @@ async function buffer(readable: NodeJS.ReadableStream) {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const requestId = uuidv4().substring(0, 8);
+  logMessage(`[${requestId}] Webhook handler received a request`);
+  
   if (req.method === 'POST') {
     const buf = await buffer(req);
     const sig = req.headers['stripe-signature'] as string;
@@ -33,11 +68,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
       event = stripe.webhooks.constructEvent(buf as Buffer, sig, webhookSecret);
+      logMessage(`[${requestId}] Successfully verified Stripe event: ${event.type}`);
     } catch (err: unknown) {
       if (err instanceof Error) {
-      console.error(`Webhook Error: ${err.message}`);
-      return res.status(400).send(`Webhook Error: ${err.message}`);
+        const errorMessage = `Webhook Error: ${err.message}`;
+        logMessage(`[${requestId}] ${errorMessage}`);
+        return res.status(400).send(errorMessage);
       } else {
+        logMessage(`[${requestId}] Webhook Error: An unexpected error occurred`);
         return res.status(400).send('Webhook Error: An unexpected error occurred');
       }
     }
@@ -46,16 +84,41 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     switch (event.type) {
       case 'checkout.session.completed':
         const session = event.data.object as Stripe.Checkout.Session;
+        logMessage(`[${requestId}] Processing checkout.session.completed for session ${session.id}`);
 
         // Connect to MongoDB
-        await mongoClient.connect();
+        try {
+          await mongoClient.connect();
+          logMessage(`[${requestId}] Successfully connected to MongoDB`);
+        } catch (mongoConnectError) {
+          logMessage(`[${requestId}] MongoDB connection error: ${mongoConnectError}`);
+          return res.status(500).json({ error: 'Failed to connect to database' });
+        }
+        
         const db = mongoClient.db(); // Get default database
-        const clientsCollection = db.collection('clients');
+        
+        // Ensure clients collection exists
+        let clientsCollection;
+        try {
+          const collections = await db.listCollections({ name: 'clients' }).toArray();
+          if (collections.length === 0) {
+            logMessage(`[${requestId}] Clients collection does not exist, creating it`);
+            await db.createCollection('clients');
+          }
+          clientsCollection = db.collection('clients');
+          logMessage(`[${requestId}] Successfully accessed clients collection`);
+        } catch (collectionError) {
+          logMessage(`[${requestId}] Error accessing/creating clients collection: ${collectionError}`);
+          await mongoClient.close();
+          return res.status(500).json({ error: 'Failed to access clients collection' });
+        }
 
         // Extract customer info
         const customerEmail = session.customer_details?.email;
         const customerName = session.customer_details?.name;
         const stripeCustomerId = session.customer as string;
+        
+        logMessage(`[${requestId}] Processing transaction for customer: ${customerEmail || 'unknown'}, Stripe ID: ${stripeCustomerId}`);
 
         // Generate a unique client ID
         const clientId = uuidv4();
@@ -82,34 +145,174 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         try {
           // Check if client already exists by stripeCustomerId
-          const existingClient = await clientsCollection.findOne({ stripeCustomerId: stripeCustomerId });
+          let existingClient;
+          try {
+            existingClient = await clientsCollection.findOne({ stripeCustomerId: stripeCustomerId });
+            logMessage(`[${requestId}] Client lookup by Stripe ID ${stripeCustomerId}: ${existingClient ? 'Found' : 'Not found'}`);
+          } catch (lookupError) {
+            logMessage(`[${requestId}] Error looking up client: ${lookupError}`);
+            // Continue with null existingClient, will create a new one
+          }
 
           if (existingClient) {
             // Update existing client's purchases
-            await clientsCollection.updateOne(
-              { stripeCustomerId: stripeCustomerId },
-              { $push: { purchases: clientData.purchases[0] }, $set: { updatedAt: new Date() } }
-            );
-            console.log(`Updated client ${stripeCustomerId} with new purchase.`);
+            try {
+              const updateResult = await clientsCollection.updateOne(
+                { stripeCustomerId: stripeCustomerId },
+                { $push: { purchases: clientData.purchases[0] }, $set: { updatedAt: new Date() } }
+              );
+              logMessage(`[${requestId}] Updated client ${stripeCustomerId} with new purchase. ModifiedCount: ${updateResult.modifiedCount}`);
+            } catch (updateError) {
+              logMessage(`[${requestId}] Error updating client: ${updateError}`);
+              // If update fails, try inserting a new document
+              await clientsCollection.insertOne(clientData);
+              logMessage(`[${requestId}] Inserted new client ${clientId} after update failure`);
+            }
           } else {
             // Insert new client
-            await clientsCollection.insertOne(clientData);
-            console.log(`New client ${clientId} created.`);
+            try {
+              const insertResult = await clientsCollection.insertOne(clientData);
+              logMessage(`[${requestId}] New client ${clientId} created with ID: ${insertResult.insertedId}`);
+            } catch (insertError) {
+              logMessage(`[${requestId}] Error inserting new client: ${insertError}`);
+              throw insertError; // Re-throw to be caught by outer try-catch
+            }
+          }
+          
+          // IMPORTANT: Update the User model with subscription data
+          if (customerEmail) {
+            // Connect to Mongoose to use the User model
+            await connectMongo();
+            
+            // Find the user by email
+            const user = await User.findOne({ email: customerEmail });
+            
+            if (user) {
+              console.log(`Found user with email ${customerEmail}, updating subscription data`);
+              
+              // Get subscription details from Stripe
+              let subscriptionDetails;
+              let planName = 'Starter Plan'; // Default
+              let planLimits = 80; // Default minutes for Starter
+              
+              // If there's a subscription ID in the session metadata, fetch it
+              if (session.subscription) {
+                try {
+                  const subscription = await stripe.subscriptions.retrieve(session.subscription as string);
+                  
+                  // Get the price ID from the subscription
+                  const priceId = subscription.items.data[0]?.price.id;
+                  
+                  // Determine plan name and limits based on price ID
+                  // These should match your Stripe product configuration
+                  switch (priceId) {
+                    case process.env.STRIPE_PRICE_PROFESSIONAL:
+                      planName = 'Professional Plan';
+                      planLimits = 250;
+                      break;
+                    case process.env.STRIPE_PRICE_BUSINESS:
+                      planName = 'Business Plan';
+                      planLimits = 600;
+                      break;
+                    case process.env.STRIPE_PRICE_ENTERPRISE:
+                      planName = 'Enterprise Plan';
+                      planLimits = 1500;
+                      break;
+                    case process.env.STRIPE_PRICE_ENTERPRISE_PLUS:
+                      planName = 'Enterprise Plus Plan';
+                      planLimits = 3500;
+                      break;
+                    default:
+                      planName = 'Starter Plan';
+                      planLimits = 80;
+                  }
+                  
+                  // Update user's subscription data
+                  await User.updateOne(
+                    { email: customerEmail },
+                    {
+                      $set: {
+                        customerId: stripeCustomerId,
+                        'subscription.planName': planName,
+                        'subscription.status': 'active',
+                        'subscription.currentPeriodStart': new Date(subscription.current_period_start * 1000),
+                        'subscription.currentPeriodEnd': new Date(subscription.current_period_end * 1000),
+                        'subscription.billingCycle': subscription.items.data[0]?.plan.interval === 'year' ? 'yearly' : 'monthly',
+                        'usage.minutesLimit': planLimits,
+                        hasAccess: true
+                      }
+                    }
+                  );
+                  
+                  console.log(`Updated user ${customerEmail} with subscription data for ${planName}`);
+                } catch (stripeError) {
+                  console.error('Error fetching subscription details from Stripe:', stripeError);
+                }
+              }
+            } else {
+              console.log(`No user found with email ${customerEmail}`);
+            }
           }
         } catch (dbError) {
-          console.error('MongoDB operation failed:', dbError);
+          logMessage(`[${requestId}] MongoDB operation failed: ${dbError}`);
           return res.status(500).json({ error: 'Database operation failed' });
         } finally {
-          await mongoClient.close();
+          try {
+            await mongoClient.close();
+            logMessage(`[${requestId}] MongoDB connection closed`);
+          } catch (closeError) {
+            logMessage(`[${requestId}] Error closing MongoDB connection: ${closeError}`);
+          }
         }
 
         break;
+      case 'customer.subscription.updated':
+      case 'customer.subscription.deleted':
+        try {
+          const subscription = event.data.object as Stripe.Subscription;
+          const customerId = subscription.customer as string;
+          
+          // Connect to Mongoose
+          await connectMongo();
+          
+          // Find user by Stripe customer ID
+          const user = await User.findOne({ customerId: customerId });
+          
+          if (user) {
+            // Determine subscription status
+            const status = subscription.status === 'active' ? 'active' : 
+                          subscription.status === 'past_due' ? 'past_due' : 
+                          subscription.status === 'canceled' ? 'canceled' : 'inactive';
+            
+            // Update user's subscription status
+            await User.updateOne(
+              { customerId: customerId },
+              {
+                $set: {
+                  'subscription.status': status,
+                  'subscription.currentPeriodStart': new Date(subscription.current_period_start * 1000),
+                  'subscription.currentPeriodEnd': new Date(subscription.current_period_end * 1000),
+                  hasAccess: status === 'active'
+                }
+              }
+            );
+            
+            console.log(`Updated subscription status to ${status} for user with customer ID ${customerId}`);
+          } else {
+            console.log(`No user found with customer ID ${customerId}`);
+          }
+        } catch (error) {
+          console.error('Error handling subscription event:', error);
+        }
+        break;
+        
       // Add more event types as needed
       default:
         console.log(`Unhandled event type ${event.type}`);
     }
 
-    res.status(200).json({ received: true });
+    logMessage(`[${requestId}] Webhook processed successfully`);
+    res.status(200).json({ received: true, requestId });
   } else {
     res.setHeader('Allow', 'POST');
     res.status(405).end('Method Not Allowed');

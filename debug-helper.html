@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stripe Debug Helper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+        .section {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stripe Debug Helper</h1>
+    
+    <div class="section">
+        <h2>Debug Endpoints</h2>
+        <button id="stripeDebugBtn">Check Stripe Debug</button>
+        <button id="paymentDebugBtn">Check Payment Debug</button>
+        <div id="debugResult"></div>
+    </div>
+    
+    <div class="section">
+        <h2>Test MongoDB Connection</h2>
+        <button id="testMongoBtn">Test MongoDB Connection</button>
+        <div id="mongoResult"></div>
+    </div>
+    
+    <div class="section">
+        <h2>Check Webhook Status</h2>
+        <button id="webhookStatusBtn">Check Webhook Status</button>
+        <div id="webhookResult"></div>
+    </div>
+
+    <script>
+        // Function to fetch and display debug info
+        async function fetchDebugInfo(endpoint, resultElementId) {
+            const resultElement = document.getElementById(resultElementId);
+            resultElement.innerHTML = 'Loading...';
+            
+            try {
+                const response = await fetch(endpoint);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Format and display the result
+                resultElement.innerHTML = `
+                    <p class="success">Successfully fetched data from ${endpoint}</p>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                resultElement.innerHTML = `
+                    <p class="error">Error: ${error.message}</p>
+                    <p>This could be due to:</p>
+                    <ul>
+                        <li>Authentication required</li>
+                        <li>Endpoint not available</li>
+                        <li>Server error</li>
+                    </ul>
+                `;
+            }
+        }
+        
+        // Add event listeners to buttons
+        document.getElementById('stripeDebugBtn').addEventListener('click', () => {
+            fetchDebugInfo('/api/debug/stripe-debug', 'debugResult');
+        });
+        
+        document.getElementById('paymentDebugBtn').addEventListener('click', () => {
+            fetchDebugInfo('/api/debug/payment-debug', 'debugResult');
+        });
+        
+        document.getElementById('testMongoBtn').addEventListener('click', () => {
+            fetchDebugInfo('/api/debug/mongo-test', 'mongoResult');
+        });
+        
+        document.getElementById('webhookStatusBtn').addEventListener('click', () => {
+            fetchDebugInfo('/api/debug/webhook-status', 'webhookResult');
+        });
+    </script>
+</body>
+</html>

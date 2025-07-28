@@ -1,0 +1,300 @@
+'use client';
+
+import React, { useState, useEffect, FormEvent } from 'react';
+import { 
+  CreditCard, 
+  Download, 
+  Calendar, 
+  DollarSign, 
+  TrendingUp, 
+  AlertCircle,
+  CheckCircle,
+  Clock,
+  FileText,
+  Settings,
+  Plus,
+  Edit3,
+  Trash2,
+  RefreshCw
+} from 'lucide-react';
+import { toast } from "react-hot-toast";
+
+// Define interfaces for data types
+interface Subscription {
+  id: string;
+  planName: string;
+  planPrice: number;
+  billingCycle: 'monthly' | 'yearly';
+  status: 'active' | 'canceled' | 'past_due';
+  currentPeriodStart: string;
+  currentPeriodEnd: string;
+  minutesIncluded: number;
+  minutesUsed: number;
+  nextBillingDate: string;
+}
+
+interface PaymentMethod {
+  id: string;
+  type: 'card' | 'bank';
+  last4: string;
+  brand: string;
+  expiryMonth: number;
+  expiryYear: number;
+  isDefault: boolean;
+}
+
+interface Invoice {
+  id: string;
+  number: string;
+  date: string;
+  amount: number;
+  status: 'paid' | 'pending' | 'failed';
+  downloadUrl: string;
+  description: string;
+}
+
+interface PricingPlan {
+  id: string;
+  name: string;
+  price: number;
+  minutes: number;
+  features: string[];
+  popular?: boolean;
+}
+
+interface User {
+  id: string;
+  email: string;
+  name?: string;
+  stripeCustomerId?: string;
+}
+
+interface CardFormData {
+  cardNumber: string;
+  cardholderName: string;
+  expiryMonth: string;
+  expiryYear: string;
+  cvc: string;
+}
+
+// Main component
+const BillingManagement = () => {
+  // State variables
+  const [subscription, setSubscription] = useState<Subscription | null>(null);
+  const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
+  const [invoices, setInvoices] = useState<Invoice[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [showAddPayment, setShowAddPayment] = useState(false);
+  const [formSubmitting, setFormSubmitting] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [cardFormData, setCardFormData] = useState<CardFormData>({
+    cardNumber: '',
+    cardholderName: '',
+    expiryMonth: '',
+    expiryYear: '',
+    cvc: ''
+  });
+  const [showPlanChange, setShowPlanChange] = useState(false);
+  
+  // Pricing plans
+  const pricingPlans: PricingPlan[] = [
+    {
+      id: 'starter',
+      name: 'Starter Plan',
+      price: 99,
+      minutes: 80,
+      features: ['Basic voice AI', 'Standard support', '30-day usage window']
+    },
+    {
+      id: 'professional',
+      name: 'Professional Plan',
+      price: 249,
+      minutes: 250,
+      features: ['Advanced voice AI', 'Priority support', '60-day usage window', 'Basic analytics'],
+      popular: true
+    },
+    {
+      id: 'business',
+      name: 'Business Plan',
+      price: 599,
+      minutes: 600,
+      features: ['Premium voice AI', 'Dedicated support', '90-day usage window', 'Advanced analytics', 'Custom integrations']
+    },
+    {
+      id: 'enterprise',
+      name: 'Enterprise Plan',
+      price: 1499,
+      minutes: 1500,
+      features: ['Enterprise voice AI', '24/7 support', '120-day usage window', 'White-label options', 'Custom development']
+    },
+    {
+      id: 'enterprise-plus',
+      name: 'Enterprise Plus',
+      price: 1999,
+      minutes: 3500,
+      features: ['All Enterprise features', 'Dedicated infrastructure', 'SLA guarantees', 'Unlimited integrations']
+    }
+  ];
+
+  // Fetch billing data from API
+  const fetchBillingData = async (forceRefresh = false) => {
+    setLoading(true);
+    try {
+      // Fetch user data to get Stripe customer ID
+      const userResponse = await fetch('/api/user');
+      
+      if (!userResponse.ok) {
+        throw new Error(`Failed to fetch user data: ${userResponse.status}`);
+      }
+      
+      const userData = await userResponse.json();
+      setUser(userData);
+      
+      // Fetch real subscription data from our API
+      const subResponse = await fetch('/api/dashboard/subscription');
+      
+      if (!subResponse.ok) {
+        throw new Error(`Failed to fetch subscription: ${subResponse.status}`);
+      }
+        
+      const subscriptionData = await subResponse.json();
+      
+      // Fetch payment methods
+      const paymentMethodsResponse = await fetch('/api/dashboard/payment-methods');
+      let paymentMethodsData: PaymentMethod[] = [];
+      
+      if (paymentMethodsResponse.ok) {
+        const paymentMethodsResponseData = await paymentMethodsResponse.json();
+        paymentMethodsData = paymentMethodsResponseData.map((pm: any) => ({
+          id: pm.id,
+          type: pm.type,
+          last4: pm.last4,
+          brand: pm.brand,
+          expiryMonth: pm.expiryMonth,
+          expiryYear: pm.expiryYear,
+          isDefault: pm.isDefault
+        }));
+        
+        console.log(`Loaded ${paymentMethodsData.length} payment methods from API`);
+      } else {
+        // Fallback to empty array if API fails
+        paymentMethodsData = [];
+      }
+      
+      // Process invoices if available
+      let invoicesData: Invoice[] = [];
+      const invoiceResponse = await fetch('/api/dashboard/invoices');
+      
+      if (invoiceResponse.ok) {
+        const invoicesResponseData = await invoiceResponse.json();
+        console.log('Raw invoice data from API:', invoicesResponseData);
+        
+        // Check if we have any invoices
+        if (Array.isArray(invoicesResponseData) && invoicesResponseData.length > 0) {
+          // Map MongoDB invoices to our Invoice interface
+          invoicesData = invoicesResponseData.map((inv: any) => {
+            console.log('Processing invoice:', inv);
+            return {
+              id: inv.stripeInvoiceId || inv.id || `inv-${Math.random().toString(36).substring(2, 10)}`,
+              number: inv.number || `INV-${(inv.stripeInvoiceId || '').substring(3, 10) || 'unknown'}`,
+              date: inv.invoiceDate ? new Date(inv.invoiceDate).toISOString().split('T')[0] : new Date().toISOString().split('T')[0],
+              amount: (inv.amount || 0) / 100, // Convert from cents to dollars
+              status: inv.status || 'paid',
+              downloadUrl: inv.invoicePdf || inv.invoiceUrl || '#',
+              description: inv.description || `Invoice - ${inv.invoiceDate ? new Date(inv.invoiceDate).toLocaleDateString() : 'No date'}`
+            };
+          });
+        } else {
+          console.log('No invoices found in API response or invalid format');
+        }
+        
+        console.log(`Loaded ${invoicesData.length} invoices from API`);
+      } else {
+        console.error(`Failed to fetch invoices: ${invoiceResponse.status}`);
+        // Fallback to empty array if API fails
+        invoicesData = [];
+      }
+
+      // Update state with real data from APIs
+      setSubscription(subscriptionData);
+      setPaymentMethods(paymentMethodsData);
+      setInvoices(invoicesData);
+      
+    } catch (error) {
+      console.error('Error fetching billing data:', error);
+      toast.error("Failed to load billing data. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Initial data fetch
+  useEffect(() => {
+    fetchBillingData();
+  }, []);
+
+  // Handle manual refresh
+  const handleRefresh = () => {
+    toast.success("Refreshing billing data...");
+    fetchBillingData(true);
+  };
+
+  // Handle form input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setCardFormData({
+      ...cardFormData,
+      [name]: value
+    });
+  };
+
+  // Handle payment method form submission
+  const handleAddPaymentMethod = async (e: FormEvent) => {
+    e.preventDefault();
+    setFormSubmitting(true);
+    
+    try {
+      // Validate form data
+      if (!cardFormData.cardNumber || !cardFormData.cardholderName || 
+          !cardFormData.expiryMonth || !cardFormData.expiryYear || !cardFormData.cvc) {
+        toast.error("Please fill in all required fields");
+        return;
+      }
+      
+      // Submit payment method to API
+      const response = await fetch('/api/dashboard/payment-methods/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cardFormData)
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Failed to add payment method: ${response.status}`);
+      }
+      
+      const result = await response.json();
+      
+      // Update payment methods list
+      setPaymentMethods([...paymentMethods, result.paymentMethod]);
+      
+      // Reset form
+      setCardFormData({
+        cardNumber: '',
+        cardholderName: '',
+        expiryMonth: '',
+        expiryYear: '',
+        cvc: ''
+      });
+      
+      setShowAddPayment(false);
+      toast.success("Payment method added successfully");
+      
+    } catch (error) {
+      console.error('Error adding payment method:', error);
+      toast.error("Failed to add payment method. Please try again.");
+    } finally {
+      setFormSubmitting(false);
+    }
+  };

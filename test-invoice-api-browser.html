@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>Invoice API Test</h1>
+    
+    <button id="testGet">Test GET /api/dashboard/invoices</button>
+    <button id="testPost">Test POST /api/dashboard/invoices</button>
+    
+    <h2>Results:</h2>
+    <pre id="results">Click a button to test the API...</pre>
+    
+    <script>
+        document.getElementById('testGet').addEventListener('click', async () => {
+            const resultsElement = document.getElementById('results');
+            resultsElement.textContent = 'Testing GET /api/dashboard/invoices...';
+            
+            try {
+                const response = await fetch('/api/dashboard/invoices');
+                const status = `Status: ${response.status} ${response.statusText}`;
+                
+                if (!response.ok) {
+                    resultsElement.innerHTML = `<span class="error">${status}</span>`;
+                    return;
+                }
+                
+                const data = await response.json();
+                
+                resultsElement.innerHTML = `<span class="success">${status}</span>\n\nReceived ${Array.isArray(data) ? data.length : 0} invoices\n\n${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                resultsElement.innerHTML = `<span class="error">Error: ${error.message}</span>`;
+            }
+        });
+        
+        document.getElementById('testPost').addEventListener('click', async () => {
+            const resultsElement = document.getElementById('results');
+            resultsElement.textContent = 'Testing POST /api/dashboard/invoices...';
+            
+            try {
+                const response = await fetch('/api/dashboard/invoices', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        development: true
+                    })
+                });
+                
+                const status = `Status: ${response.status} ${response.statusText}`;
+                
+                if (!response.ok) {
+                    resultsElement.innerHTML = `<span class="error">${status}</span>`;
+                    return;
+                }
+                
+                const data = await response.json();
+                
+                resultsElement.innerHTML = `<span class="success">${status}</span>\n\n${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                resultsElement.innerHTML = `<span class="error">Error: ${error.message}</span>`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -13,13 +13,13 @@ interface InteractiveDemoProps {
 const assistants = [
   {
     id: 'assistant-1',
-    name: 'Support Bot',
+    name: 'Support AI Assistant',
     description: 'Handles customer support questions.',
     avatar: '🤖',
   },
   {
     id: 'assistant-2',
-    name: 'Sales Bot',
+    name: 'Sales AI Assistant',
     description: 'Assists with sales inquiries.',
     avatar: '💼',
   },
@@ -31,7 +31,7 @@ const assistants = [
   },
   {
     id: 'assistant-4',
-    name: 'FAQ Bot',
+    name: 'FAQ AI Assistant',
     description: 'Answers frequently asked questions.',
     avatar: '❓',
   },

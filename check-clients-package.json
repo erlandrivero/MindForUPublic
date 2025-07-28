@@ -1,0 +1,11 @@
+{
+  "name": "check-clients",
+  "version": "1.0.0",
+  "description": "Script to check MongoDB clients",
+  "main": "check-clients.js",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "mongodb": "^5.1.0"
+  }
+}

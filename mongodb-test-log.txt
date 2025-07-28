@@ -1,0 +1,131 @@
+MongoDB Test Log - 2025-07-27T21:35:26.995Z
+
+2025-07-27T21:35:26.996Z - Starting MongoDB connection test...
+2025-07-27T21:35:27.001Z - Using MongoDB URI: mongodb+srv://***:***@cluster0.yzlzf6c.mongodb.net/ship-fast-code?retryWrites=true&w=majority&appName=Cluster0
+2025-07-27T21:35:27.007Z - Attempting to connect to MongoDB...
+2025-07-27T21:35:27.511Z - Successfully connected to MongoDB
+2025-07-27T21:35:27.512Z - Connected to database: ship-fast-code
+2025-07-27T21:35:27.512Z - Listing collections...
+2025-07-27T21:35:27.551Z - Found 9 collections:
+2025-07-27T21:35:27.552Z - - invoices
+2025-07-27T21:35:27.552Z - - verification_tokens
+2025-07-27T21:35:27.553Z - - users
+2025-07-27T21:35:27.553Z - - accounts
+2025-07-27T21:35:27.553Z - - clients
+2025-07-27T21:35:27.554Z - - calls
+2025-07-27T21:35:27.554Z - - assistants
+2025-07-27T21:35:27.555Z - - leads
+2025-07-27T21:35:27.555Z - - paymentmethods
+2025-07-27T21:35:27.556Z - Clients collection exists: true
+2025-07-27T21:35:27.556Z - Invoices collection exists: true
+2025-07-27T21:35:27.592Z - Invoices collection contains 2 documents
+2025-07-27T21:35:27.629Z - Old test invoice not found
+2025-07-27T21:35:27.665Z - All invoices (2):
+2025-07-27T21:35:27.666Z - Invoice 1: {
+  "_id": "688699ab8e52d8e234d05a54",
+  "userId": "685dc9e5e6ef774c601b35e8",
+  "stripeInvoiceId": "cs_test_a1TsMCBVz0cGmEzTXrBKyjM8UBSTjvzll8l9iVaXx9xBeMRMEcowdF2ai2",
+  "number": "INV-cs_test_",
+  "description": "Payment - ErLest",
+  "amount": 249,
+  "currency": "usd",
+  "status": "paid",
+  "invoiceDate": "2025-07-27T20:22:20.000Z",
+  "tax": 0,
+  "total": 249,
+  "lines": [],
+  "metadata": {
+    "clientId": "68868a9fe255c239193e0df3",
+    "clientName": "ErLest",
+    "source": "client_purchase"
+  },
+  "createdAt": "2025-07-27T21:27:07.747Z",
+  "updatedAt": "2025-07-27T21:35:20.658Z",
+  "__v": 0
+}
+2025-07-27T21:35:27.668Z - Invoice 2: {
+  "_id": "688699ab8e52d8e234d05a57",
+  "userId": "685dc9e5e6ef774c601b35e8",
+  "stripeInvoiceId": "cs_test_a1K6nzZhZYUIl1hqU5ZTw86WsuV6IwnG25jTl6HhjNZYycrBufs12FLFWM",
+  "number": "INV-cs_test_",
+  "description": "Payment - ET",
+  "amount": 1999,
+  "currency": "usd",
+  "status": "paid",
+  "invoiceDate": "2025-07-27T20:41:18.000Z",
+  "tax": 0,
+  "total": 1999,
+  "lines": [],
+  "metadata": {
+    "clientId": "68868f19e255c239193e0e5d",
+    "clientName": "ET",
+    "source": "client_purchase"
+  },
+  "createdAt": "2025-07-27T21:27:07.820Z",
+  "updatedAt": "2025-07-27T21:35:20.731Z",
+  "__v": 0
+}
+2025-07-27T21:35:27.704Z - Clients collection contains 2 documents
+2025-07-27T21:35:27.743Z - Clients with purchases: 2
+2025-07-27T21:35:27.793Z - Sample documents (up to 3):
+2025-07-27T21:35:27.794Z - Document 1: {
+  "_id": "68868a9fe255c239193e0df3",
+  "clientId": "c19ee08f-162e-4354-899d-e615fddc4f71",
+  "stripeCustomerId": "cus_Sl7KcPVji4S17x",
+  "email": "erlandrivero@gmail.com",
+  "name": "ErLest",
+  "purchases": [
+    {
+      "sessionId": "cs_test_a1TsMCBVz0cGmEzTXrBKyjM8UBSTjvzll8l9iVaXx9xBeMRMEcowdF2ai2",
+      "amount_total": 24900,
+      "currency": "usd",
+      "payment_status": "paid",
+      "created": "2025-07-27T20:22:20.000Z"
+    }
+  ],
+  "createdAt": "2025-07-27T20:22:55.076Z",
+  "updatedAt": "2025-07-27T20:22:55.076Z"
+}
+2025-07-27T21:35:27.795Z - Document 2: {
+  "_id": "68868f19e255c239193e0e5d",
+  "clientId": "8d987408-f19d-401d-b578-5dc45fbf458c",
+  "stripeCustomerId": "cus_Sl7d83Spdks6IA",
+  "email": "erlandrivero@gmail.com",
+  "name": "ET",
+  "purchases": [
+    {
+      "sessionId": "cs_test_a1K6nzZhZYUIl1hqU5ZTw86WsuV6IwnG25jTl6HhjNZYycrBufs12FLFWM",
+      "amount_total": 199900,
+      "currency": "usd",
+      "payment_status": "paid",
+      "created": "2025-07-27T20:41:18.000Z"
+    }
+  ],
+  "createdAt": "2025-07-27T20:42:01.614Z",
+  "updatedAt": "2025-07-27T20:42:01.614Z"
+}
+2025-07-27T21:35:27.796Z - Testing document insertion...
+2025-07-27T21:35:27.838Z - Document inserted with ID: 68869b9f64cef502bfca9f8b
+2025-07-27T21:35:27.873Z - Retrieved inserted document: {
+  "_id": "68869b9f64cef502bfca9f8b",
+  "clientId": "test-client-1753652127796",
+  "stripeCustomerId": "test-stripe-customer-1753652127796",
+  "email": "test@example.com",
+  "name": "Test Client",
+  "purchases": [
+    {
+      "sessionId": "test-session-1753652127796",
+      "amount_total": 1000,
+      "currency": "usd",
+      "payment_status": "paid",
+      "created": "2025-07-27T21:35:27.796Z"
+    }
+  ],
+  "createdAt": "2025-07-27T21:35:27.796Z",
+  "updatedAt": "2025-07-27T21:35:27.796Z"
+}
+2025-07-27T21:35:27.874Z - Cleaning up - deleting test document...
+2025-07-27T21:35:27.915Z - Deleted 1 document(s)
+2025-07-27T21:35:27.915Z - MongoDB test completed successfully
+2025-07-27T21:35:27.919Z - MongoDB connection closed
+2025-07-27T21:35:27.919Z - Test PASSED
