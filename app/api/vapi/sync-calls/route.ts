@@ -47,7 +47,8 @@ export async function GET(req: NextRequest) {
         });
         
         // Extract the data array from the response
-        const callLogs = callLogsResponse?.data || [];
+        // Use type assertion to access data property that TypeScript doesn't recognize
+        const callLogs = (callLogsResponse as any)?.data || [];
         
         if (!callLogs || !Array.isArray(callLogs)) {
           syncResults.errors.push(`No call data for assistant ${assistant.name}`);
