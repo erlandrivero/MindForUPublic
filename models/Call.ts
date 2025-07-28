@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document, models, model } from 'mongoose';
+import mongoose, { Schema, Document, models, model, Model } from 'mongoose';
 
 export interface ICall extends Document {
   userId: mongoose.Types.ObjectId;
@@ -24,6 +24,14 @@ export interface ICall extends Document {
   };
   createdAt: Date;
   updatedAt: Date;
+}
+
+// Interface for Call model with static methods
+interface CallModel extends Model<ICall> {
+  getCallVolumeForUser(userId: string, days?: number): Promise<any[]>;
+  getCallStatsForUser(userId: string): Promise<any[]>;
+  getHourlyDistribution(userId: string, days?: number): Promise<any[]>;
+  getCallTypeDistribution(userId: string): Promise<any[]>;
 }
 
 const CallSchema = new Schema<ICall>({
@@ -213,6 +221,6 @@ CallSchema.statics.getCallTypeDistribution = function(userId: string) {
   ]);
 };
 
-const CallModel = models.Call || model<ICall>('Call', CallSchema);
+const CallModel = models.Call || model<ICall, CallModel>('Call', CallSchema);
 
 export default CallModel;
