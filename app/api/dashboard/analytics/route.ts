@@ -2,9 +2,17 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/libs/next-auth';
 import connectMongo from '@/libs/mongoose';
+import mongoose from 'mongoose';
 import User from '@/models/User';
-// Assistant model not used in this file
 import Call from '@/models/Call';
+
+// Define the interface for Call model with static methods
+interface CallModelWithStatics extends mongoose.Model<any> {
+  getCallVolumeForUser(userId: string, days?: number): Promise<any[]>;
+  getCallStatsForUser(userId: string): Promise<any[]>;
+  getHourlyDistribution(userId: string, days?: number): Promise<any[]>;
+  getCallTypeDistribution(userId: string): Promise<any[]>;
+}
 
 export async function GET(req: NextRequest) {
   try {
@@ -33,7 +41,7 @@ export async function GET(req: NextRequest) {
     // Parallel queries for analytics data
     const [callVolume, performanceMetrics, callTypes, hourlyDistribution] = await Promise.all([
       // Call volume trends
-      Call.getCallVolumeForUser(user._id, days),
+      (Call as unknown as CallModelWithStatics).getCallVolumeForUser(user._id, days),
       
       // Performance metrics by assistant
       Call.aggregate([
@@ -75,28 +83,28 @@ export async function GET(req: NextRequest) {
       ]),
       
       // Call types distribution
-      Call.getCallTypeDistribution(user._id),
+      (Call as unknown as CallModelWithStatics).getCallTypeDistribution(user._id),
       
       // Hourly distribution
-      Call.getHourlyDistribution(user._id, days)
+      (Call as unknown as CallModelWithStatics).getHourlyDistribution(user._id, days)
     ]);
 
     // Format call volume data
-    const formattedCallVolume = callVolume.map(item => ({
+    const formattedCallVolume = callVolume ? callVolume.map(item => ({
       date: item._id,
       calls: item.calls,
       successful: item.successful,
       failed: item.failed
-    }));
+    })) : [];
 
     // Format performance metrics
-    const formattedPerformanceMetrics = performanceMetrics.map(item => ({
+    const formattedPerformanceMetrics = performanceMetrics ? performanceMetrics.map(item => ({
       assistant: item.assistant,
       calls: item.calls,
       successRate: Math.round(item.successRate * 10) / 10,
       avgDuration: Math.round(item.avgDuration * 10) / 10,
       satisfaction: Math.round(item.satisfaction * 10) / 10
-    }));
+    })) : [];
 
     // Format call types with colors
     const typeColors = {
@@ -106,16 +114,16 @@ export async function GET(req: NextRequest) {
       'general': '#F59E0B'
     };
 
-    const formattedCallTypes = callTypes.map(item => ({
+    const formattedCallTypes = callTypes ? callTypes.map(item => ({
       name: item._id.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase()),
       value: item.count,
       color: typeColors[item._id as keyof typeof typeColors] || '#6B7280'
-    }));
+    })) : [];
 
     // Format hourly distribution
     const hours = Array.from({ length: 24 }, (_, i) => i);
     const formattedHourlyDistribution = hours.map(hour => {
-      const data = hourlyDistribution.find(item => item._id === hour);
+      const data = hourlyDistribution ? hourlyDistribution.find(item => item._id === hour) : undefined;
       return {
         hour: `${hour}:00`,
         calls: data?.calls || 0
@@ -170,5 +178,5 @@ export async function GET(req: NextRequest) {
 
 // Helper function to get call volume data (used by other APIs)
 async function getCallVolumeData(userId: string, days: number = 7) {
-  return Call.getCallVolumeForUser(userId, days);
+  return (Call as unknown as CallModelWithStatics).getCallVolumeForUser(userId, days);
 }
