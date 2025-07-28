@@ -68,6 +68,8 @@ const AIAssistantManager = () => {
     name: '',
     description: descriptionTemplates.customer_service, // Default to customer service template
     type: 'customer_service' as AssistantType,
+    voice: 'alloy', // Add voice property directly to formData
+    language: 'en', // Add language property directly to formData
     configuration: {
       voice: 'alloy',
       language: 'en'
@@ -408,8 +410,8 @@ const AIAssistantManager = () => {
         description: formData.description,
         type: formData.type,
         configuration: {
-          voice: formData.voice,
-          language: formData.language
+          voice: formData.voice, // Now properly typed
+          language: formData.language // Now properly typed
         }
       };
 
