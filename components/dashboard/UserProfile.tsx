@@ -3,14 +3,21 @@
 import React, { useState, useEffect } from 'react';
 import { 
   User, 
-  // Mail, Phone, Edit3, and X imports removed as they're unused
+  Mail, 
+  Building, 
+  MapPin, 
+  Globe, 
+  Clock, 
+  Phone, 
   Shield, 
+  Bell, 
+  Camera, 
   Save, 
   Key, 
   AlertCircle, 
-  CheckCircle,
-  Camera
+  CheckCircle 
 } from 'lucide-react';
+import Image from 'next/image';
 
 interface UserData {
   id: string;
@@ -318,17 +325,20 @@ const UserProfile = () => {
             {/* Avatar Section */}
             <div className="flex items-center mb-6">
               <div 
-                className="relative w-24 h-24 rounded-full overflow-hidden bg-gray-100 border-2 border-teal-300 mb-4 cursor-pointer group"
-                onClick={triggerFileInput}
+                className="relative w-32 h-32 rounded-full overflow-hidden bg-gray-200 border-4 border-white shadow-lg cursor-pointer group"
+                onClick={() => fileInputRef.current?.click()}
                 role="button"
                 aria-label="Change profile picture"
               >
-                {userData.avatar ? (
+                {userData?.avatar ? (
                   <>
-                    <img
-                      src={userData.avatar}
+                    <Image
+                      src={userData.avatar.startsWith('data:') ? userData.avatar : userData.avatar.startsWith('/') ? userData.avatar : `/${userData.avatar}`}
                       alt="Profile"
                       className="w-full h-full object-cover group-hover:opacity-80 transition-opacity"
+                      width={128}
+                      height={128}
+                      unoptimized={userData.avatar.startsWith('data:')}
                     />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black bg-opacity-20">
                       <Camera className="w-8 h-8 text-white" aria-hidden="true" />

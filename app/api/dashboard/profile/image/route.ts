@@ -3,7 +3,8 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/libs/next-auth';
 import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
-import { writeFile } from 'fs/promises';
+import { writeFile, mkdir } from 'fs/promises';
+import fs from 'fs';
 import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -40,6 +41,19 @@ export async function POST(req: NextRequest) {
     
     // Define upload directory and ensure it exists
     const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'profiles');
+    
+    // Ensure the upload directory exists
+    try {
+      if (!fs.existsSync(path.join(process.cwd(), 'public', 'uploads'))) {
+        await mkdir(path.join(process.cwd(), 'public', 'uploads'), { recursive: true });
+      }
+      if (!fs.existsSync(uploadDir)) {
+        await mkdir(uploadDir, { recursive: true });
+      }
+    } catch (err) {
+      console.error('Error creating upload directory:', err);
+      return NextResponse.json({ error: 'Failed to create upload directory' }, { status: 500 });
+    }
     
     // Convert file to buffer
     const bytes = await file.arrayBuffer();

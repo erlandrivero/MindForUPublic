@@ -1,8 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useSession, signIn } from "next-auth/react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import config from "@/config";
 
@@ -36,13 +36,13 @@ const ButtonSignin = ({
     aria-label={`Go to dashboard as ${session.user?.name || session.user?.email || "user"}`}
   >
     {session.user?.image ? (
-      <img
+      <Image
         src={session.user?.image}
         alt={session.user?.name || "Account"}
         className="w-7 h-7 rounded-full shrink-0"
-        referrerPolicy="no-referrer"
         width={28}
         height={28}
+        unoptimized={true}
       />
     ) : (
       <span className="w-7 h-7 bg-base-300 flex justify-center items-center rounded-full shrink-0">

@@ -30,6 +30,7 @@ export async function GET(_req: NextRequest) {
       company: user.profile?.company || '',
       address: user.profile?.address || '',
       city: user.profile?.city || '',
+      state: user.profile?.state || '',
       country: user.profile?.country || 'United States',
       timezone: user.profile?.timezone || 'America/New_York',
       emailVerified: user.profile?.emailVerified || false,
@@ -83,6 +84,7 @@ export async function PUT(_req: NextRequest) {
       company, 
       address, 
       city, 
+      state,
       country, 
       timezone,
       notifications 
@@ -105,6 +107,7 @@ export async function PUT(_req: NextRequest) {
     if (company !== undefined) user.profile.company = company;
     if (address !== undefined) user.profile.address = address;
     if (city !== undefined) user.profile.city = city;
+    if (state !== undefined) user.profile.state = state;
     if (country !== undefined) user.profile.country = country;
     if (timezone !== undefined) user.profile.timezone = timezone;
 
@@ -131,6 +134,7 @@ export async function PUT(_req: NextRequest) {
         company: user.profile.company,
         address: user.profile.address,
         city: user.profile.city,
+        state: user.profile.state,
         country: user.profile.country,
         timezone: user.profile.timezone
       }
