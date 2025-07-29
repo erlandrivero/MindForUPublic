@@ -220,7 +220,7 @@ const PhoneNumberManager = () => {
             Phone Number Management
           </h2>
           <p className="mt-1 text-sm text-gray-500">
-            Manage your Vapi phone numbers and assign them to assistants
+            Manage your phone numbers and assign them to assistants
           </p>
         </div>
         {/* Phone number creation removed completely */}
@@ -306,7 +306,7 @@ const PhoneNumberManager = () => {
             <Phone className="mx-auto h-12 w-12 text-gray-400" />
             <h3 className="mt-2 text-sm font-medium text-gray-900">No phone numbers</h3>
             <p className="mt-1 text-sm text-gray-500">
-              You don't have any phone numbers yet. Phone numbers must be created via the Vapi dashboard.
+              You don't have any phone numbers yet. Contact support to add phone numbers to your account.
             </p>
           </div>
         ) : (

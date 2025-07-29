@@ -20,6 +20,7 @@ interface UserData {
   company: string;
   address: string;
   city: string;
+  state: string;
   country: string;
   timezone: string;
   avatar: string;
@@ -54,38 +55,41 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        // Check localStorage first for saved profile data
-        const savedUserData = localStorage.getItem('userProfileData');
+        setLoading(true);
         
-        if (savedUserData) {
-          // Use saved data if it exists
-          setUserData(JSON.parse(savedUserData));
-          setLoading(false);
-          return;
+        // Fetch user data from MongoDB API
+        const response = await fetch('/api/dashboard/profile');
+        
+        if (!response.ok) {
+          throw new Error(`Error fetching profile data: ${response.status}`);
         }
         
-        // TODO: Replace with actual API call
-        // const response = await fetch('/api/dashboard/profile');
-        // const data = await response.json();
+        const data = await response.json();
         
-        // Mock data if no saved data exists
-        const mockUserData: UserData = {
-          id: 'user_1234567890',
-          name: 'Dr. Sarah Johnson',
-          email: 'sarah.johnson@example.com',
-          phone: '+1 (555) 123-4567',
-          company: 'Johnson Dental Practice',
-          address: '123 Main Street',
-          city: 'San Francisco',
-          country: 'United States',
-          timezone: 'America/Los_Angeles',
-          avatar: '',
-          emailVerified: true,
-          phoneVerified: false,
-          twoFactorEnabled: false
+        // Set user data from API response
+        const apiUserData: UserData = {
+          id: data.id || '',
+          name: data.name || '',
+          email: data.email || '',
+          phone: data.phone || '',
+          company: data.company || '',
+          address: data.address || '',
+          city: data.city || '',
+          state: data.state || '',
+          country: data.country || 'United States',
+          timezone: data.timezone || 'America/New_York',
+          avatar: data.image || '',
+          emailVerified: data.emailVerified || false,
+          phoneVerified: data.phoneVerified || false,
+          twoFactorEnabled: data.twoFactorEnabled || false
         };
+        
+        // Set notifications from API if available
+        if (data.notifications) {
+          setNotifications(data.notifications);
+        }
 
-        setUserData(mockUserData);
+        setUserData(apiUserData);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -99,26 +103,30 @@ const UserProfile = () => {
   const handleSaveProfile = async () => {
     setSaving(true);
     try {
-      // Save to localStorage for persistence
-      if (userData) {
-        localStorage.setItem('userProfileData', JSON.stringify(userData));
+      if (!userData) {
+        throw new Error('No user data to save');
       }
       
-      // TODO: Implement actual API call when backend is ready
-      // await fetch('/api/dashboard/profile', {
-      //   method: 'PUT',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(userData)
-      // });
+      // Save to MongoDB via API
+      const response = await fetch('/api/dashboard/profile', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userData)
+      });
       
-      // Simulate save delay
-      setTimeout(() => {
-        setSaving(false);
-        alert('Profile updated successfully!');
-      }, 1000);
+      if (!response.ok) {
+        throw new Error(`Error saving profile: ${response.status}`);
+      }
+      
+      const result = await response.json();
+      console.log('Profile saved successfully:', result);
+      
+      setSaving(false);
+      alert('Profile updated successfully!');
     } catch (error) {
       console.error('Error saving profile:', error);
       setSaving(false);
+      alert('Failed to save profile. Please try again.');
     }
   };
 
@@ -131,50 +139,128 @@ const UserProfile = () => {
 
   const saveNotificationSettings = async () => {
     try {
-      // TODO: Implement actual API call
+      // Save notification settings to MongoDB via API
+      const response = await fetch('/api/dashboard/profile', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'notifications',
+          data: notifications
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Error saving notification settings: ${response.status}`);
+      }
+      
+      const result = await response.json();
+      console.log('Notification settings saved successfully:', result);
+      
       alert('Notification settings updated successfully!');
     } catch (error) {
       console.error('Error saving notification settings:', error);
+      alert('Failed to save notification settings. Please try again.');
     }
   };
 
   const enableTwoFactor = async () => {
     try {
-      // TODO: Implement 2FA setup
-      alert('Two-factor authentication setup will be implemented here');
+      if (!userData) return;
+      
+      // Toggle 2FA status
+      const newStatus = !userData.twoFactorEnabled;
+      
+      // Update 2FA status in MongoDB via API
+      const response = await fetch('/api/dashboard/profile', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'security',
+          data: { twoFactorEnabled: newStatus }
+        })
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Error updating 2FA status: ${response.status}`);
+      }
+      
+      // Update local state
+      setUserData(prev => prev ? {
+        ...prev,
+        twoFactorEnabled: newStatus
+      } : null);
+      
+      alert(`Two-factor authentication ${newStatus ? 'enabled' : 'disabled'} successfully!`);
     } catch (error) {
-      console.error('Error enabling 2FA:', error);
+      console.error('Error updating 2FA:', error);
+      alert('Failed to update two-factor authentication. Please try again.');
     }
   };
   
-  const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePhotoChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
-    
-    // Check file size (max 1MB)
-    if (file.size > 1024 * 1024) {
-      alert('File is too large. Maximum size is 1MB.');
+
+    // Validate file type
+    const validTypes = ['image/jpeg', 'image/png', 'image/gif'];
+    if (!validTypes.includes(file.type)) {
+      alert('Please select a valid image file (JPEG, PNG, or GIF)');
       return;
     }
-    
-    // Check file type
-    if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
-      alert('Only JPG, PNG, and GIF files are allowed.');
+
+    // Validate file size (max 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      alert('Image size should be less than 5MB');
       return;
     }
-    
+
+    // Create a FileReader to read the image
     const reader = new FileReader();
-    reader.onload = (e) => {
-      const result = e.target?.result as string;
-      if (result && userData) {
-        // Update user data with new avatar
-        setUserData({
-          ...userData,
-          avatar: result
+    reader.onload = async (e) => {
+      try {
+        // Update local preview immediately
+        if (userData && e.target?.result) {
+          setUserData({
+            ...userData,
+            avatar: e.target.result as string
+          });
+        }
+
+        // Create form data for upload
+        const formData = new FormData();
+        formData.append('profileImage', file);
+
+        // Upload to server
+        const response = await fetch('/api/dashboard/profile/image', {
+          method: 'POST',
+          body: formData
         });
+
+        if (!response.ok) {
+          throw new Error(`Error uploading image: ${response.status}`);
+        }
+
+        const result = await response.json();
+        
+        // Update with server URL
+        if (userData && result.imageUrl) {
+          setUserData({
+            ...userData,
+            avatar: result.imageUrl
+          });
+        }
+      } catch (error) {
+        console.error('Error uploading profile image:', error);
+        alert('Failed to upload profile image. Please try again.');
       }
     };
     reader.readAsDataURL(file);
+  };
+
+  const triggerFileInput = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
   };
 
   if (loading) {
@@ -231,30 +317,41 @@ const UserProfile = () => {
             
             {/* Avatar Section */}
             <div className="flex items-center mb-6">
-              <div className="h-20 w-20 rounded-full bg-gray-300 flex items-center justify-center">
+              <div 
+                className="relative w-24 h-24 rounded-full overflow-hidden bg-gray-100 border-2 border-teal-300 mb-4 cursor-pointer group"
+                onClick={triggerFileInput}
+                role="button"
+                aria-label="Change profile picture"
+              >
                 {userData.avatar ? (
-                  <img src={userData.avatar} alt="Profile" className="h-20 w-20 rounded-full" />
+                  <>
+                    <img
+                      src={userData.avatar}
+                      alt="Profile"
+                      className="w-full h-full object-cover group-hover:opacity-80 transition-opacity"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black bg-opacity-20">
+                      <Camera className="w-8 h-8 text-white" aria-hidden="true" />
+                    </div>
+                  </>
                 ) : (
-                  <User className="h-10 w-10 text-gray-600" />
+                  <div className="flex items-center justify-center w-full h-full bg-gray-200 group-hover:bg-gray-300 transition-colors">
+                    <User className="w-12 h-12 text-gray-400" aria-hidden="true" />
+                  </div>
                 )}
-              </div>
-              <div className="ml-4">
                 <input
                   type="file"
                   ref={fileInputRef}
                   onChange={handlePhotoChange}
-                  accept="image/jpeg,image/png,image/gif"
                   className="hidden"
-                />
-                <button
-                  type="button"
-                  onClick={() => fileInputRef.current?.click()}
-                  className="absolute bottom-0 right-0 h-8 w-8 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  accept="image/jpeg,image/png,image/gif"
                   aria-label="Upload profile picture"
-                >
-                  <Camera className="h-4 w-4 text-gray-600" aria-hidden="true" />
-                </button>
-                <p className="mt-1 text-xs text-gray-500">JPG, GIF or PNG. 1MB max.</p>
+                />
+              </div>
+              <div className="ml-4">
+                <p className="text-sm font-medium text-gray-700">Profile Photo</p>
+                <p className="text-xs text-gray-500">JPG, GIF or PNG. 5MB max.</p>
+                <p className="text-xs text-teal-600 mt-1">Click image to change</p>
               </div>
             </div>
 
@@ -313,22 +410,30 @@ const UserProfile = () => {
                 />
               </div>
 
-              <div className="sm:col-span-2">
-                <label className="block text-sm font-medium text-gray-700">Address</label>
+              <div className="col-span-6 sm:col-span-3">
+                <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+                  City
+                </label>
                 <input
                   type="text"
-                  value={userData.address}
-                  onChange={(e) => setUserData(prev => prev ? {...prev, address: e.target.value} : null)}
+                  name="city"
+                  id="city"
+                  value={userData.city}
+                  onChange={(e) => setUserData(prev => prev ? {...prev, city: e.target.value} : null)}
                   className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700">City</label>
+              <div className="col-span-6 sm:col-span-3">
+                <label htmlFor="state" className="block text-sm font-medium text-gray-700">
+                  State / Province
+                </label>
                 <input
                   type="text"
-                  value={userData.city}
-                  onChange={(e) => setUserData(prev => prev ? {...prev, city: e.target.value} : null)}
+                  name="state"
+                  id="state"
+                  value={userData.state}
+                  onChange={(e) => setUserData(prev => prev ? {...prev, state: e.target.value} : null)}
                   className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500 sm:text-sm"
                 />
               </div>

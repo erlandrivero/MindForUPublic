@@ -1,5 +1,5 @@
 import DashboardLayout from '@/components/dashboard/DashboardLayout';
-import PhoneNumberManager from '@/components/dashboard/PhoneNumberManager';
+import PhoneNumberManager from '@/components/dashboard/PhoneNumberManager.new';
 
 export default function PhoneNumbersPage() {
   return (
