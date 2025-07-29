@@ -58,6 +58,13 @@ const PhoneNumberManager = () => {
       
       const data = await response.json();
       setPhoneNumbers(data.phoneNumbers || []);
+      
+      // Set error if no phone numbers are available
+      if ((data.phoneNumbers || []).length === 0) {
+        setError('No phone numbers found in your account.');
+      } else {
+        setError(null);
+      }
     } catch (err) {
       console.error('Error fetching phone numbers:', err);
       setError('Failed to load phone numbers');
@@ -103,6 +110,12 @@ const PhoneNumberManager = () => {
       setIsAssigning(true);
       setAssignError('');
       
+      // Check if there are phone numbers available
+      if (phoneNumbers.length === 0) {
+        setAssignError('No phone numbers available. Please create phone numbers via the Vapi dashboard first.');
+        return;
+      }
+      
       const assistant = assistants.find(a => a.id === selectedAssistantId);
       if (!assistant) {
         setAssignError('Selected assistant not found');
@@ -114,7 +127,7 @@ const PhoneNumberManager = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           phoneNumberId: selectedPhoneNumber.id,
-          assistantId: assistant.vapiAssistantId
+          assistantId: assistant.id  // Use MongoDB _id instead of vapiAssistantId
         })
       });
       
@@ -205,8 +218,37 @@ const PhoneNumberManager = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-teal-500"></div>
+      <div className="flex justify-center items-center py-12">
+        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-teal-500"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="bg-red-50 border border-red-200 rounded-md p-4 my-4">
+        <p className="text-red-600">{error}</p>
+
+      </div>
+    );
+  }
+
+  if (phoneNumbers.length === 0) {
+    return (
+      <div className="flex-1 min-w-0">
+        <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+          Phone Number Management
+        </h2>
+        <p className="mt-1 text-sm text-gray-500">
+          Manage your Vapi phone numbers and assign them to assistants
+        </p>
+        <div className="bg-gray-50 p-6 text-center rounded-lg border border-gray-200">
+          <Phone className="mx-auto h-12 w-12 text-gray-400" />
+          <h3 className="mt-2 text-sm font-medium text-gray-900">No phone numbers</h3>
+          <p className="mt-1 text-sm text-gray-500">
+            You don't have any phone numbers yet. Phone numbers must be created via the Vapi dashboard.
+          </p>
+        </div>
       </div>
     );
   }

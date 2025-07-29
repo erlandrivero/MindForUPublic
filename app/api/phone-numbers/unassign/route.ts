@@ -4,6 +4,7 @@ import { authOptions } from '@/libs/next-auth';
 import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
 import Assistant from '@/models/Assistant';
+import PhoneNumber from '@/models/PhoneNumber';
 import vapi from '@/libs/vapi';
 
 export async function POST(_req: NextRequest) {
@@ -68,6 +69,16 @@ export async function POST(_req: NextRequest) {
           name: `Unassigned Phone Number`
         });
         
+        // Update the phone number in MongoDB if it exists
+        const phoneNumberDoc = await PhoneNumber.findOne({ vapiPhoneNumberId: phoneNumberId });
+        if (phoneNumberDoc) {
+          phoneNumberDoc.vapiAssistantId = undefined;
+          phoneNumberDoc.assistantId = undefined;
+          phoneNumberDoc.name = 'Unassigned Phone Number';
+          await phoneNumberDoc.save();
+          console.log(`Updated MongoDB phone number: ${phoneNumberDoc.number} (unassigned)`);
+        }
+        
         return NextResponse.json({
           success: true,
           message: 'Phone number unassigned successfully (no local assistant found)',
@@ -88,6 +99,16 @@ export async function POST(_req: NextRequest) {
         assistantId: null as any,
         name: `Unassigned Phone Number`
       });
+
+      // Update the phone number in MongoDB
+      const phoneNumberDoc = await PhoneNumber.findOne({ vapiPhoneNumberId: phoneNumberId });
+      if (phoneNumberDoc) {
+        phoneNumberDoc.vapiAssistantId = undefined;
+        phoneNumberDoc.assistantId = undefined;
+        phoneNumberDoc.name = 'Unassigned Phone Number';
+        await phoneNumberDoc.save();
+        console.log(`Updated MongoDB phone number: ${phoneNumberDoc.number} (unassigned)`);
+      }
 
       // Update the assistant in our database
       assistant.phoneNumber = undefined;

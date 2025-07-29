@@ -4,6 +4,7 @@ import { authOptions } from '@/libs/next-auth';
 import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
 import Assistant from '@/models/Assistant';
+import PhoneNumber from '@/models/PhoneNumber';
 import vapi from '@/libs/vapi';
 
 // Maximum number of phone numbers allowed per user
@@ -80,23 +81,45 @@ export async function POST(_req: NextRequest) {
     }
 
     try {
-      // Get phone number from Vapi
-      let phoneNumber;
-      try {
-        phoneNumber = await vapi.phoneNumbers.get(phoneNumberId);
-        if (!phoneNumber) {
-          console.error('Phone number not found in Vapi account');
+      // Find the phone number in our MongoDB database
+      let phoneNumberDoc = await PhoneNumber.findOne({ vapiPhoneNumberId: phoneNumberId });
+      
+      if (!phoneNumberDoc) {
+        console.error('Phone number not found in MongoDB');
+        // Try to get it from Vapi as a fallback
+        try {
+          const vapiPhoneNumber = await vapi.phoneNumbers.get(phoneNumberId);
+          if (!vapiPhoneNumber) {
+            return NextResponse.json({ 
+              error: 'Phone number not found in your account', 
+              details: 'The phone number could not be found in the database or Vapi.'
+            }, { status: 404 });
+          }
+          
+          // If found in Vapi but not in MongoDB, create it in MongoDB
+          const newPhoneNumber = new PhoneNumber({
+            vapiPhoneNumberId: vapiPhoneNumber.id,
+            number: vapiPhoneNumber.number,
+            name: vapiPhoneNumber.name,
+            status: vapiPhoneNumber.status,
+            userId: user._id,
+            // Use type assertion for potentially missing fields in the Vapi type
+            areaCode: (vapiPhoneNumber as any).areaCode,
+            metadata: (vapiPhoneNumber as any).metadata || { userId: user._id.toString(), userEmail: user.email }
+          });
+          
+          await newPhoneNumber.save();
+          console.log(`Created missing phone number in MongoDB: ${newPhoneNumber.number}`);
+          
+          // Use the newly created phone number document
+          phoneNumberDoc = newPhoneNumber;
+        } catch (error: any) {
+          console.error('Error fetching phone number from Vapi:', error);
           return NextResponse.json({ 
-            error: 'Phone number not found in your Vapi account', 
-            details: 'You need to create phone numbers via the Vapi dashboard first.'
-          }, { status: 404 });
+            error: 'Failed to fetch phone number', 
+            details: 'The phone number could not be found in the database or Vapi.'
+          }, { status: 500 });
         }
-      } catch (error: any) {
-        console.error('Error fetching phone number from Vapi:', error);
-        return NextResponse.json({ 
-          error: 'Failed to fetch phone number from Vapi', 
-          details: 'This may be due to no phone numbers existing in your Vapi account. Please create phone numbers via the Vapi dashboard first.'
-        }, { status: 500 });
       }
 
       // Update the phone number in Vapi to assign it to the assistant
@@ -104,15 +127,19 @@ export async function POST(_req: NextRequest) {
         assistantId: assistant.vapiAssistantId,
         name: `${assistant.name} Phone Line`
       });
+      
+      // Update the phone number in MongoDB
+      phoneNumberDoc.vapiAssistantId = assistant.vapiAssistantId;
+      phoneNumberDoc.assistantId = assistant._id;
+      phoneNumberDoc.name = `${assistant.name} Phone Line`;
+      await phoneNumberDoc.save();
 
       // Update the assistant in our database
       assistant.phoneNumber = {
-        id: phoneNumber.id,
-        number: phoneNumber.number,
-        status: phoneNumber.status,
-        // Use type assertion to handle potential areaCode property
-        // The Vapi API might return areaCode but TypeScript definitions might be outdated
-        ...(((phoneNumber as any).areaCode) ? { areaCode: (phoneNumber as any).areaCode } : {})
+        id: phoneNumberDoc.vapiPhoneNumberId,
+        number: phoneNumberDoc.number,
+        status: phoneNumberDoc.status,
+        areaCode: phoneNumberDoc.areaCode
       };
 
       await assistant.save();
