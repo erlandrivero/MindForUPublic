@@ -3,245 +3,260 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/libs/next-auth';
 import connectMongo from '@/libs/mongoose';
 import User from '@/models/User';
-import Call from '@/models/Call';
 import { MongoClient } from 'mongodb';
 
+// Simplified subscription API that directly displays the latest transaction from clients collection
 export async function GET(_req: NextRequest) {
   try {
-    console.log('Starting dashboard subscription API route');
+    console.log('==== SIMPLIFIED SUBSCRIPTION API START ====');
     
+    // Authenticate user
     const session = await getServerSession(authOptions);
-    
     if (!session?.user?.email) {
+      console.log('Unauthorized access attempt');
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    await connectMongo();
+    console.log(`Fetching subscription data for user: ${session.user.email}`);
 
+    // Connect to MongoDB and get user data
+    await connectMongo();
     const user = await User.findOne({ email: session.user.email });
+    
     if (!user) {
+      console.log(`User not found: ${session.user.email}`);
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
-
-    // Initialize subscription data from user model as fallback
-    const subscription = user.subscription || {};
-    let planName = subscription.planName || '';
-    let planPrice = subscription.planPrice || 0;
-    const billingCycle = subscription.billingCycle || 'monthly';
     
-    // Only set status and dates if there's a plan
-    let status = planName ? (subscription.status || 'active') : '';
-    let currentPeriodStart = planName ? (subscription.currentPeriodStart || new Date()) : null;
-    let currentPeriodEnd = planName ? (subscription.currentPeriodEnd || new Date()) : null;
+    // Get usage data from user model (we'll still need this)
+    const userUsage = user.usage || {};
     
-    // Get usage data
-    const usage = user.usage || {};
-    
-    // Default to 0 minutes for users without a plan
-    let minutesIncluded = planName ? 80 : 0;
-    
-    console.log('Checking clients collection for subscription data for user:', session.user.email);
-    
-    // Connect directly to MongoDB to query the clients collection
-    try {
-      console.log('MongoDB URI:', process.env.MONGODB_URI ? 'defined' : 'undefined');
-      const mongoClient = new MongoClient(process.env.MONGODB_URI as string);
-      await mongoClient.connect();
-      console.log('MongoDB connected successfully');
-      const db = mongoClient.db();
-      const clientsCollection = db.collection('clients');
-      console.log('Querying clients collection for email:', session.user.email);
-      
-      // Find the client data for this user's email
-      const clientData = await clientsCollection.findOne({ email: session.user.email });
-      console.log('Client data found:', clientData ? 'Yes' : 'No');
-      
-      if (clientData) {
-        console.log('Found client data in clients collection:', clientData);
-        
-        // Extract subscription data from clients collection
-        // Check if client has purchases array and get the latest purchase
-        if (clientData.purchases && clientData.purchases.length > 0) {
-          // Sort purchases by created date (newest first) and get the first one
-          const latestPurchase = [...clientData.purchases].sort((a, b) => 
-            new Date(b.created).getTime() - new Date(a.created).getTime()
-          )[0];
-          
-          // Calculate next billing date as one month after the latest transaction date
-          const transactionDate = new Date(latestPurchase.created);
-          const nextBillingDate = new Date(transactionDate);
-          nextBillingDate.setMonth(nextBillingDate.getMonth() + 1);
-          console.log(`Transaction date: ${transactionDate.toISOString()}, Next billing: ${nextBillingDate.toISOString()}`);
-          
-          // Store the next billing date for later use
-          currentPeriodEnd = nextBillingDate;
-          
-          const amountTotal = latestPurchase.amount_total;
-          console.log(`Latest purchase amount_total: ${amountTotal} (type: ${typeof amountTotal})`);
-          
-          console.log('Checking plan based on amount_total:', amountTotal);
-          console.log('Strict equality check with 49900:', amountTotal === 49900);
-          console.log('Loose equality check with 49900:', amountTotal == 49900);
-          console.log('Numeric comparison:', Number(amountTotal) === 49900);
-          
-          // Convert to number to ensure proper comparison
-          const amountTotalNum = Number(amountTotal);
-          
-          if (amountTotalNum === 9900) { // $99.00
-            planName = 'Starter Plan';
-            planPrice = 99;
-            minutesIncluded = 80;
-            console.log('Detected Starter Plan from clients collection');
-          } else if (amountTotalNum === 24900) { // $249.00
-            planName = 'Professional Plan';
-            planPrice = 249;
-            minutesIncluded = 250;
-            console.log('Detected Professional Plan from clients collection');
-          } else if (amountTotalNum === 49900) { // $499.00
-            planName = 'Business Plan';
-            planPrice = 499;
-            minutesIncluded = 600;
-            console.log('Detected Business Plan from clients collection');
-          } else if (amountTotalNum === 99900) { // $999.00
-            planName = 'Enterprise Plan';
-            planPrice = 999;
-            minutesIncluded = 1500;
-            console.log('Detected Enterprise Plan from clients collection');
-          } else if (amountTotalNum === 199900) { // $1,999.00
-            planName = 'Enterprise Plus Plan';
-            planPrice = 1999;
-            minutesIncluded = 3500;
-            console.log('Detected Enterprise Plus Plan from clients collection');
-          } else {
-            console.log('No matching plan found for amount:', amountTotalNum);
-          }
-          
-          // Update other subscription fields if available in client data
-          if (clientData.subscription) {
-            status = clientData.subscription.status || status;
-            currentPeriodStart = clientData.subscription.current_period_start 
-              ? new Date(clientData.subscription.current_period_start * 1000) 
-              : currentPeriodStart;
-            currentPeriodEnd = clientData.subscription.current_period_end 
-              ? new Date(clientData.subscription.current_period_end * 1000) 
-              : currentPeriodEnd;
-          }
-        }
-      } else {
-        console.log('No client data found in clients collection, using User model data');
-      }
-      
-      await mongoClient.close();
-    } catch (mongoError) {
-      console.error('Error accessing clients collection:', mongoError);
-      console.log('Falling back to User model subscription data');
-    }
-    
-    // If we still have a User model subscription with planName, use it as fallback
-    if (!planName && subscription.planName) {
-      planName = subscription.planName;
-      console.log(`Using User model plan name: ${planName}`);
-      
-      // Calculate minutes included based on plan name from User model
-      const lowerPlanName = planName.toLowerCase();
-      
-      // Professional plan
-      if (lowerPlanName.includes('professional')) {
-        minutesIncluded = 250;
-        planPrice = 249;
-      }
-      // Business plan
-      else if (lowerPlanName.includes('business')) {
-        minutesIncluded = 600;
-        planPrice = 499;
-      }
-      // Enterprise plan
-      else if (lowerPlanName.includes('enterprise')) {
-        if (lowerPlanName.includes('plus')) {
-          minutesIncluded = 3500;
-          planPrice = 1999;
-        } else {
-          minutesIncluded = 1500;
-          planPrice = 999;
-        }
-      }
-      // Starter plan
-      else if (lowerPlanName.includes('starter')) {
-        minutesIncluded = 80;
-        planPrice = 99;
-      }
-    }
-    
-    console.log(`Final plan name: ${planName}, Minutes included: ${minutesIncluded}`);
-    
-    // Override with usage limit if explicitly set
-    if (usage.minutesLimit && usage.minutesLimit > 0) {
-      minutesIncluded = usage.minutesLimit;
-      console.log(`Overriding with explicit minutes limit: ${minutesIncluded}`);
-    }
-    
-    // Get minutes used from MongoDB call records instead of Vapi
-    let minutesUsed = 0;
-    
-    try {
-      console.log('Fetching call statistics from MongoDB for subscription API');
-      
-      // Get all calls for this user from MongoDB
-      const calls = await Call.find({ userId: user._id });
-      console.log(`Found ${calls.length} calls in MongoDB for user ${user.email}`);
-      
-      // Calculate total duration in seconds
-      let totalDurationSeconds = 0;
-      calls.forEach(call => {
-        totalDurationSeconds += call.duration || 0;
-      });
-      
-      // Convert seconds to minutes and round up to nearest minute
-      // Ensure at least 1 minute per call as a minimum fallback
-      minutesUsed = Math.max(Math.ceil(totalDurationSeconds / 60), calls.length);
-      console.log(`Total minutes used from MongoDB calls: ${minutesUsed}`);
-      
-    } catch (error) {
-      console.error('Error calculating minutes used from MongoDB:', error);
-      // Fall back to usage tracking if MongoDB query fails
-      minutesUsed = usage.minutesUsed || 0;
-    }
-    
-    console.log(`Calculated minutes used from Vapi calls: ${minutesUsed}`);
-    
-    // If we still have 0 minutes used, fall back to user.usage
-    if (minutesUsed === 0 && usage.minutesUsed) {
-      minutesUsed = usage.minutesUsed;
-      console.log(`Falling back to user.usage.minutesUsed: ${minutesUsed}`);
-    }
-    
-    // Format the response
-    const subscriptionData = {
-      id: user.customerId || 'sub_default',
-      planName: planName,
-      planPrice: planPrice,
-      billingCycle: billingCycle,
-      status: status,
-      currentPeriodStart: currentPeriodStart,
-      currentPeriodEnd: currentPeriodEnd,
-      minutesIncluded: minutesIncluded,
-      minutesUsed: minutesUsed,
-      nextBillingDate: currentPeriodEnd
+    // Initialize empty subscription data (for new users with no transactions)
+    let subscriptionData = {
+      id: '',
+      planName: '',
+      planPrice: 0,
+      billingCycle: 'monthly',
+      status: '',
+      currentPeriodStart: new Date(),
+      currentPeriodEnd: new Date(),
+      minutesIncluded: 0,
+      minutesUsed: userUsage.minutesUsed || 0,
+      nextBillingDate: new Date(),
+      source: ''
     };
     
-    // Ensure we never return "Free Plan" as it doesn't exist
-    if (subscriptionData.planName === 'Free Plan') {
-      subscriptionData.planName = 'Starter Plan';
-    }
-
-    console.log('Subscription data:', subscriptionData);
+    // Connect to MongoDB to access clients collection directly
+    const mongoClient = new MongoClient(process.env.MONGODB_URI as string);
+    await mongoClient.connect();
+    console.log('MongoDB connected successfully');
+    const db = mongoClient.db();
+    const clientsCollection = db.collection('clients');
     
-    return NextResponse.json(subscriptionData);
-
+    // Find all client data for this user (by email and by ID)
+    console.log(`Looking for clients with email: ${session.user.email} or ID: ${user._id}`);
+    
+    // First try to find by email
+    const clientDataByEmail = await clientsCollection.findOne({ email: session.user.email });
+    console.log('Client data found by email:', clientDataByEmail ? 'Yes' : 'No');
+    
+    // Also try to find by user ID (in case there are multiple client records)
+    const clientDataById = await clientsCollection.findOne({ userId: user._id.toString() });
+    console.log('Client data found by ID:', clientDataById ? 'Yes' : 'No');
+    
+    // Also try to find by clientId that might match the user ID
+    const clientDataByClientId = await clientsCollection.findOne({ clientId: user._id.toString() });
+    console.log('Client data found by clientId:', clientDataByClientId ? 'Yes' : 'No');
+    
+    // Get all clients for this user with more flexible matching
+    const userId = user._id.toString();
+    const userObjectId = user._id;
+    
+    console.log(`Searching for clients with userId: ${userId} or email: ${session.user.email}`);
+    
+    // Use $or to handle different userId formats and email
+    const allClients = await clientsCollection.find({
+      $or: [
+        { email: session.user.email },
+        { userId: userId }, // userId as string
+        { userId: userObjectId }, // userId as ObjectId
+        { 'userId.$oid': userId }, // userId as nested ObjectId format
+        { clientId: userId },
+        { 'clientId.$oid': userId }
+      ]
+    }).toArray();
+    
+    console.log(`Found ${allClients.length} total client records for this user`);
+    console.log('ALL CLIENT RECORDS IDs:', allClients.map(c => c._id.toString()));
+    
+    // Collect ALL transactions from ALL client records
+    let allTransactions: any[] = [];
+    
+    for (const client of allClients) {
+      // Get transactions from both purchases and transactions arrays
+      const clientTransactions = [
+        ...(client.purchases || []),
+        ...(client.transactions || [])
+      ];
+      
+      if (clientTransactions.length > 0) {
+        console.log(`Found ${clientTransactions.length} transactions in client ${client._id}`);
+        allTransactions = [...allTransactions, ...clientTransactions];
+      }
+    }
+    
+    console.log(`Total transactions found across all clients: ${allTransactions.length}`);
+    
+    if (allTransactions.length > 0) {
+      // Find the latest transaction by createdAt date
+      let latestTransaction = null;
+      let latestDate = 0;
+      
+      for (const transaction of allTransactions) {
+        // Get the date from any available date field
+        const createdAtDate = transaction.createdAt ? new Date(transaction.createdAt).getTime() : 0;
+        const createdDate = transaction.created ? new Date(transaction.created).getTime() : 0;
+        const dateField = transaction.date ? new Date(transaction.date).getTime() : 0;
+        const createdAtField = transaction.created_at ? new Date(transaction.created_at).getTime() : 0;
+        
+        // Use the most recent date available
+        const transactionDate = Math.max(
+          createdAtDate,
+          createdDate,
+          dateField,
+          createdAtField
+        );
+        
+        // Check if this is the latest transaction we've seen
+        if (transactionDate > latestDate) {
+          latestDate = transactionDate;
+          latestTransaction = transaction;
+          console.log(`New latest transaction found: $${(transaction.amount_total || transaction.amount)/100}, date: ${new Date(transactionDate).toISOString()}`);
+        }
+      }
+        
+      if (latestTransaction) {
+        console.log('Latest transaction found:', JSON.stringify(latestTransaction, null, 2));
+        
+        // Check if the subscription is cancelled
+        const isCancelled = latestTransaction.status === 'canceled' || latestTransaction.canceled === true;
+        
+        // Get the amount and normalize it (Stripe stores amounts in cents)
+        const amount = latestTransaction.amount_total || latestTransaction.amount || 0;
+        const normalizedAmount = amount >= 1000 ? amount / 100 : amount; // If > 1000, assume it's in cents
+        
+        console.log(`Transaction amount: ${amount}, normalized: ${normalizedAmount}`);
+        
+        // Map amount to plan name and minutes
+        let planName = 'Unknown Plan';
+        let minutesIncluded = 0;
+        
+        // Map based on amount
+        if (normalizedAmount >= 90 && normalizedAmount <= 110) {
+          planName = 'Starter Plan';
+          minutesIncluded = 80;
+        } else if (normalizedAmount >= 240 && normalizedAmount <= 260) {
+          planName = 'Professional Plan';
+          minutesIncluded = 250;
+        } else if (normalizedAmount >= 490 && normalizedAmount <= 510) {
+          planName = 'Business Plan';
+          minutesIncluded = 600;
+        } else if (normalizedAmount >= 990 && normalizedAmount <= 1010) {
+          planName = 'Enterprise Plan';
+          minutesIncluded = 1500;
+        } else if (normalizedAmount >= 1990 && normalizedAmount <= 2010) {
+          planName = 'Enterprise Plus Plan';
+          minutesIncluded = 3500;
+        }
+        
+        // Check for price_id match (most reliable)
+        const priceId = latestTransaction.price_id || latestTransaction.priceId;
+        if (priceId) {
+          console.log(`Found price_id in transaction: ${priceId}`);
+          // Map Stripe price IDs to plans
+          if (priceId === 'price_1Rk7XePolIihCLBaGS6oTCPF') {
+            planName = 'Starter Plan';
+            minutesIncluded = 80;
+          } else if (priceId === 'price_1Rk7YcPolIihCLBacMvpJNqS') {
+            planName = 'Professional Plan';
+            minutesIncluded = 250;
+          } else if (priceId === 'price_1Rk7bFPolIihCLBaollaNxW0') {
+            planName = 'Business Plan';
+            minutesIncluded = 600;
+          } else if (priceId === 'price_1Rk7dePolIihCLBamIyBPcTm') {
+            planName = 'Enterprise Plan';
+            minutesIncluded = 1500;
+          } else if (priceId === 'price_1Rk7f3PolIihCLBanYQALl0n') {
+            planName = 'Enterprise Plus Plan';
+            minutesIncluded = 3500;
+          }
+        }
+        
+        console.log(`Mapped to plan: ${planName} with ${minutesIncluded} minutes`);
+        
+        // Set period dates based on transaction date
+        const transactionDate = new Date(latestDate);
+        const periodEnd = new Date(transactionDate);
+        periodEnd.setMonth(periodEnd.getMonth() + 1); // Assuming monthly billing
+        
+        // Update subscription data with information from latest transaction
+        subscriptionData = {
+          id: latestTransaction.id || '',
+          planName: planName,
+          planPrice: normalizedAmount,
+          billingCycle: 'monthly',
+          status: isCancelled ? 'canceled' : 'active',
+          currentPeriodStart: transactionDate,
+          currentPeriodEnd: periodEnd,
+          minutesIncluded: minutesIncluded,
+          minutesUsed: userUsage.minutesUsed || 0,
+          nextBillingDate: periodEnd,
+          source: 'clients_collection'
+        };
+      }
+    }
+    
+    // Close the MongoDB connection
+    await mongoClient.close();
+    console.log('MongoDB connection closed');
+    
+    // Add metadata about the subscription for debugging
+    const metadata = {
+      userId: user._id?.toString(),
+      email: session.user.email,
+      timestamp: new Date().toISOString(),
+      hasTransaction: subscriptionData.planName !== '',
+      transactionStatus: subscriptionData.status,
+      dataSource: subscriptionData.source
+    };
+    
+    console.log('Final subscription data:', JSON.stringify(subscriptionData, null, 2));
+    console.log('==== SIMPLIFIED SUBSCRIPTION API END ====');
+    
+    return NextResponse.json({
+      ...subscriptionData,
+      _metadata: process.env.NODE_ENV === 'development' ? metadata : undefined
+    });
   } catch (error) {
-    console.error('Dashboard subscription API error:', error);
+    console.error('=== SUBSCRIPTION API ERROR ===');
+    console.error('Error details:');
+    
+    if (error instanceof Error) {
+      console.error(`Error name: ${error.name}`);
+      console.error(`Error message: ${error.message}`);
+      console.error(`Error stack: ${error.stack}`);
+    } else {
+      console.error('Unknown error type:', error);
+    }
+    
+    console.error('=== END SUBSCRIPTION API ERROR ===');
+    
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { 
+        error: 'Internal server error',
+        message: error instanceof Error ? error.message : String(error),
+        timestamp: new Date().toISOString()
+      },
       { status: 500 }
     );
   }

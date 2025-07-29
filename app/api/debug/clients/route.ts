@@ -10,6 +10,7 @@ interface _Client {
   email: string;
   userId?: string;
   transactions?: any[];
+  purchases?: any[];
   paymentMethods?: any[];
 }
 
@@ -70,6 +71,47 @@ export async function GET(_req: NextRequest) {
       ]
     });
     
+    // Process transactions and purchases for current user
+    let allTransactions: any[] = [];
+    let validTransactions: any[] = [];
+    
+    if (userClient) {
+      // Combine transactions and purchases arrays
+      allTransactions = [
+        ...(userClient.transactions || []),
+        ...(userClient.purchases || [])
+      ];
+      
+      // Filter for valid transactions (paid and not cancelled)
+      validTransactions = allTransactions.filter((t: any) => {
+        // Check if transaction is paid
+        const isPaid = t.payment_status === 'paid' || t.status === 'paid' || t.status === 'succeeded';
+        
+        // Check if transaction is NOT cancelled
+        const isNotCancelled = !(t.cancelled || t.canceled || 
+                             t.cancellation_details || 
+                             t.cancelation_details || 
+                             t.status === 'cancelled' || 
+                             t.status === 'canceled');
+        
+        return isPaid && isNotCancelled;
+      });
+      
+      // Sort transactions by date (newest first)
+      if (validTransactions.length > 0) {
+        validTransactions.sort((a: any, b: any) => {
+          // Use various date fields, falling back as needed
+          const dateA = a.createdAt || a.created || a.date || 0;
+          const dateB = b.createdAt || b.created || b.date || 0;
+          
+          // Convert to timestamp and compare (newest first)
+          const timeA = new Date(dateA).getTime();
+          const timeB = new Date(dateB).getTime();
+          return timeB - timeA;
+        });
+      }
+    }
+    
     return NextResponse.json({
       clientsWithTransactions: clientsWithTransactions.map(client => ({
         id: client._id.toString(),
@@ -89,8 +131,41 @@ export async function GET(_req: NextRequest) {
         email: userClient.email,
         hasTransactions: Array.isArray(userClient.transactions) && userClient.transactions.length > 0,
         transactionCount: userClient.transactions?.length || 0,
+        hasPurchases: Array.isArray(userClient.purchases) && userClient.purchases.length > 0,
+        purchaseCount: userClient.purchases?.length || 0,
         hasPaymentMethods: Array.isArray(userClient.paymentMethods) && userClient.paymentMethods.length > 0,
-        paymentMethodCount: userClient.paymentMethods?.length || 0
+        paymentMethodCount: userClient.paymentMethods?.length || 0,
+        allTransactionsCount: allTransactions.length,
+        validTransactionsCount: validTransactions.length,
+        allTransactions: allTransactions.map((t: any) => ({
+          id: t.id,
+          amount: t.amount_total || t.amount,
+          status: t.payment_status || t.status,
+          created: t.createdAt || t.created || t.date,
+          createdFormatted: new Date(t.createdAt || t.created || t.date).toISOString(),
+          cancelled: t.cancelled || t.canceled || false,
+          cancellation_details: t.cancellation_details || t.cancelation_details || null,
+          source: t.source || (userClient.transactions?.includes(t) ? 'transactions' : 'purchases')
+        })),
+        validTransactions: validTransactions.map((t: any) => ({
+          id: t.id,
+          amount: t.amount_total || t.amount,
+          status: t.payment_status || t.status,
+          created: t.createdAt || t.created || t.date,
+          createdFormatted: new Date(t.createdAt || t.created || t.date).toISOString(),
+          source: t.source || (userClient.transactions?.includes(t) ? 'transactions' : 'purchases')
+        })),
+        latestValidTransaction: validTransactions.length > 0 ? {
+          id: validTransactions[0].id,
+          amount: validTransactions[0].amount_total || validTransactions[0].amount,
+          amountNormalized: (validTransactions[0].amount_total || validTransactions[0].amount) > 1000 ? 
+            (validTransactions[0].amount_total || validTransactions[0].amount) / 100 : 
+            (validTransactions[0].amount_total || validTransactions[0].amount),
+          status: validTransactions[0].payment_status || validTransactions[0].status,
+          created: validTransactions[0].createdAt || validTransactions[0].created || validTransactions[0].date,
+          createdFormatted: new Date(validTransactions[0].createdAt || validTransactions[0].created || validTransactions[0].date).toISOString(),
+          source: validTransactions[0].source || (userClient.transactions?.includes(validTransactions[0]) ? 'transactions' : 'purchases')
+        } : null
       } : null
     });
   } catch (error) {
